@@ -8,3 +8,4 @@ Se requiere un presupuesto por quincena y por gestor.
     * 
 * presupuesto minimo a clientes 350 bs
 *
+* Seguiran manejando el calculo desce comercial.
