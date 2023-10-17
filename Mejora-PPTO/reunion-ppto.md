@@ -7,5 +7,5 @@ Se requiere un presupuesto por quincena y por gestor.
     * Obtener la fecuencia de compras.
     * 
 * presupuesto minimo a clientes 350 bs
-*
+* Generar ####
 * Seguiran manejando el calculo desce comercial.
