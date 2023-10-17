@@ -62,15 +62,15 @@ SELECT null FECHA_FACTURA, v_xls_planes_ventas.ejercicio, SUBSTR(v_xls_planes_ve
      ,'11' tipo_pedido
      , agentes.usuario usuario_pedido
      , case
-              when v_xls_planes_ventas.codigo in ('1464')
-                     then '�TICO'
+              when v_xls_planes_ventas.codigo in ('1464','1585')
+                     then 'ÉTICO'
               when v_xls_planes_ventas.codigo in ('964')
                      then 'ENTIDADES'
                      ELSE 'SERVICIOS'
        END TIPO
      , case
-              when v_xls_planes_ventas.codigo in ('1464')
-                     then '�TICO'
+              when v_xls_planes_ventas.codigo in ('1464','1585')
+                     then 'ÉTICO'
               when v_xls_planes_ventas.codigo in ('964')
                      then 'ENTIDADES'
                      ELSE 'SERVICIOS'
@@ -100,40 +100,31 @@ FROM
                     VALORES_CLAVES V
                 WHERE
                     V.CLAVE ='CANALV'
-                                   AND V.VALOR_CLAVE=
-                                   (
-                                          SELECT
-                                                 VALOR_CLAVE
-                                          FROM
-                                                 CLIENTES_CLAVES_ESTADISTICAS c
-                                          WHERE
-                                                 c.CLAVE             ='CANALV'
-                                                 AND c.CODIGO_CLIENTE=clientes.codigo_rapido
-                                                 AND c.CODIGO_EMPRESA=clientes.codigo_empresa
-                                   )
-                     )
-                     CANALV
-                   , (
-                            SELECT
-                                   NOMBRE
-                            FROM
-                                   VALORES_CLAVES V
+                    AND V.VALOR_CLAVE=
+                     (
+                       SELECT VALOR_CLAVE
+                       FROM CLIENTES_CLAVES_ESTADISTICAS c
+                       WHERE
+                       c.CLAVE ='CANALV'
+                       AND c.CODIGO_CLIENTE=clientes.codigo_rapido
+                       AND c.CODIGO_EMPRESA=clientes.codigo_empresa
+                       )
+                ) CANALV
+            , (
+               SELECT  NOMBRE
+                FROM VALORES_CLAVES V
+                WHERE V.CLAVE ='CADN'
+                    AND V.VALOR_CLAVE=
+                    (
+                            SELECT VALOR_CLAVE
+                            FROM CLIENTES_CLAVES_ESTADISTICAS c
                             WHERE
-                                   V.CLAVE          ='CADN'
-                                   AND V.VALOR_CLAVE=
-                                   (
-                                          SELECT
-                                                 VALOR_CLAVE
-                                          FROM
-                                                 CLIENTES_CLAVES_ESTADISTICAS c
-                                          WHERE
-                                                 c.CLAVE             ='CADN'
-                                                 AND c.CODIGO_CLIENTE=CLIENTES.CODIGO_RAPIDO
-                                                 AND c.CODIGO_EMPRESA=CLIENTES.codigo_empresa
-                                   )
-                     )
-                     CADENA
-                   , (
+                                 c.CLAVE             ='CADN'
+                                 AND c.CODIGO_CLIENTE=CLIENTES.CODIGO_RAPIDO
+                                 AND c.CODIGO_EMPRESA=CLIENTES.codigo_empresa
+                            )
+              ) CADENA
+             , (
                             SELECT
                                    NOMBRE
                             FROM
@@ -151,9 +142,8 @@ FROM
                                                  AND c.CODIGO_CLIENTE=clientes.codigo_rapido
                                                  AND c.CODIGO_EMPRESA=clientes.codigo_empresa
                                    )
-                     )
-                     RPN2
-                   , ( SELECT NOMBRE
+                     ) RPN2
+             , ( SELECT NOMBRE
                        FROM VALORES_CLAVES V
                        WHERE V.CLAVE ='RPN3' AND V.VALOR_CLAVE=
                             ( SELECT VALOR_CLAVE
@@ -162,70 +152,57 @@ FROM
                                   AND c.CODIGO_CLIENTE=clientes.codigo_rapido
                                   AND c.CODIGO_EMPRESA=clientes.codigo_empresa
                             )
-                     )
-                     RPN3 /*nuevo campo*/
-                   , (
-                            SELECT
-                                   NOMBRE
-                            FROM
-                                   VALORES_CLAVES V
-                            WHERE
-                                   V.CLAVE          ='RPN4'
-                                   AND V.VALOR_CLAVE=
-                                   (
-                                          SELECT
-                                                 VALOR_CLAVE
-                                          FROM
-                                                 CLIENTES_CLAVES_ESTADISTICAS c
-                                          WHERE
-                                                 c.CLAVE             ='RPN4'
-                                                 AND c.CODIGO_CLIENTE=clientes.codigo_rapido
-                                                 AND c.CODIGO_EMPRESA=clientes.codigo_empresa
+              )   RPN3 /*nuevo campo*/
+             , (
+                    SELECT NOMBRE
+                     FROM VALORES_CLAVES V
+                     WHERE
+                     V.CLAVE          ='RPN4'
+                     AND V.VALOR_CLAVE=
+                            (
+                                  SELECT VALOR_CLAVE
+                                   FROM CLIENTES_CLAVES_ESTADISTICAS c
+                                   WHERE
+                                   c.CLAVE             ='RPN4'
+                                   AND c.CODIGO_CLIENTE=clientes.codigo_rapido
+                                   AND c.CODIGO_EMPRESA=clientes.codigo_empresa
                                    )
-                     )
-                     RPN4
-                          , (
-                            SELECT
-                                   NOMBRE
-                            FROM
-                                   VALORES_CLAVES V
-                            WHERE
-                                   V.CLAVE          ='RPN5'
-                                   AND V.VALOR_CLAVE=
-                                   (
-                                        SELECT
-                                                 VALOR_CLAVE
-                                          FROM
-                                                 CLIENTES_CLAVES_ESTADISTICAS c
-                                          WHERE
-                                                 c.CLAVE             ='RPN5'
-                                                 AND c.CODIGO_CLIENTE=clientes.codigo_rapido
-                                                 AND c.CODIGO_EMPRESA=clientes.codigo_empresa
+                     ) RPN4
+              , (
+                     SELECT NOMBRE
+                     FROM VALORES_CLAVES V
+                     WHERE
+                     V.CLAVE          ='RPN5'
+                     AND V.VALOR_CLAVE=
+                            (
+                                  SELECT
+                                          VALOR_CLAVE
+                                   FROM
+                                          CLIENTES_CLAVES_ESTADISTICAS c
+                                   WHERE
+                                          c.CLAVE             ='RPN5'
+                                          AND c.CODIGO_CLIENTE=clientes.codigo_rapido
+                                          AND c.CODIGO_EMPRESA=clientes.codigo_empresa
                                    )
                      )
                      RPN5
-                   , (
-                            SELECT
-                                   NOMBRE
-                            FROM
-                                   VALORES_CLAVES V
-                            WHERE
-                                   V.CLAVE          ='RPN6'
-                                   AND V.VALOR_CLAVE=
-                                   (
-                                          SELECT
-                                                 VALOR_CLAVE
-                                          FROM
-                                                 CLIENTES_CLAVES_ESTADISTICAS c
-                                          WHERE
-                                                 c.CLAVE             ='RPN6'
-                                                 AND c.CODIGO_CLIENTE=clientes.codigo_rapido
-                                                 AND c.CODIGO_EMPRESA=clientes.codigo_empresa
+              , (
+                     SELECT NOMBRE
+                     FROM VALORES_CLAVES V
+                     WHERE
+                     V.CLAVE          ='RPN6'
+                     AND V.VALOR_CLAVE=
+                            (
+                                   SELECT VALOR_CLAVE
+                                   FROM CLIENTES_CLAVES_ESTADISTICAS c
+                                   WHERE
+                                   c.CLAVE             ='RPN6'
+                                   AND c.CODIGO_CLIENTE=clientes.codigo_rapido
+                                   AND c.CODIGO_EMPRESA=clientes.codigo_empresa
                                    )
                      )
                      RPN6
-              FROM CLIENTES
-       ) CLIENTES
+        FROM CLIENTES ) CLIENTES
      , AGENTES_CLIENTES
      , AGENTES
      , ARTICULOS
@@ -240,7 +217,7 @@ WHERE
               and V_XLS_PLANES_VENTAS.EMPRESA =ARTICULOS.CODIGO_EMPRESA
               and V_XLS_PLANES_VENTAS.ARTICULO=ARTICULOS.CODIGO_ARTICULO
        )
-       AND v_xls_planes_ventas.codigo IN ('1464')
+       AND v_xls_planes_ventas.codigo IN ('1464','1585')
        AND v_xls_planes_ventas.empresa LIKE '004' 
 /* codigo complementario. Dev = Edgar Mercado G.*/
 ) data
