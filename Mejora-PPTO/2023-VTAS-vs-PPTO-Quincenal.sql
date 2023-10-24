@@ -1,7 +1,7 @@
 /* MEJORA PARA EL PPTO QUINCENAL PROMEDICAL SA*/
+ /*Se agrega codigo para generar datos de presupuesto quincenal BOL_BI_VTAS_PPTO*/
 
-select ejercicio, v_mes, fuente, GESTOR_VTAS, tipo, TIPO_VTA
-from ( /*se agrega codigo para generar datos de presupuesto quincenal */
+create view BOL_BI_VTAS_PPTO_Q as  /*Se agrega codigo para generar datos de presupuesto quincenal BOL_BI_VTAS_PPTO*/
 SELECT null FECHA_FACTURA, v_xls_planes_ventas.ejercicio, to_number(SUBSTR(v_xls_planes_ventas.periodo,2)) V_MES ,
      decode(CLIENTES.ZONA,'0410','SCZ','0420','LPZ','0430','CBBA','0440','TJA','0450','ALTO','0451','ALTO','0460','SCR','0461','SCR','0470','BENI','0471','BENI','SIN REG') REG
      , decode(CLIENTES.ZONA,'0410','SCZ','0420','LPZ','0430','CBBA','0440','TJA','0450','ALTO','0451','ORU','0460','SCR','0461','POT','0470','BENI','0471','PAN','SIN REG') SUBREG
@@ -220,67 +220,10 @@ WHERE
               and V_XLS_PLANES_VENTAS.ARTICULO=ARTICULOS.CODIGO_ARTICULO
        )
        AND v_xls_planes_ventas.codigo IN ('1464','1585')
-       AND v_xls_planes_ventas.empresa LIKE '004' 
-/* codigo complementario. Dev = Edgar Mercado G.*/
-) data 
-group by ejercicio, v_mes, fuente, GESTOR_VTAS, tipo, TIPO_VTA
- HAVING ROWNUM < 10
-
-/******** PARA TRAER LA VENTA SOLAMENTE */
-
-SELECT * 
-FROM BOL_BI_VTAS_PPTO
-WHERE ejercicio=2023
-       AND V_MES = 10
-       AND FUENTE like 'VTAS' 
-       AND ROWNUM <10
-
-GROUP BY CANALV, CADENA_AUX
-/*** */
-
-
-select FECHA_FACTURA, EJERCICIO, V_MES, REG, SUBREG, CANALV, CADENA, RPN2, RPN3, RPN4, RPN5, RPN6, CADENA_AUX, AGENTE, COD_RPN, NOMBRE_AGENTE, CLIENTE_ID, CLIENTE_NOMBRE, CAT_COD, CAT, UEN, CODIGO_ESTAD5, LAB, CODIGO_ARTICULO, ARTICULO_NOMBRE, JP_COD, JP_NOMBRE, ST_COD, ST_NOMBRE, TIPO_PEDIDO, USUARIO_PEDIDO, TIPO, TIPO_VTA, FUENTE, CANTIDAD, IMP_NETO, IMP_FACTURADO, PPTO_UND, PPTO_VLR, GESTOR_VTAS, COD_ALMAC
-, (CASE WHEN to_number(to_char(FECHA_FACTURA,'DD')) <16 then 'QUINCENA 1' WHEN to_number(to_char(FECHA_FACTURA,'DD')) >15 then 'QUINCENA 2' ELSE 'SIN DEFINIR' END ) tipo_periodo
-from BOL_BI_VTAS_PPTO
-where ejercicio = 2023
-       AND FUENTE = 'VTAS'
-       AND ROWNUM<30
-
-/*************************************/
-select * 
-from bol_bi_vtas_ppto_q
-
-to_number()
-to_char(sysdate,'MM')
-
-{$SYSDATE()$}
-
-para el mes :::   between TO_CHAR(:p_f_desde,'MM')-0 and TO_CHAR(:p_f_hasta,'MM')-0
-Para el año:::    between TO_CHAR(:p6_f_desde,'YYYY') and TO_CHAR(:p_f_hasta,'YYYY')
-Para la UEN :::   IN (:p_uen)
-
-/*** parametros para colorear indicadores */
-% cump >= 0.7   VERDE 
-% cump >= 0.5   AMARILLO
-% cump <  0.5   ROJO 
-
-/*** GRUPOS AUXILIARES DE CADENA  == Nuevos solicitados  por DLOBO*/
-
-GRUPO 1 =     INDEPENDIENTE + ACCESO
-GRUPO 2 =     CADENAS
-GRJPO 3 =     DISTRIBUIDORES
-GRUPO 4 =     INSTITUCION
-DECODE(expr, search, result [, search ,result]...[, default])
-decode(CANALV, 'INDEPENDIENTE','INDE+ACCESO', 'ACCESO','INDE+ACCESO', CANALV) 
-DECODE(G_4.COD_RPN,'VD',G_4.COD_RPN,'RA',G_4.COD_RPN,'ISL',G_4.COD_RPN,'SM',G_4.COD_RPN,'AQ',G_4.COD_RPN,'GAO',G_4.COD_RPN,'OJV',G_4.COD_RPN,DECODE(G_4.LAB, 'PROCAPS', G_4.COD_RPN,'VITAL CARE',G_4.COD_RPN,'CLINICAL SP' ,G_4.COD_RPN,'EUROFARMA',G_4.COD_RPN,trim(SUBSTRING(G_4.RPN2,0,3))))
-
-DECODE(G_2.COD_RPN,'VD','GESTOR 3','RA','GESTOR 3','ISL','GESTOR 3','SM','GESTOR 3','AQ','GESTOR 3','GAO','GESTOR 3','OJV','GESTOR 3',DECODE(G_2.LAB, 'PROCAPS', 'GESTOR 1','VITAL CARE','GESTOR 1','CLINICAL SP' ,'GESTOR 1','EUROFARMA','GESTOR 1','GESTOR 2'))
-
-
-/****** pregutnas que debes hacerte ******/
-1. Donde estas trabajando?
-
-2. Con quienes trabajas?
-3. Hacia donde voy a ir?
-
-
+       AND v_xls_planes_ventas.empresa LIKE '004' /* codigo complementario. Dev = Edgar Mercado G.*/
+UNION ALL 
+       select FECHA_FACTURA, EJERCICIO, V_MES, REG, SUBREG, CANALV, CADENA, RPN2, RPN3, RPN4, RPN5, RPN6, CADENA_AUX, AGENTE, COD_RPN, NOMBRE_AGENTE, CLIENTE_ID, CLIENTE_NOMBRE, CAT_COD, CAT, UEN, CODIGO_ESTAD5, LAB, CODIGO_ARTICULO, ARTICULO_NOMBRE, JP_COD, JP_NOMBRE, ST_COD, ST_NOMBRE, TIPO_PEDIDO, USUARIO_PEDIDO, TIPO, TIPO_VTA, FUENTE, CANTIDAD, IMP_NETO, IMP_FACTURADO, PPTO_UND, PPTO_VLR, GESTOR_VTAS, COD_ALMAC
+       , (CASE WHEN to_number(to_char(FECHA_FACTURA,'DD')) <16 then 'QUINCENA 1' WHEN to_number(to_char(FECHA_FACTURA,'DD')) >15 then 'QUINCENA 2' ELSE 'SIN DEFINIR' END ) tipo_periodo
+       from BOL_BI_VTAS_PPTO
+       where ejercicio >= 2023
+              AND FUENTE = 'VTAS'
