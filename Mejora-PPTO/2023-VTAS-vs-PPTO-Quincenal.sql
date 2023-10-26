@@ -79,15 +79,19 @@ SELECT null FECHA_FACTURA, v_xls_planes_ventas.ejercicio, to_number(SUBSTR(v_xls
      , 0 CANTIDAD, 0 IMP_NETO, 0 IMP_FACTURADO
      , v_xls_planes_ventas.cantidad PPTO_UND
      , v_xls_planes_ventas.importe  PPTO_VLR
-     , CASE
+     , CASE /*nUEVA CONFGG: 08/09/2023*/
+              when articulos.codigo_estad3 in ('GRUNENTHAL')
+                THEN trim(subStr(clientes.RPN2,0,3))
+              when articulos.codigo_estad5 in ('040101')
+                THEN trim(subStr(clientes.RPN2,0,3))
               when articulos.codigo_estad3 in ('HERSIL')
                 THEN trim(subStr(clientes.RPN4,0,3))
-              when articulos.codigo_estad3 in ('BIODUE','BONAPHARM')
-                THEN trim(subStr(clientes.RPN2,0,3))
+              when articulos.codigo_estad3 in ('BONAPHARM')
+                THEN trim(subStr(clientes.RPN5,0,3))
               when articulos.codigo_estad3 in ('LAFAGE')
-                THEN trim(subStr(clientes.RPN3,0,3))
+                THEN trim(subStr(clientes.RPN6,0,3))
                 else agentes.nif
-         end GESTOR_VTAS
+         end GESTOR_VTAS /* Fin nueva confgi*/
 	   , V_XLS_PLANES_VENTAS.ALMACEN COD_ALMAC
           , 'QUINCENA '|| SUBSTR(v_xls_planes_ventas.periodo,1,1) tipo_periodo
 FROM
