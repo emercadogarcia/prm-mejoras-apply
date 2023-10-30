@@ -9,3 +9,10 @@ Se requiere un presupuesto por quincena y por gestor.
 * presupuesto minimo a clientes 350 bs
 * Generar ####
 * Seguiran manejando el calculo desce comercial.
+
+# LINK DE ACCESO al reporte:
+1. de ventas: 
+    https://crm.erplibra.com/xmlpserver/ADAPTACIONES/CLIENTE/130391/INFORMES/bol_vtas_vs_ppto.xdo?&_xmode=2
+
+2. De ventas Quincenal:
+    http://crm.erplibra.com/xmlpserver/ADAPTACIONES/CLIENTE/130391/INFORMES/bol_vtas_vs_ppto_quincenal.xdo?&_xmode=2
