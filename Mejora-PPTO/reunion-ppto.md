@@ -16,3 +16,8 @@ Se requiere un presupuesto por quincena y por gestor.
 
 2. De ventas Quincenal:
     http://crm.erplibra.com/xmlpserver/ADAPTACIONES/CLIENTE/130391/INFORMES/bol_vtas_vs_ppto_quincenal.xdo?&_xmode=2
+
+    
+
+## Se configura widget para acceder desde el weblogic del erp Libra
+    https://crm.erplibra.com/xmlpserver/ADAPTACIONES/CLIENTE/130391/INFORMES/bol_inventarios.xdo?&_xmode=2
