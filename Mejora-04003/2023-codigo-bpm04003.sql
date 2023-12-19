@@ -74,45 +74,144 @@ EXCEPTION WHEN NO_DATA_FOUND THEN
   NULL;
 END;
 /**********************************************************/
+-- codigo de TAREA 020 - EJECUTAR
+/**********************************************************/
+DECLARE
+  v_status varchar2(10):=null ; V_RTN VARCHAR2(5); v_fin varchar2(5); v_fecha varchar2(10); v_almacen varchar2(10);v_dias integer; v_tipo_ped varchar2(5); v_cta_nom integer; v_cliente varchar2(20); v_year number; v_serie varchar2(3); v_ped number;v_cod_sec integer:=0;
+begin
+if :GLOBAL.CODIGO_EMPRESA='004' THEN 
+select status_pedido, tipo_pedido, almacen_pedido, cliente , ejercicio,numero_serie, numero_pedido
+    into v_status, v_tipo_ped, v_almacen, v_cliente,v_year, v_serie, v_ped
+	from pedidos_ventas 
+  where empresa= '004' 
+  and organizacion_comercial = :tareas_menu.c_itema078 
+	and ejercicio = :tareas_menu.c_itemn001 
+  and numero_serie= :tareas_menu.c_itema041 and numero_pedido = :tareas_menu.c_itemn002;  
+	select NVL(count(codigo_rapido),0) into v_cta_nom 
+	from va_clientes where codigo_rapido = v_cliente and codigo_empresa = '004' and tipo_cliente = 'B17';
+	if to_number(v_status) < 500 and v_tipo_ped not like '2%' AND v_cta_nom=0 then
+		select DECODE(FECHA_BLOQUEO_PLAZO,NULL,'NULO',FECHA_BLOQUEO_PLAZO) into v_fecha from va_clientes where codigo_empresa= '004' and codigo_rapido = v_cliente;
+			if v_fecha = 'NULO' then
+				v_fin :='81';
+			else
+				v_dias :=round(to_number(sysdate() - to_date(v_fecha,'DD/MM/YYYY')),0);
+				if  v_dias < 31 then
+					v_fin :='81';
+				else
+					if v_dias >30 and v_dias<91 then
+						v_fin := '81A';
+					end if;
+					if v_dias >90  then
+						v_fin := '81B';
+					end if;
+				end if;
+			end if;					
+	else
+		--if to_number(v_status) < 500 then
+		if v_tipo_ped like '2%' then
+				update pedidos_ventas  set
+				status_pedido= '1000'
+				where empresa= '004' and organizacion_comercial = '04010' and ejercicio = v_year
+				and numero_serie= v_serie and numero_pedido = v_ped;
+				commit;
+        v_fin:= '81C';
+		else
+			if v_cta_nom <= 0 then
+				if to_number(v_status) >= 500 then
+					v_fin := '31';
+				end if;
+			else
+				if 	v_almacen = '04010' then
+						v_fin := '31C';
+				end if;
+				if v_almacen = '04011' or v_almacen = '04013' then
+						v_fin := '31D';
+				end if;
+				if v_almacen = '04014' or v_almacen = '04017' then
+						v_fin := '31E';
+				end if;
+			end if;
+		end if;
+	end if; 
+select nvl(max(count(*)),0) into v_cod_sec  
+from crmexpedientes_lin where empresa=:global.codigo_empresa and numero_expediente = :p_numero_expediente and codigo_secuencia in ('030','031','032','033','034','040','050','070') /* se adiciona condicion para caso de secuencia duplicada*/ and STATUS_TAREA='01' 
+group by numero_expediente, CODIGO_SECUENCIA;
+if v_cod_sec < 1 then
+V_RTN := pkcrmexpedientes_tareas.finalizar_tarea_at('004', :p_numero_expediente,:p_numero_linea,sysdate(),:global.usuario,v_fin,TRUE,TRUE);	
+else
+:p_tipo_mensaje := 'CAMPO';
+:p_codigo_mensaje := 'TEXTOLIB';
+:p_texto_mensaje := 'Esta intentado duplicar la tarea, cancele esta operacion, o contactese con el area de SISTEMAS ' || TO_CHAR(v_cod_sec);
+:p_parar_ejecucion := 'S';
+end if;
+COMMIT;
+END IF;
+EXCEPTION WHEN NO_DATA_FOUND THEN
+  NULL;
+END;
+/**********************************************************/
+ITEMN002
+:p_tipo_mensaje := 'CAMPO';
+:p_codigo_mensaje := 'TEXTOLIB';
+:p_texto_mensaje := 'Valor de variable nro. ped:  ' || TO_CHAR(:ITEMN002);
+:p_parar_ejecucion := 'S';
+/**********************************************************/
 
+
+
+/**********************************************************/
+--- TAREA 031 - INICALIZACION
+/**********************************************************/
 
 declare 
  v_forma_pago varchar2(5):=NULL;
 V_RTN VARCHAR2(10);
 v_usuario varchar2(12);
 v_equipo varchar2(12);
-v_nro_exp number;
+v_nro_exp crmexpedientes_lin.numero_expediente%TYPE;
+V_nro_linea crmexpedientes_lin.numero_linea%TYPE;
 v_cliente varchar2(8);
 v_org varchar2(6);
 v_serie varchar2(4);
 v_numero number;
 v_ejercicio integer;
 v_cod_sec integer;
-
+v_organizacion_crm    organizacion_crm.codigo%TYPE := pk_web_general.get('PARAMETROS.ORGANIZACION_CRM');
 BEGIN
---IF :tareas_menu.c_itema078 = '04010' THEN
-
-v_nro_exp:= :P_numero_expediente;
+--pk_web_crm.inicializar('004', pk_web_general.get('USUARIO'), v_organizacion_crm);
+--pkpantallas.inicializar_codigo_plug_in;
+v_nro_exp:= pk_web_general.get('NUMERO_EXPEDIENTE'); /* :P_numero_expediente;*/
+V_nro_linea := :p_numero_linea;
+IF V_nro_linea is null then 
+  V_nro_linea := pk_web_general.get('NUMERO_LINEA');
+end if;
  IF v_nro_exp IS NULL THEN 
-	v_nro_exp:= :p_numero_expediente;
+	v_nro_exp:= :TAREAS_MENU.NUMERO_EXPEDIENTE;
+
+  :p_tipo_mensaje := 'CAMPO';
+  :p_codigo_mensaje := 'TEXTOLIB'; 
+  :p_texto_mensaje := '[1.****] Este es el valor de v_nro_exp: '|| v_nro_exp ||' == '|| :P_numero_expediente || ' Valor de numeroo_linea:' || V_nro_linea;
+  :p_parar_ejecucion := 'S';
+
 END IF;
-	select itema078, itema041, itema071, itemn001, itemn002
+
+  :p_tipo_mensaje := 'CAMPO';
+  :p_codigo_mensaje := 'TEXTOLIB'; 
+  :p_texto_mensaje := '2. valor de v_nro_exp: '|| v_nro_exp ||' == '|| :P_numero_expediente || ' Valor de numeroo_linea:' || V_nro_linea;
+  :p_parar_ejecucion := 'N';
+
+SElect itema078, itema041, itema071, itemn001, itemn002
         into v_org, v_serie, v_cliente, v_ejercicio, v_numero
-    from crmexpedientes_cab where numero_expediente =v_nro_exp
+    from crmexpedientes_cab 
+    where numero_expediente =v_nro_exp
         and empresa='004';
 
---   select  forma_pago, id_crm into v_forma_pago,v_id_crm
---         from pedidos_ventas 
---         where empresa= :global.codigo_empresa
---              and organizacion_comercial = :tareas_menu.c_itema078
---              and ejercicio = :tareas_menu.c_itemn001
---              and numero_serie= :tareas_menu.c_itema041
---            and numero_pedido = :tareas_menu.c_itemn002;
 
 --  IF v_forma_pago<>'0200' OR v_forma_pago IS NULL THEN
-  select  forma_pago into v_forma_pago
+  select  forma_pago 
+     into v_forma_pago
     from pedidos_ventas 
-    where empresa= :global.codigo_empresa
+    where empresa= '004'
         and organizacion_comercial = v_org
         and ejercicio = v_ejercicio
         and numero_serie= v_serie
@@ -123,19 +222,20 @@ END IF;
 	v_usuario:=:global.usuario;
 
 if v_forma_pago='0200' then 
-/*	pkcrmnotificaciones.inicializar_destinatarios;
-	pkcrmnotificaciones.add_destinatario('EMAIL', 'edgar.mercado@promedical.com.bo');
-	pkcrmnotificaciones.enviar(:global.codigo_empresa, :p_numero_expediente, :p_numero_linea, 'BOL_PRUEBA');  
-	COMMIT;   */
 	/*** valida si es pedido al contado, si es asi lo pasa directo*/
 
-	V_RTN := pkcrmexpedientes_tareas.finalizar_tarea_at('004', :p_numero_expediente, :p_numero_linea,sysdate(),'AUTOMATICO','13',TRUE,TRUE);
+	V_RTN := pkcrmexpedientes_tareas.finalizar_tarea_at('004', v_nro_exp, V_nro_linea ,sysdate(),'AUTOMATICO','13',TRUE,TRUE); commit;
 
  else 
-	V_RTN := pkcrmexpedientes_tareas.asignar_tarea_at(:global.codigo_empresa, :p_numero_expediente, :p_numero_linea, v_usuario, null, v_equipo );
+	V_RTN := pkcrmexpedientes_tareas.asignar_tarea_at(:global.codigo_empresa, v_nro_exp, V_nro_linea , NULL, null, v_equipo );
+	commit;
 end if;
  commit;
 end;
+/**********************************************************/
+
+
+
 
 
 /****tatea 060 - liberar pedido ******/
