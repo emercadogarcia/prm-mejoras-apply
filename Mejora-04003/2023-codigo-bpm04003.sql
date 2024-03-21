@@ -218,6 +218,12 @@ SElect itema078, itema041, itema071, itemn001, itemn002
         and numero_pedido = v_numero;
   --END IF;
 --commit;
+	select max(numero_linea) into V_nro_linea 
+	from crmexpedientes_lin
+	 where empresa='004' and numero_expediente = v_nro_exp 
+		and STATUS_TAREA='01';
+
+
 	v_equipo:='402001';
 	v_usuario:=:global.usuario;
 
@@ -227,7 +233,7 @@ if v_forma_pago='0200' then
 	V_RTN := pkcrmexpedientes_tareas.finalizar_tarea_at('004', v_nro_exp, V_nro_linea ,sysdate(),'AUTOMATICO','13',TRUE,TRUE); commit;
 
  else 
-	V_RTN := pkcrmexpedientes_tareas.asignar_tarea_at(:global.codigo_empresa, v_nro_exp, V_nro_linea , NULL, null, v_equipo );
+	V_RTN := pkcrmexpedientes_tareas.asignar_tarea_at('004', v_nro_exp, V_nro_linea , NULL, null, v_equipo );
 	commit;
 end if;
  commit;
