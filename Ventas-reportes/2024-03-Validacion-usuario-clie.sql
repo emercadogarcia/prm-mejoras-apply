@@ -8,7 +8,7 @@ where estado='BOL' AND FBAJA IS NULL and usuario=:global.usuario
  
 
 /* GRUPOS DE USUARIOS EN LIBRA */
-SELECT ESTADO, USUARIO,DESCRIPCION,PERFIL, grupo 
+SELECT ESTADO, USUARIO,DESCRIPCION,PERFIL, grupo, nif 
 FROM USUARIOS 
 WHERE ESTADO ='BOL' AND PERFIL <>'EMPLEADO' and fbaja is null and grupo is null
 group by ESTADO, USUARIO,DESCRIPCION,PERFIL, grupo 
