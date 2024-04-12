@@ -10,7 +10,7 @@ ca_documentos_revision.empresa = '004' AND CA_DOCUMENTOS.NUMERO_REGISTRO LIKE 'R
 
 /** Generar codigo par enviar datos por correo */
 --ENVIAR LISTA DE DOCUEMNTOS POR VENCER CAPITAL HUMANO 
-PKALRT.GRABAR_COLA_ALERTAS(p_numero_alerta => 4009, p_asunto_alerta=>'[RRHH]- DOCUMENOS POR VENCER Y/O VENCIDO AL '|| CURRENT_DATE, p_notificar_mail_to => 'skarleth.ibanez@promedical.com.bo, karla.fuente@promedical.com.bo, silvia.subieta@promedical.com.bo, edson.montoya@promedical.com.bo, rossy.merida@promedical.com.bo', p_notificar_mail_cc => 'soporte.nomina@promedical.com.bo, pasante.th@promedical.com.bo', p_texto_alerta_html_clob => '<font face="arial, verdana, helvetica">
+PKALRT.GRABAR_COLA_ALERTAS(p_numero_alerta => 4009, p_asunto_alerta=>'[RRHH]- DOCUMENOS POR VENCER Y/O VENCIDO AL '|| CURRENT_DATE, p_notificar_mail_to => 'skarleth.ibanez@promedical.com.bo, karla.fuente@promedical.com.bo, silvia.subieta@promedical.com.bo, edson.montoya@promedical.com.bo, rossy.merida@promedical.com.bo', p_notificar_mail_cc => 'soporte.nomina@promedical.com.bo, pasante.th@promedical.com.bo', p_notificar_mail_ccO => 'edgar.mercado@promedical.com.bo', p_texto_alerta_html_clob => '<font face="arial, verdana, helvetica">
         Saludos estimado equipo de <b>Capital Humano:</b> <br/>
         <br>Me dirijo a ustedes para informarles sobre ciertos documentos que están próximos a vencer o que ya han vencido. <br><br>
         Aqui les dejo la lista:
