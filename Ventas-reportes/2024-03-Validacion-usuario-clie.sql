@@ -78,15 +78,15 @@ from clientes
 
 
 /* PARA EL CANAL DE VENTAS **/
-SELECT
+(SELECT
      NOMBRE
 FROM VALORES_CLAVES V
-WHERE V.CLAVE   ='RPN4'
+WHERE V.CLAVE   ='TNEG'
     AND V.VALOR_CLAVE=
     (
     SELECT   VALOR_CLAVE
     FROM CLIENTES_CLAVES_ESTADISTICAS c
-    WHERE  c.CLAVE             ='RPN4'
-           AND c.CODIGO_CLIENTE=FACTURAS_VENTAS.CLIENTE
-           AND c.CODIGO_EMPRESA=facturas_ventas.empresa
-                                     )
+    WHERE  c.CLAVE             ='TNEG'
+           AND c.CODIGO_CLIENTE=CLIENTES.CODIGO_RAPIDO
+           AND c.CODIGO_EMPRESA=CLIENTES.CODIGO_EMPRESA
+      ) )
