@@ -40,3 +40,14 @@ MNTIENE UN Historial por 30 duas oara
 ## AMBIENTE DE PRUEBA
 
 
+## PRESENTACION
+1. INTRODUCCCION sobre herramientas.
+2. Consultas
+3. Se pudo instalar la APP.
+4. Capacitacion Gestores - uso aplicacion.
+5. Consultas.
+6. Capacitacion al jefe reiongal.
+
+
+
+/home/emercado/prm-mejoras-apply/proy-Involves-Comercial/Plantillas
