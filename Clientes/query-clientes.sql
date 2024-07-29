@@ -15,4 +15,9 @@ where codigo_cliente = '024688' and EMPRESA ='004'
 
 
  "Data", {"Lista_Columnas"})
- 
+
+
+
+
+
+ /*** query obtener datos clientes especial*/
