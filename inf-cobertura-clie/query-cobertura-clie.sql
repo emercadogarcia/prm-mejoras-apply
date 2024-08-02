@@ -4,55 +4,10 @@
 
  **/
 
-SELECT /* query original */
-    SUBSTR(bol_bi_vtas_ppto.reg, 1, 7) c1,
-    SUBSTR(bol_bi_vtas_ppto.subreg, 1, 7) c2,
-    SUBSTR(bol_bi_vtas_ppto.canalv, 1, 20) c3,
-    SUM(BOL_BI_VTAS_PPTO.CANTIDAD) n1,
-    SUM(BOL_BI_VTAS_PPTO.IMP_NETO) n2,
-    SUM(BOL_BI_VTAS_PPTO.PPTO_UND) n3,
-    SUM(BOL_BI_VTAS_PPTO.PPTO_VLR) n4,
-    TO_NUMBER(
-        decode(
-            SUM(BOL_BI_VTAS_PPTO.PPTO_VLR),
-            null,
-            null,
-            0,
-            0,
-            SUM(BOL_BI_VTAS_PPTO.IMP_NETO) / SUM(BOL_BI_VTAS_PPTO.PPTO_VLR) * 100
-        )
-    ) n5,
-    SUBSTR(bol_bi_vtas_ppto.rpn3, 1, 50) c4,
-    SUBSTR(bol_bi_vtas_ppto.rpn4, 1, 50) c5,
-    SUBSTR(bol_bi_vtas_ppto.rpn5, 1, 50) c6,
-    SUBSTR(bol_bi_vtas_ppto.rpn6, 1, 50) c7,
-    NULL gi$color
- FROM
-    BOL_BI_VTAS_PPTO
- WHERE
-    bol_bi_vtas_ppto.ejercicio IN (2024)
-    AND bol_bi_vtas_ppto.v_mes = 07
-    AND bol_bi_vtas_ppto.codigo_articulo NOT IN (
-        '00018653',
-        '00018654',
-        '00018656',
-        '00027574',
-        '00018812'
-    )
-    AND bol_bi_vtas_ppto.tipo_pedido BETWEEN '10' AND '50'
- GROUP BY
-    SUBSTR(bol_bi_vtas_ppto.reg, 1, 7),
-    SUBSTR(bol_bi_vtas_ppto.subreg, 1, 7),
-    SUBSTR(bol_bi_vtas_ppto.canalv, 1, 20),
-    SUBSTR(bol_bi_vtas_ppto.rpn3, 1, 50),
-    SUBSTR(bol_bi_vtas_ppto.rpn4, 1, 50),
-    SUBSTR(bol_bi_vtas_ppto.rpn5, 1, 50),
-    SUBSTR(bol_bi_vtas_ppto.rpn6, 1, 50)
-
 
 
 /**********************************************/
-CREATE OR REPLACE FORCE VIEW BOL_BI_COBERTURA_CLIE (EJERCICIO,V_MES, FECHA_FACTURA, REG,SUBREG,CLIENTE_ID,CLIENTE_NOMBRE,COD_RPN,GESTOR_VTAS,GESTOR_VTAS_N, CANALV,VE_PRM_CORP,NSKU_POP,NSKU_HER,NSKU_SUI,NSKU_GRU,VE_POP,VE_HER,VE_SUI,VE_GRU, CANTIDAD, IMP_NETO) AS 
+CREATE OR REPLACE FORCE VIEW BOL_BI_COBERTURA_CLIE (EJERCICIO,V_MES, FECHA_FACTURA, REG,SUBREG,CLIENTE_ID,CLIENTE_NOMBRE,COD_RPN,GESTOR_VTAS,GESTOR_VTAS_N, CANALV, VE_PRM_CORP, NSKU_POP, NSKU_HER, NSKU_SUI, NSKU_GRU, NSKU_PRM, VE_POP,VE_HER,VE_SUI,VE_GRU,VE_PRM, CANTIDAD, IMP_NETO , UEN_POP, UEN_HER, UEN_SUI, UEN_GRU, UEN_PRM, UEN_CORPS) AS 
  SELECT /* query expandida de VENTAS COBERTURA CLIENTES */
     ejercicio,
     v_mes,
@@ -61,11 +16,10 @@ CREATE OR REPLACE FORCE VIEW BOL_BI_COBERTURA_CLIE (EJERCICIO,V_MES, FECHA_FACTU
     subreg,
     cliente_id,
     cliente_nombre,
-    cod_rpn,
     gestor_vtas,
     gestor_vtas_n,
     canalv,
-    1 ve_prm_CORP,
+    count(distinct cliente_id) VE_PRM_CORP,
     COUNT(CASE WHEN uen = 'BOL - PROCAPS' THEN 1 END) AS NSKU_POP,
     COUNT(CASE WHEN uen = 'BOL - HERSIL SA' THEN 1 END) AS NSKU_HER,
     COUNT(CASE WHEN uen = 'BOL - SUIPHAR' THEN 1 END) AS NSKU_SUI,
@@ -77,18 +31,23 @@ CREATE OR REPLACE FORCE VIEW BOL_BI_COBERTURA_CLIE (EJERCICIO,V_MES, FECHA_FACTU
     AVG(CASE WHEN uen = 'BOL - GRUNENTHAL' THEN 1 END) AS VE_GRU,
     AVG(CASE WHEN uen = 'BOL - PROMEDICAL' THEN 1 END) AS VE_PRM,
     SUM(CANTIDAD) cantidad,
-    SUM(IMP_NETO) IMP_NETO
+    SUM(IMP_NETO) IMP_NETO,
+    MAX(CASE WHEN uen = 'BOL - PROCAPS' THEN uen END) AS UEN_POP,
+    MAX(CASE WHEN uen = 'BOL - HERSIL SA' THEN uen END) AS UEN_HER,
+    MAX(CASE WHEN uen = 'BOL - SUIPHAR' THEN uen END) AS UEN_SUI,
+    MAX(CASE WHEN uen = 'BOL - GRUNENTHAL' THEN uen END) AS UEN_GRU,
+    MAX(CASE WHEN uen = 'BOL - PROMEDICAL' THEN uen END) AS UEN_PRM,
+    MAX(CASE WHEN FECHA_FACTURA IS NOT NULL THEN 'PROMEDICAL CORPS' END) UEN_CORPS
  FROM
     BOL_BI_VTAS_PPTO 
  WHERE
     ejercicio >= EXTRACT(YEAR FROM SYSDATE)-2
-    AND v_mes = 07
     AND codigo_articulo NOT IN (
         '00018653', '00018654', '00018656', '00027574', '00018812'
     )
     AND tipo_pedido BETWEEN '10' AND '16'
     and cantidad>0
-     and FECHA_FACTURA BETWEEN to_Date('01/07/2024','DD/MM/YYYY') AND to_Date('25/07/2024','DD/MM/YYYY')
+     and FECHA_FACTURA BETWEEN to_Date('01/07/2024','DD/MM/YYYY') AND to_Date('28/07/2024','DD/MM/YYYY')
  GROUP BY
     ejercicio,
     v_mes,
@@ -97,12 +56,19 @@ CREATE OR REPLACE FORCE VIEW BOL_BI_COBERTURA_CLIE (EJERCICIO,V_MES, FECHA_FACTU
     subreg,
     cliente_id,
     cliente_nombre,
-    cod_rpn,
     gestor_vtas,
     gestor_vtas_n,
     canalv
 
 /**********************************************/
+sum((CASE WHEN uen = 'BOL - PROCAPS' THEN 1 END))
+DECODECASE WHEN uen = 'BOL - PROCAPS' THEN 1 END))
+
+
+COLORES
+DECODE(BOL_BI_COBERTURA_CLIE.GESTOR_VTAS_N, 'PAC-PATRICIA ARMINDA CHUQ', '0:ROJO')  
+|7:AMARILLO
+
 SUM(SELECT 1 FROM BOL_BI_VTAS_PPTO X
     WHERE X.ejercicio = bol_bi_vtas_ppto.ejercicio
     AND X.V_MES= bol_bi_vtas_ppto.v_mes AND X.cliente_id=bol_bi_vtas_ppto.cliente_id
