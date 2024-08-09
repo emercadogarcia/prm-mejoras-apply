@@ -160,3 +160,26 @@ En caso del ejemplo, la base de datos Oracle refrescará automáticamente la vis
 
 Publicad
 
+/***** query PARA OBTENER DATOS AGENTES Y CODIGOS ADICIONALES ********/
+
+gestor_vtas VARCHAR2(5),
+    gestor_vtas_n VARCHAR2(30),
+
+SELECT CODIGO, nombre, NIF, COUNT(*)
+FROM AGENTES
+WHERE EMPRESA ='004'
+GROUP BY CODIGO, nombre,NIF 
+HAVING COUNT(*)>2
+/****************/
+
+SELECT CODIGO FROM AGENTES WHERE EMPRESA ='004' AND NIF = GESTOR_VTAS
+
+MAX(
+  select  COUNT(*) from AGENTES_CLIENTES A
+WHERE'040249' =A.AGENTE AND A.CODIGO_CLIENTE IN (SELECT C.CODIGO_RAPIDO FROM CLIENTES C WHERE C.codigo_empresa='004' AND C.FECHA_BAJA IS NULL )
+)
+
+=""
+
+UPDATE 
+'AAP','AKE','AMA','ANB','CCM','CHC','CLJ','CPT','DVP','ECD','EFV','ETJ','GGM','IAR','JBB','JPA','KRB','LGM','LOH','MAJ','MCL','NCP','PAC','PML','PSA','RAA','RBQ','YVS'
