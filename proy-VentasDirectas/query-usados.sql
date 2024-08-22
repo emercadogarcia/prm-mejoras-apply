@@ -21,3 +21,32 @@ AND ('EMERCADO' = 'EMERCADO'
   from PARAMETROS_SERIES_VENTAS 
   WHERE empresa = '004'
   and organizacion_comercial='04010'
+
+
+
+/***********************/
+select *
+FROM CLIENTES 
+WHERE codigo_empresa in ('004','999') 
+and codigo_rapido BETWEEN '023888' and '023929'
+and nombre like 'CLIENTE %'
+and codigo_rapido in ('023901', '023807','023905', '003128')
+
+
+
+*********
+pusuario: EMERCADO, pfecha_proceso: 20/08/2024, pcontador: 1, pmensaje: Error al cantabilizar MAL, pfuncion: PKFAGENFACTU, porigen: GCF
+
+PILA: PKFAGENFACTU.FACTURAR(5193) \ 
+PKFAGENFACTU.GENERAR_FACTURAS(6523) \ 
+PKMENGENFACT.INSERTAR_ERROR(14)
+
+
+SELECT fv.ROWID rowid_fac, fv.empresa,fv.ejercicio,fv.numero_serie,fv.numero_factura,fv.tipo_factura,fv.organizacion_comercial,fv.cliente,to_char(fv.fecha_factura,'dd/mm/yyyy') fecha_factura,DECODE ('','C', NVL('',TO_CHAR(fv.fecha_contabilizacion,'DD/MM/YYYY')) ,DECODE ('', 'B', '',DECODE (fv.fecha_contabilizacion, NULL, '', to_char(fv.fecha_contabilizacion, 'dd/mm/yyyy')))) fecha_contabilizacion,to_char(fv.fecha_contabilizacion, 'dd/mm/yyyy') fecha_contabilizacion_ori,fv.codigo_divisa, fv.forma_cobro, fv.centro_contable,fv.dtos_global, fv.imp_dto_global, fv.imp_dto_global_div, fv.dto_pronto_pago, fv.recargo_financiero,fv.imp_dto_pronto_pago, fv.imp_dto_pronto_pago_div, fv.imp_recargo_financiero, fv.imp_recargo_financiero_div, fv.imp_fac_bruto, fv.imp_fac_dto1, fv.imp_fac_dto2,fv.imp_fac_dto3, fv.imp_fac_dto4, fv.imp_fac_dto5, fv.imp_fac_dto6, fv.imp_fac_dto7, fv.imp_fac_dto8, fv.imp_fac_dto9, fv.importe_fac_neto, fv.liquido_factura, fv.imp_fac_bruto_div,fv.imp_fac_dto1_div, fv.imp_fac_dto2_div, fv.imp_fac_dto3_div, fv.imp_fac_dto4_div, fv.imp_fac_dto5_div, fv.imp_fac_dto6_div, fv.imp_fac_dto7_div, fv.imp_fac_dto8_div,fv.imp_fac_dto9_div, fv.imp_recargo_2_div, fv.imp_recargo_3_div, fv.importe_fac_neto_div, fv.liquido_factura_div, fv.numero_asiento_borrador, fv.usuario, fv.numero_dua, to_char(fv.fecha_dua, 'dd/mm/yyyy'),fv.identicket, fv.observaciones, fv.status_factura, fv.coste_bruto, fv.dcto_tipo_pedido, fv.imp_dcto_tipo_pedido, fv.imp_dcto_tipo_pedido_div, fv.importe_anticipo,fv.importe_anticipo_div, fv.imp_dto_global_iva, fv.imp_dto_global_iva_div, fv.imp_dto_tpedido_iva, fv.imp_dto_tpedido_iva_div, fv.imp_dto_ppago_iva, fv.imp_dto_ppago_iva_div,fv.albaran_factura, fv.total_pto_verde, fv.total_pto_verde_div, fv.numero_obra, fv.serie_oferta, fv.numero_oferta, to_char(fv.fecha_impresion, 'dd/mm/yyyy hh24:mi:ss'), numero_asiento_anulado, fecha_asiento_anulado, diario_anulado, referencia_cobro 
+FROM facturas_ventas fv, rango_series_ventas rs where 1=1 AND fv.empresa = rs.empresa(+) AND fv.numero_serie = rs.numero_serie(+) AND (fv.numero_factura BETWEEN rs.desde_numero AND rs.hasta_numero OR rs.desde_numero IS NULL) AND (fv.fecha_factura <= rs.fecha_validez OR rs.fecha_validez IS NULL) and fv.numero_serie = '210' and fv.numero_factura = 17 and fv.fecha_factura = to_date('20/08/2024', 'dd/mm/yyyy') and fv.usuario = 'EMERCADO' AND fv.empresa = '004' 
+AND (fv.numero_asiento_borrador IS NULL OR pkconbloqueo.anulado(fv.empresa, fv.diario, fv.fecha_contabilizacion, fv.numero_asiento_borrador)='S') AND fv.organizacion_comercial = '04010' 
+AND EXISTS (SELECT 1 FROM albaran_ventas WHERE albaran_ventas.empresa = fv.empresa AND albaran_ventas.numero_factura = fv.numero_factura AND albaran_ventas.numero_serie_fra = fv.numero_serie AND albaran_ventas.ejercicio_factura = fv.ejercicio and albaran_ventas.anulado = 'N') and not exists (select 1 from facturas_ventas_anticipos fva, facturas_ventas fv2  where fva.empresa = fv.empresa    and fva.numero_serie_egr = fv.numero_serie and fva.numero_factura_egr = fv.numero_factura and fva.ejercicio_egr = fv.ejercicio    and fv2.empresa = fv.empresa and fv2.numero_serie = fva.numero_serie_fra and fv2.numero_factura = fva.numero_factura_fra    and fv2.ejercicio = fva.ejercicio_fra and fv2.numero_asiento_borrador is null ) and NVL (fv.fecha_contabilizacion, fv.fecha_factura) > to_date('31/12/2022', 'dd/mm/yyyy') and fv.status_factura = '1600' and not exists (SELECT 1 FROM facturas_sustituciones fa WHERE fa.empresa = fv.empresa AND fa.numero_serie = fv.numero_serie AND fa.ejercicio = fv.ejercicio AND fa.numero_factura = fv.numero_factura AND NVL (fa.forzar_contabilizacion, 'N') = 'N') and (rs.factura_electronica(+) <> 'C') ORDER BY DECODE (rs.cfd_cronologico, 'S', fv.fecha_impresion, fv.fecha_factura), fv.fecha_factura, fv.organizacion_comercial, fv.numero_serie, fv.numero_factura
+
+
+
+
