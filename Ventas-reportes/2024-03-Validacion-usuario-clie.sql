@@ -4,8 +4,11 @@ select nif into v_usr
 from usuarIos  
 where estado='BOL' AND FBAJA IS NULL and usuario=:global.usuario
  
- SELECT CODIGO_TRABAJADOR FROM RH_TRABAJADORES WHERE DNI IN (select nif from usuarIos  where estado='BOL' AND FBAJA IS NULL AND PERFIL <>'EMPLEADO')
+ SELECT CODIGO_TRABAJADOR, dni,  nombre_completo FROM RH_TRABAJADORES WHERE DNI IN (select nif from usuarIos  where estado='BOL' AND FBAJA IS NULL AND PERFIL <>'EMPLEADO')
  
+ SELECT CODIGO_TRABAJADOR, dni,  nombre_completo 
+ FROM RH_TRABAJADORES 
+ WHERE DNI='6877869'
 
 /* GRUPOS DE USUARIOS EN LIBRA */
 SELECT ESTADO, USUARIO,DESCRIPCION,PERFIL, grupo, nif 
