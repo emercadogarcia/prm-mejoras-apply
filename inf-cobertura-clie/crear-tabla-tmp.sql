@@ -25,9 +25,10 @@ CREATE TABLE bol_cobertura_clie_tmp
     AGENTE varchar2(15)
 ) 
 
-select cliente_id, cliente_nombre
+select cliente_id, cliente_nombre, GESTOR
   from bol_cobertura_clie_tmp
  where condition
+
 /******** insetamos los datos */
 DELETE FROM bol_cobertura_clie_tmp WHERE USUARIO= :USUARIO  ;
 COMMIT;
