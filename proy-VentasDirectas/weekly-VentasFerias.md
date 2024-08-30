@@ -66,3 +66,19 @@ Riesgo que el programa no lo tengamos funcional, pero que puede subsanarse.
 ### Bloqueos o riesgos identificados.
 Riesgo cambios de parametrizacion de tipos de impuestos en la empresa Bolivia.
 
+## REPORRTE 30/08/2024
+### Actividades realizadas
+1. Se Envio incidencia a soporte Edisa sobre el programa de venta directa en version web.
+2. Se realizo prueba en entorno escritorio donde despues de configurar y personlizar opciones para Bolivia generamos las ventas directas completando asi el circuito completo, desde el pedido pasando por la factura y terminando con la contabilizacion del mismo.
+3. Se solicito pruebas de uso de la nueva herramienta de creacion de cleitnes Oncologicos y eventuales al equipo de caartera donde las pruebaas tambien fueron satisfactoriaas.
+4. En la reunion de avance del proyecto se presento los resultado y el alcance de laa herramienta.
+5. Se hace nuevas pruebas usando las herramientas nuevas, tanto la de creacion de clientes y las ventas directas donde se enviaa los resultado a los equipos de comerciaal, operaciones y fiannzas para ue puedan validar y evaluar los resultado de la prueba desde su participacion en el proceso.
+
+### Actividades programadas próxima semana
+1. Se va sugerir utilizar un tipo de pedido para identificar este tipo de ventas.
+2. Revixar tema de la cobranza como se podria aplicar en este tipo de venta pero como una mejora futuraa.
+3. Hacer los ajustes que vayan a surgir de las revisiones que realizaraan.
+
+### Bloqueos o riesgos identificados.
+Ninguno.
+

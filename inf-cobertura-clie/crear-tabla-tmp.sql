@@ -25,9 +25,9 @@ CREATE TABLE bol_cobertura_clie_tmp
     AGENTE varchar2(15)
 ) 
 
-select cliente_id, cliente_nombre, GESTOR
+select REG, subreg, cliente_id, cliente_nombre, gestor_vtas_n, AGENTE, VE_PRM_CORPS, VE_PRM
   from bol_cobertura_clie_tmp
- where condition
+ where gestor_vtas_n like 'MAJ%'
 
 /******** insetamos los datos */
 DELETE FROM bol_cobertura_clie_tmp WHERE USUARIO= :USUARIO  ;
@@ -102,4 +102,16 @@ GROUP BY
 COMMIT;
 
 
-/****/
+/***** OBTENER COLUMNA CNAT ASIGNADA ************/
+(select  COUNT(*) from AGENTES_CLIENTES A
+WHERE BOL_COBERTURA_CLIE_TMP.AGENTE =A.AGENTE AND A.EMPRESA='004' AND A.CODIGO_CLIENTE IN (SELECT C.CODIGO_RAPIDO FROM CLIENTES C WHERE C.codigo_empresa='004' AND C.FECHA_BAJA IS NULL )
+)
+
+
+select  A.EMPRESA, A.AGENTE 
+from AGENTES_CLIENTES A
+WHERE '040114' =A.AGENTE AND A.EMPRESA='004'
+AND A.CODIGO_CLIENTE IN (SELECT C.CODIGO_RAPIDO FROM CLIENTES C WHERE C.codigo_empresa=A.EMPRESA AND C.FECHA_BAJA IS NULL )
+
+agente not in ('040304', '040272', '040218', '040112', '040173', '040337')
+/******************/
