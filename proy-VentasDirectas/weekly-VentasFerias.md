@@ -82,3 +82,18 @@ Riesgo cambios de parametrizacion de tipos de impuestos en la empresa Bolivia.
 ### Bloqueos o riesgos identificados.
 Ninguno.
 
+## REPORRTE 06/09/2024
+### Actividades realizadas
+1. Se ha creado el tipo de pedido "14  VETNAA CONSUMIDOR FINAAL" este solo es como sugernecia para utilizar este numero de pedido para diferenciar de los pedidos que yaa tenemos definidos.
+2.  Se han generado pruebas con distintas situaciones donde se tienen mas de un aarticulo en el pedido paraa generar las factura, se haa revisado la generacion de laa carteraa y asientos contables. Se paso correo para ue puedan hacer las validaciones correspondientes en el aareaa de finaanzas.
+3. Se aplica peronalizacion para rellenar campos comunes.
+
+### Actividades programadas próxima semana
+1. Se solicitara estaus de validacion aaal temaa de los registros financiero generado de las pruebas.
+2. Personalizaar el temaa de registro de aanticipo paara aue no se tome en cuenta aal moemnto de registrar el pedido.
+3. Analizar el envio de laa factura para ser timbrado electronicamente.
+4. Verificar cambios solicitados en laa creacion de clientes eventuaales.
+
+### Bloqueos o riesgos identificados.
+Ninguno.
+
