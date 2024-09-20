@@ -97,3 +97,24 @@ Ninguno.
 ### Bloqueos o riesgos identificados.
 Ninguno.
 
+
+## REPORRTE 19/09/2024
+### Actividades realizadas
+1. Se crea tipo de pedido 14 VENTA CONSUMIDOR FINAL  y se confgirua sin confirmacion y tipo efectivo.
+2. Se pasa a produccion el programa personalizado Ventas directas ID=2.
+3. Se parametriza el tipo pedidos en las series por almacen.
+4. Se ha habilitado la zona 402 VENTAS DIRECTAS en almacenes de SCZ, CBBA y LPZ.
+5. Se realiza pruebas de facturacion en ambiente real, la cual debe anularse para que no influya en los registros.
+6. Se carga un ticket de soporte a Edisa por la incidencia presentada en el programa.
+
+### Actividades programadas próxima semana
+1. Ajuste que puedan requerirse en el programa.
+2. Ver opciones de generar envio de factura para su timbrado.
+    a. Desde el expediente.
+    b. Cuando finalice el programa (depende de funcionalidad programa)
+3. Revision de status ticket soporte a proveedor Edisa.
+
+### Bloqueos o riesgos identificados.
+Riesgo: Cambios en programa por nuevas versiones pero es manejable.
+
+

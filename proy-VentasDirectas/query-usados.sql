@@ -28,7 +28,8 @@ AND ('EMERCADO' = 'EMERCADO'
 select *
 FROM CLIENTES 
 WHERE codigo_empresa in ('004','999') 
-and codigo_rapido BETWEEN '023888' and '023929'
+and codigo_rapido in ('011834' ,'023970', '0239')
+BETWEEN '011834' and '023970'
 and nombre like 'CLIENTE %'
 and codigo_rapido in ('023901', '023807','023905', '003128')
 
@@ -106,3 +107,18 @@ SELECT empresa, organizacion_comercial , tipo_cliente
 select *
  FROM org_comer_actividades oca 
  WHERE oca.codigo_actividad = 'R0018' AND oca.org_comercial = '02010' AND oca.codigo_empresa = '0201'
+
+
+
+
+
+
+WHERE codigo_empresa = :GLOBAL.codigo_empresa 
+AND (:GLOBAL.usuario = :GLOBAL.superusuario OR NOT EXISTS (
+SELECT 1 FROM bloqueo_clientes
+WHERE empresa = :GLOBAL.codigo_empresa
+AND codigo_cliente = codigo_rapido
+AND (usuario = :GLOBAL.usuario OR usuario IS NULL)
+AND (TRUNC(SYSDATE) >= desde_fecha) AND (TRUNC(SYSDATE) <= hasta_fecha))) 
+AND PKVALIDAR_ENTIDADES.CLIENTE(CODIGO_RAPIDO,:GLOBAL.CODIGO_EMPRESA,:GLOBAL.USUARIO,SYSDATE,'S')='OK' 
+and plantilla_libra like case when :global.codigo_empresa = '003' then 'EC%' else '%%' end
