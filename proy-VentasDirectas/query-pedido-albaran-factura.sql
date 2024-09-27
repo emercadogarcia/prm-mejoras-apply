@@ -84,10 +84,45 @@ PKPANTALLAS.SET_VARIABLE_ENV('V_DESMARCAR','S');
 /****** fin inicio codigo  *****/
 /*** codigo cuando inicia segundo bloque para ejecutar la tarea *****/
 
+PKPANTALLAS.INICIALIZAR_PARAMETROS_PLUG_IN;        	
+PKPANTALLAS.PARAMETRO_PLUG_IN('PA01', 'C','VENTAS_DIRECTAS');    
+
+
+if :B1.ORGANIZACION_COMERCIAL='04010' AND :PARAMETER.PA01='VENTAS_DIRECTAS' then 
 :parameter.opcion_menu:='B03';
+:B2.SELECCIONADO:='S';
 PKPANTALLAS.INICIALIZAR_CODIGO_PLUG_IN;
-PKPANTALLAS.COMANDO_PLUG_IN('VALIDATE', 'RECORD_SCOPE');
+--PKPANTALLAS.COMANDO_PLUG_IN('VALIDATE', 'RECORD_SCOPE');
 PKPANTALLAS.COMANDO_PLUG_IN('SYNCHRONIZE');
-PKPANTALLAS.COMANDO_PLUG_IN('EXECUTE_TRIGGER', 'OPCION_MENU');
+--PKPANTALLAS.COMANDO_PLUG_IN('EXECUTE_TRIGGER', 'OPCION_MENU');
+end if;
 
 /******* validar codigo *******/
+
+      INTO v_ejecutar_programa
+  SELECT codigo, fichero_base
+      FROM tipos_envio_factura
+     WHERE codigo = v_codigo_formato;
+
+B1.ORGANIZACION_COMERCIAL_TAB1
+
+
+/****** DATA IMPORTANTE DE CODE ********/
+Para gestionar el pulsado de cada uno de los botones se usará el disparador OPCION_MENU, se identificará 
+el botón pulsado por el valor del parámetro OPCION_MENU.
+
+OPCMENU.OPCION_MENU(:global.codigo_empresa, :parameter.opcion_menu);
+IF :parameter.opcion_menu = ‘B01’ THEN
+--CODIGO PARTICULAR PARA ESE BOTON
+END IF;
+
+-- DATO PARA EL MENU SALIR
+FMENU.SALIR(<parámetro>): Botón de salir del programa
+<parámetro>: Espera un valor booleano, es decir TRUE activa y FALSE desactiva
+
+
+
+:p_tipo_mensaje := 'CAMPO';
+:p_codigo_mensaje := 'TEXTOLIB';
+:p_texto_mensaje := 'Valor parametro = '||:PARAMETER.PA01;
+:p_parar_ejecucion := 'S';
