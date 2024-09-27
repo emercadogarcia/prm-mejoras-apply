@@ -14,6 +14,54 @@ AND f.organizacion_comercial(+) = a.organizacion_comercial AND f.ejercicio(+) = 
 AND f.numero_serie(+) = a.numero_serie_fra AND f.numero_factura(+) = a.numero_factura
 
 /**************************************************************************/
+declare
+v_nro_fac number:=0;
+v_serie_fac varchar2(3);
+v_year_fac number; 
+v_fecha date;
+begin
+SELECT DISTINCT A.NUMERO_SERIE_FRA,A.NUMERO_FACTURA,f.FECHA_FACTURA, f.ejercicio
+into v_serie_fac, v_nro_Fac,v_fecha , v_year_Fac
+FROM facturas_ventas f, albaran_ventas a, albaran_ventas_lin al, pedidos_ventas p 
+WHERE p.empresa = '004' AND p.organizacion_comercial = '04010' 
+AND p.numero_serie = '010' AND p.ejercicio = '2024' AND p.numero_pedido = '343' 
+AND al.empresa(+) = p.empresa AND al.organizacion_comercial(+) = p.organizacion_comercial 
+AND al.numero_serie_pedido(+) = p.numero_serie AND al.numero_pedido(+) = p.numero_pedido 
+AND al.ejercicio_pedido(+) = p.ejercicio AND a.empresa = al.empresa 
+AND a.organizacion_comercial = al.organizacion_comercial AND a.numero_serie = al.numero_serie 
+AND a.numero_albaran = al.numero_albaran AND a.sub_albaran = al.sub_albaran 
+AND a.ejercicio = al.ejercicio AND f.empresa(+) = a.empresa 
+AND f.organizacion_comercial(+) = a.organizacion_comercial AND f.ejercicio(+) = a.ejercicio_factura 
+AND f.numero_serie(+) = a.numero_serie_fra AND f.numero_factura(+) = a.numero_factura;
+
+ :global.id_personalizacion := '1';        	
+ :p_ejecutar_programa := 'FE_FIRMFAC';        	
+ :p_modo_menu_prog_llamado := 'DO_REPLACE';           	
+ PKPANTALLAS.INICIALIZAR_PARAMETROS_PLUG_IN;
+ PKPANTALLAS.PARAMETRO_PLUG_IN('EMPRESA', 'C','004');
+ PKPANTALLAS.PARAMETRO_PLUG_IN('EJERCICIO', 'C',v_year_fac);
+ PKPANTALLAS.PARAMETRO_PLUG_IN('DESDE_FECHA', 'C',v_fecha);
+ PKPANTALLAS.PARAMETRO_PLUG_IN('HASTA_FECHA', 'C',v_fecha);
+ PKPANTALLAS.PARAMETRO_PLUG_IN('NUMERO_SERIE', 'C',v_serie_fac);
+ PKPANTALLAS.PARAMETRO_PLUG_IN('NUMERO_FACTURA', 'N',v_nro_Fac);
+ PKPANTALLAS.PARAMETRO_PLUG_IN('ORGANIZACION_COMERCIAL', 'C','04010'); --:B1.ORGANIZACION_COMERCIAL);
+ PKPANTALLAS.PARAMETRO_PLUG_IN('PERMITIR_CONSULTA_INCIDENCIAS', 'C','S');
+ PKPANTALLAS.PARAMETRO_PLUG_IN('TIPO_OPERACION', 'C','E');
+ PKPANTALLAS.PARAMETRO_PLUG_IN('PA01', 'C','VTAS_DIR');
+ END;
+
+
+ PKPANTALLAS.PARAMETRO_PLUG_IN('PA02', 'C','04');
+ PKPANTALLAS.PARAMETRO_PLUG_IN('PA03', 'C','01');
+ PKPANTALLAS.PARAMETRO_PLUG_IN('PA04', 'C',:global.fecha_trabajo);
+ PKPANTALLAS.PARAMETRO_PLUG_IN('PA05', 'C',:PARAMETER.PA05);
+ PKPANTALLAS.PARAMETRO_PLUG_IN('PA06', 'C',:PARAMETER.PA06);
+ PKPANTALLAS.PARAMETRO_PLUG_IN('PA07', 'C',:PARAMETER.PA07);
+
+
+
+/**************************************************************************/
+/**************************************************************************/
 
 
 
@@ -88,7 +136,7 @@ PKPANTALLAS.INICIALIZAR_PARAMETROS_PLUG_IN;
 PKPANTALLAS.PARAMETRO_PLUG_IN('PA01', 'C','VENTAS_DIRECTAS');    
 
 
-if :B1.ORGANIZACION_COMERCIAL='04010' AND :PARAMETER.PA01='VENTAS_DIRECTAS' then 
+if :B1.ORGANIZACION_COMERCIAL='04010' AND :PARAMETER.PA01='VTAS_DIR' then 
 :parameter.opcion_menu:='B03';
 :B2.SELECCIONADO:='S';
 PKPANTALLAS.INICIALIZAR_CODIGO_PLUG_IN;
