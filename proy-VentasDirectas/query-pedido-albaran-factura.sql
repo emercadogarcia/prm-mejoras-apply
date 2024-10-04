@@ -20,6 +20,7 @@ v_serie_fac varchar2(3);
 v_year_fac number; 
 v_fecha date;
 begin
+if :B1.NUMERO_PEDIDO IS NOT NULL AND :B1.NUMERO_SERIE IS NOT NULL THEN 
 v_year_fac:= EXTRACT(YEAR FROM to_date(:b1.FECHA_PEDIDO_char,'DD/MM/YYYY'));
 SELECT DISTINCT A.NUMERO_SERIE_FRA,A.NUMERO_FACTURA,f.FECHA_FACTURA, f.ejercicio
 into v_serie_fac, v_nro_fac,v_fecha , v_year_fac
@@ -34,7 +35,7 @@ AND a.numero_albaran = al.numero_albaran AND a.sub_albaran = al.sub_albaran
 AND a.ejercicio = al.ejercicio AND f.empresa(+) = a.empresa 
 AND f.organizacion_comercial(+) = a.organizacion_comercial AND f.ejercicio(+) = a.ejercicio_factura 
 AND f.numero_serie(+) = a.numero_serie_fra AND f.numero_factura(+) = a.numero_factura;
-
+IF v_nro_Fac IS NOT NULL THEN 
  :global.id_personalizacion := '1';        	
  :p_ejecutar_programa := 'FE_FIRMFAC';        	
  :p_modo_menu_prog_llamado := 'DO_REPLACE';           	
@@ -45,10 +46,12 @@ AND f.numero_serie(+) = a.numero_serie_fra AND f.numero_factura(+) = a.numero_fa
  PKPANTALLAS.PARAMETRO_PLUG_IN('HASTA_FECHA', 'C',v_fecha);
  PKPANTALLAS.PARAMETRO_PLUG_IN('NUMERO_SERIE', 'C',v_serie_fac);
  PKPANTALLAS.PARAMETRO_PLUG_IN('NUMERO_FACTURA', 'C',v_nro_fac);
- PKPANTALLAS.PARAMETRO_PLUG_IN('ORGANIZACION_COMERCIAL', 'C',:B1.ORGANIZACION_COMERCIAL);
+ PKPANTALLAS.PARAMETRO_PLUG_IN('ORGANIZACION_COMERCIAL', 'R',:B1.ORGANIZACION_COMERCIAL);
  PKPANTALLAS.PARAMETRO_PLUG_IN('PERMITIR_CONSULTA_INCIDENCIAS', 'C','S');
  PKPANTALLAS.PARAMETRO_PLUG_IN('TIPO_OPERACION', 'C','E');
  PKPANTALLAS.PARAMETRO_PLUG_IN('PA01', 'C','VTAS_DIR');
+ END IF;
+ END IF;
  END;
 
 -- FIN del codigo para lanzar 
@@ -69,44 +72,44 @@ AND f.numero_serie(+) = a.numero_serie_fra AND f.numero_factura(+) = a.numero_fa
 
 /**** codigo para llamar programa y ejecutar directamente */
 declare 
-v_serie_fac varchar2(3);
-v_nro_Fac number;
-v_year_Fac number; 
-v_factura number :=0;
-v_liq_alb number;
-BEGIN 
-SELECT NUMERO_FACTURA, FECHA_FACTURA, NUMERO_SERIE_FRA,NUMERO_SERIE_FRA, numero_factura, ejercicio_factura 
-INTO :PARAMETER.PA05, :PARAMETER.PA06, :PARAMETER.PA07, v_serie_fac, v_nro_Fac, v_year_Fac
-FROM ALBARAN_VENTAS_NC 
-WHERE NUMERO_ALBARAN = :B1.NUMERO_ALBARAN 
-AND TO_CHAR(TO_DATE(FECHA_FACTURA),'MM') = TO_CHAR(TO_DATE(:global.fecha_trabajo),'MM')
-AND EJERCICIO =  TO_NUMBER(TO_CHAR(TO_DATE(:global.fecha_trabajo),'YYYY'))
-AND NUMERO_SERIE =  :B1.NUMERO_SERIE;
-select liquido_factura into v_factura from facturas_ventas where empresa='004' and ejercicio=v_year_Fac and numero_serie= v_serie_fac and numero_factura= v_nro_Fac;
-select LIQUIDO_ALBARAN INTO V_LIQ_ALB
-from ALBARAN_VENTAS
-where empresa='004' and numero_albaran=:B1.NUMERO_ALBARAN AND NUMERO_SERIE='CAN' 
-    AND EJERCICIO=TO_NUMBER(TO_CHAR(TO_DATE(:global.fecha_trabajo),'YYYY'));
-if NOT ((v_factura - ABS(v_liq_alb)) BETWEEN -0.01 AND 0.01) then 
-    :p_tipo_mensaje := 'CAMPO';
-    :p_codigo_mensaje := 'TEXTOLIB';
-    :p_texto_mensaje := 'Valor de la factura no es igual al registro de Anulacion!!!. Valor Fact = '||v_factura ||' Valor Alb = '||abs(v_liq_alb) || ' Realizar la CORRECCION nesaria...!!!';
-    :p_parar_ejecucion := 'S';
-else 
- IF :global.CODIGO_EMPRESA='004' and :B1.TIPO_PEDIDO in ('49','49A') THEN  		
-    :global.id_personalizacion := '1';        	
-    :p_ejecutar_programa := 'CANCFACT';        	
-    :p_modo_menu_prog_llamado := 'DO_REPLACE';           	
-    PKPANTALLAS.INICIALIZAR_PARAMETROS_PLUG_IN;        	
-    PKPANTALLAS.PARAMETRO_PLUG_IN('PA01', 'C',:B1.ORGANIZACION_COMERCIAL);        	
-    PKPANTALLAS.PARAMETRO_PLUG_IN('PA02', 'C','04');      	
-    PKPANTALLAS.PARAMETRO_PLUG_IN('PA03', 'C','01');
-    PKPANTALLAS.PARAMETRO_PLUG_IN('PA04', 'C',:global.fecha_trabajo);       	    	
-    PKPANTALLAS.PARAMETRO_PLUG_IN('PA05', 'C',:PARAMETER.PA05);       	
-    PKPANTALLAS.PARAMETRO_PLUG_IN('PA06', 'C',:PARAMETER.PA06); 
-    PKPANTALLAS.PARAMETRO_PLUG_IN('PA07', 'C',:PARAMETER.PA07);  
- END IF;
-end if; 
+    v_serie_fac varchar2(3);
+    v_nro_Fac number;
+    v_year_Fac number; 
+    v_factura number :=0;
+    v_liq_alb number;
+    BEGIN 
+    SELECT NUMERO_FACTURA, FECHA_FACTURA, NUMERO_SERIE_FRA,NUMERO_SERIE_FRA, numero_factura, ejercicio_factura 
+    INTO :PARAMETER.PA05, :PARAMETER.PA06, :PARAMETER.PA07, v_serie_fac, v_nro_Fac, v_year_Fac
+    FROM ALBARAN_VENTAS_NC 
+    WHERE NUMERO_ALBARAN = :B1.NUMERO_ALBARAN 
+    AND TO_CHAR(TO_DATE(FECHA_FACTURA),'MM') = TO_CHAR(TO_DATE(:global.fecha_trabajo),'MM')
+    AND EJERCICIO =  TO_NUMBER(TO_CHAR(TO_DATE(:global.fecha_trabajo),'YYYY'))
+    AND NUMERO_SERIE =  :B1.NUMERO_SERIE;
+    select liquido_factura into v_factura from facturas_ventas where empresa='004' and ejercicio=v_year_Fac and numero_serie= v_serie_fac and numero_factura= v_nro_Fac;
+    select LIQUIDO_ALBARAN INTO V_LIQ_ALB
+    from ALBARAN_VENTAS
+    where empresa='004' and numero_albaran=:B1.NUMERO_ALBARAN AND NUMERO_SERIE='CAN' 
+        AND EJERCICIO=TO_NUMBER(TO_CHAR(TO_DATE(:global.fecha_trabajo),'YYYY'));
+    if NOT ((v_factura - ABS(v_liq_alb)) BETWEEN -0.01 AND 0.01) then 
+        :p_tipo_mensaje := 'CAMPO';
+        :p_codigo_mensaje := 'TEXTOLIB';
+        :p_texto_mensaje := 'Valor de la factura no es igual al registro de Anulacion!!!. Valor Fact = '||v_factura ||' Valor Alb = '||abs(v_liq_alb) || ' Realizar la CORRECCION nesaria...!!!';
+        :p_parar_ejecucion := 'S';
+    else 
+    IF :global.CODIGO_EMPRESA='004' and :B1.TIPO_PEDIDO in ('49','49A') THEN  		
+        :global.id_personalizacion := '1';        	
+        :p_ejecutar_programa := 'CANCFACT';        	
+        :p_modo_menu_prog_llamado := 'DO_REPLACE';           	
+        PKPANTALLAS.INICIALIZAR_PARAMETROS_PLUG_IN;        	
+        PKPANTALLAS.PARAMETRO_PLUG_IN('PA01', 'C',:B1.ORGANIZACION_COMERCIAL);        	
+        PKPANTALLAS.PARAMETRO_PLUG_IN('PA02', 'C','04');      	
+        PKPANTALLAS.PARAMETRO_PLUG_IN('PA03', 'C','01');
+        PKPANTALLAS.PARAMETRO_PLUG_IN('PA04', 'C',:global.fecha_trabajo);       	    	
+        PKPANTALLAS.PARAMETRO_PLUG_IN('PA05', 'C',:PARAMETER.PA05);       	
+        PKPANTALLAS.PARAMETRO_PLUG_IN('PA06', 'C',:PARAMETER.PA06); 
+        PKPANTALLAS.PARAMETRO_PLUG_IN('PA07', 'C',:PARAMETER.PA07);  
+    END IF;
+    end if; 
 end;
 
 /****** codigo para cuando INICIA Programa CANCFACT ****/
@@ -133,28 +136,60 @@ PKPANTALLAS.SET_VARIABLE_ENV('V_DESMARCAR','S');
 
 /****** fin inicio codigo  *****/
 
+/***************************************************/
+/***************************************************/
+/******** LISTA DE EXECUTE_TRIGGER *******************************************/
+PKPANTALLAS.COMANDO_PLUG_IN('EXECUTE_TRIGGER', 'OPCION_MENU');
+pkpantallas.comando_plug_in('EXECUTE_TRIGGER','KEY-EXEQRY');
+pkpantallas.comando_plug_in('EXECUTE_TRIGGER','KEY-EXIT');
+PKPANTALLAS.COMANDO_PLUG_IN('EXECUTE_TRIGGER','KEY-NEXT-ITEM');
+Pkpantallas.comando_plug_in('EXECUTE_TRIGGER','EJECUTAR_CONSULTA');
+Pkpantallas.comando_plug_in('EXECUTE_TRIGGER','EXCEL_CMEXPED');
+PKPANTALLAS.COMANDO_PLUG_IN('EXECUTE_TRIGGER','MARCAR_LOTES_ASIGNADOS');
+PKPANTALLAS.COMANDO_PLUG_IN('EXECUTE_TRIGGER', 'MARCAR');
 
+
+/***************************************************/
+/***************************************************/
 /*** codigo cuando inicia segundo bloque para ejecutar la tarea *****/
 
-PKPANTALLAS.INICIALIZAR_PARAMETROS_PLUG_IN;        	
-PKPANTALLAS.PARAMETRO_PLUG_IN('PA01', 'C','VENTAS_DIRECTAS');    
+:p_tipo_mensaje := 'CAMPO';
+:p_codigo_mensaje := 'TEXTOLIB';
+:p_texto_mensaje := 'boton: '||:parameter.opcion_menu;
+:p_parar_ejecucion := 'S';
+
+CAMBD
 
 
 if :B1.ORGANIZACION_COMERCIAL='04010' AND :PARAMETER.PA01='VTAS_DIR' then 
-:parameter.opcion_menu:='B03';
-:B2.SELECCIONADO:='S';
+:parameter.opcion_menu:='B01';
+
 PKPANTALLAS.INICIALIZAR_CODIGO_PLUG_IN;
---PKPANTALLAS.COMANDO_PLUG_IN('VALIDATE', 'RECORD_SCOPE');
+
+PKPANTALLAS.COMANDO_PLUG_IN('EXECUTE_TRIGGER', 'OPCION_MENU');
+PKPANTALLAS.COMANDO_PLUG_IN('VALIDATE', 'RECORD_SCOPE');
 PKPANTALLAS.COMANDO_PLUG_IN('SYNCHRONIZE');
---PKPANTALLAS.COMANDO_PLUG_IN('EXECUTE_TRIGGER', 'OPCION_MENU');
+:p_tipo_mensaje := 'CAMPO';
+:p_codigo_mensaje := 'TEXTOLIB';
+:p_texto_mensaje := 'Boton...: '||:parameter.opcion_menu;
+:p_parar_ejecucion := 'N';
+
+:parameter.opcion_menu:='B03';
+PKPANTALLAS.COMANDO_PLUG_IN('EXECUTE_TRIGGER', 'OPCION_MENU');
+PKPANTALLAS.COMANDO_PLUG_IN('VALIDATE', 'RECORD_SCOPE');
+PKPANTALLAS.COMANDO_PLUG_IN('SYNCHRONIZE');
+:p_tipo_mensaje := 'CAMBD';
+:p_codigo_mensaje := 'CAMB_OK';
+:p_texto_mensaje := 'Boton-2...: '||:parameter.opcion_menu;
+:p_parar_ejecucion := 'S';
 end if;
 
+/***************************************************/
+/***************************************************/
 /******* validar codigo *******/
 
-      INTO v_ejecutar_programa
-  SELECT codigo, fichero_base
-      FROM tipos_envio_factura
-     WHERE codigo = v_codigo_formato;
+      INTO v_ejecutar_programa   
+      SELECT codigo, fichero_base      FROM tipos_envio_factura      WHERE codigo = v_codigo_formato;
 
 B1.ORGANIZACION_COMERCIAL_TAB1
 
