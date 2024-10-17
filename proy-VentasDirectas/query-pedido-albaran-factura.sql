@@ -155,20 +155,24 @@ PKPANTALLAS.COMANDO_PLUG_IN('EXECUTE_TRIGGER', 'MARCAR');
 
 :p_tipo_mensaje := 'CAMPO';
 :p_codigo_mensaje := 'TEXTOLIB';
-:p_texto_mensaje := 'boton: '||:parameter.opcion_menu;
-:p_parar_ejecucion := 'S';
+:p_texto_mensaje := 'Se ha seleccionado la factura para enviar a timbrar, Boton: '||:parameter.opcion_menu;
+:p_parar_ejecucion := 'N';
 
 CAMBD
 
 
 if :B1.ORGANIZACION_COMERCIAL='04010' AND :PARAMETER.PA01='VTAS_DIR' then 
+
 :parameter.opcion_menu:='B01';
 
 PKPANTALLAS.INICIALIZAR_CODIGO_PLUG_IN;
-
+PKPANTALLAS.COMANDO_PLUG_IN('GO_ITEM','B2.SELECCIONADO');
+:B2.SELECCIONADO:='S';
+PKPANTALLAS.COMANDO_PLUG_IN('EXECUTE_TRIGGER','KEY-NEXT-ITEM');
 PKPANTALLAS.COMANDO_PLUG_IN('EXECUTE_TRIGGER', 'OPCION_MENU');
 PKPANTALLAS.COMANDO_PLUG_IN('VALIDATE', 'RECORD_SCOPE');
 PKPANTALLAS.COMANDO_PLUG_IN('SYNCHRONIZE');
+
 :p_tipo_mensaje := 'CAMPO';
 :p_codigo_mensaje := 'TEXTOLIB';
 :p_texto_mensaje := 'Boton...: '||:parameter.opcion_menu;

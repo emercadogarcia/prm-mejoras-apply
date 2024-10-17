@@ -9,10 +9,10 @@ VERSION COMPILACION  : 6.4.1
 VERSION FORMS        : 12.2.1.1.0
 CONFIGURACION FORMS  : libra_saa
 CURRENT_FORM         : FE_FIRMFAC
-ID_FORM              : 11
+ID_FORM              : 23
 CALLING_FORM         : 
 BUILTIN_DATE_FORMAT  : YY
-FECHA(SYSDATE)       : 26-09-2024 13:38:38
+FECHA(SYSDATE)       : 03-10-2024 15:47:18
 VERSION CLIENTE      : 6.0.1
 PRUEBA FALLOS        : N
 EMPRESA              : 004
@@ -25,351 +25,321 @@ MASCARA FECHAS       : DD/MM/YYYY
 SISTEMA OPERATIVO    : Windows 10
 VERSION JAVA         : 1.8.0_352 (x64)
 ******************************************************************************************************************************************************************************************************************************
-13:38:38 {TRACE}  : BD:PKPANTALLAS_AUX-INT_EXECUTE_IMMEDIATE: p_comando: ALTER SESSION SET TRACEFILE_IDENTIFIER = "F90437-EMERCADO-FE_FIRMFAC"
-13:38:38 {TRACE}  : BD:PKPANTALLAS_AUX-INT_EXECUTE_IMMEDIATE: p_comando: BEGIN dbms_session.session_trace_enable(binds=>true,waits=>true); END;
-13:38:46 {TRACE}  : OPCION_MENU: AYUDA_ACERCA_DE
-13:38:46 {TRACE}  : ITEM: B2.SELECCIONADO
-***************************************************************************************************************************************************************************************************
-* VOLCADO DEL BLOQUE B1
-***************************************************************************************************************************************************************************************************
-STATUS                : QUERY
-LAST_QUERY            : 
-QUERY_DATA_SOURCE_NAME: 
-DML_DATA_TARGET_NAME  : 
-DEFAULT_WHERE         : 
-ORDER_BY              : 
-QUERY_ALLOWED         : TRUE
-INSERT_ALLOWED        : TRUE
-UPDATE_ALLOWED        : TRUE
-DELETE_ALLOWED        : FALSE
- 
-NOMBRE CAMPO                   ITEM TYPE       DATATYPE        MASCARA                         PK    VALID VISIBLE ENABLED INSERT UPDATE REQUIRED NAVIGABLE NEXT_NAVIGATION_ITEM           VALOR ACTUAL DEL CAMPO (PRIMEROS 50 CARACTERES)   
------------------------------- --------------- --------------- ------------------------------- ----- ----- ------- ------- ------ ------ -------- --------- ------------------------------ --------------------------------------------------
-TIPO_OPERACION                 LIST            CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   TRUE     TRUE      STATUS_FACTURA                 E                                                  
-STATUS_FACTURA                 LIST            CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      TIPO_DOCUMENTO                                                                    
-TIPO_DOCUMENTO                 LIST            CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   TRUE     FALSE     ORGANIZACION_COMERCIAL         FACVEN                                             
-ORGANIZACION_COMERCIAL         TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   TRUE     TRUE      D_ORGANIZACION_COMERCIAL       04010                                              
-D_ORGANIZACION_COMERCIAL       TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     CENTRO_CONTABLE                PROMEDICAL BOLIVIA.  VENTA GENERAL                 
-CENTRO_CONTABLE                TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      D_CENTRO_CONTABLE                                                                 
-D_CENTRO_CONTABLE              TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     DESDE_FECHA                                                                       
-DESDE_FECHA                    TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   TRUE     TRUE      HASTA_FECHA                    20/09/2024                                         
-HASTA_FECHA                    TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      DESDE_CLIENTE                  26/09/2024                                         
-DESDE_CLIENTE                  TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      D_DESDE_CLIENTE                                                                   
-D_DESDE_CLIENTE                TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     HASTA_CLIENTE                                                                     
-HASTA_CLIENTE                  TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      D_HASTA_CLIENTE                                                                   
-D_HASTA_CLIENTE                TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     DESDE_SERIE                                                                       
-DESDE_SERIE                    TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      HASTA_SERIE                                                                       
-HASTA_SERIE                    TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      DESDE_NUM                                                                         
-DESDE_NUM                      TEXT ITEM       NUMBER                                          N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      HASTA_NUM                      43                                                 
-HASTA_NUM                      TEXT ITEM       NUMBER                                          N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      DESDE_TIPO_FACTURA             43                                                 
-DESDE_TIPO_FACTURA             TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      D_DESDE_TIPO_FACTURA                                                              
-D_DESDE_TIPO_FACTURA           TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     HASTA_TIPO_FACTURA                                                                
-HASTA_TIPO_FACTURA             TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      D_HASTA_TIPO_FACTURA                                                              
-D_HASTA_TIPO_FACTURA           TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     USUARIO                                                                           
-USUARIO                        TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      D_USUARIO                                                                         
-D_USUARIO                      TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     CLIENTE_ALBARAN                                                                   
-CLIENTE_ALBARAN                TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      D_CLIENTE_ALBARAN                                                                 
-D_CLIENTE_ALBARAN              TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     NUMERO_ACUSE                                                                      
-NUMERO_ACUSE                   TEXT ITEM       NUMBER                                          N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      SERIE_LICITACION                                                                  
-SERIE_LICITACION               TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      NUMERO_OFERTA                                                                     
-NUMERO_OFERTA                  TEXT ITEM       NUMBER                                          N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      CONTRATO_LICITACION                                                               
-CONTRATO_LICITACION            TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      CLIENTE_LICITACION                                                                
-CLIENTE_LICITACION             TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      D_CLIENTE_LICITACION                                                              
-D_CLIENTE_LICITACION           TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     ORGANIZACION_COMERCIAL_TAB1                                                       
-ORGANIZACION_COMERCIAL_TAB1    DISPLAY ITEM    CHAR                                            N     TRUE  TRUE    NA      NA     NA     NA       NA                                       04010                                              
-D_ORGANIZACION_COMERCIAL_TAB1  DISPLAY ITEM    CHAR                                            N     TRUE  TRUE    NA      NA     NA     NA       NA                                       PROMEDICAL BOLIVIA.  VENTA GENERAL                 
-***************************************************************************************************************************************************************************************************
-***************************************************************************************************************************************************************************************************
-* VOLCADO DEL BLOQUE B2
-***************************************************************************************************************************************************************************************************
-STATUS                : QUERY
-LAST_QUERY            : SELECT ID_DIGITAL,NUMERO_SERIE,NUMERO_FACTURA,FECHA_FACTURA,STATUS_FACTURA,D_STATUS_FACTURA,STATUS_FIRMA_DIGITAL,D_STATUS_FIRMA_DIGITAL,CLIENTE,D_CLIENTE,LIQUIDO_FACTURA,SITUACION_COBRO,EMPRESA,EJERCICIO,CENTRO_CONTABLE,ORGANIZACION_COMERCIAL,V_RESERVADO_CHAR1,ROWID FROM (SELECT facturas_ventas.* ,(Select nombre from clientes where codigo_empresa = facturas_ventas.empresa and codigo_rapido = facturas_ventas.cliente) D_CLIENTE,pkidiomas.busca_traduccion(DECODE(status_factura, '1500', 'Pdte. Impresión', '1510', 'Pdte. Impresión', '1550', 'Pdte. Confirmar', '1600', 'Pdte. Contabilizar', 'Contabilizada')) D_STATUS_FACTURA,(SELECT DECODE(FACTURAS_VENTAS.STATUS_FIRMA_DIGITAL,'N','No procesada','P','Procesada','E','Enviada a firmar','F','Firmada','C','Envíada Pdte.Conf.Envío','Z','Envío confirmado') from dual) D_STATUS_FIRMA_DIGITAL,(select decode ( fe_firmfac.get_situacion_cobro_factura(facturas_ventas.empresa,facturas_ventas.ejercicio,facturas_ventas.numero_serie,facturas_ventas.numero_factura),'S','COBRADA','N','NO COBRADA','NO COBRADA') from dual) SITUACION_COBRO,null V_RESERVADO_CHAR1 FROM facturas_ventas) facturas_ventas WHERE empresa = '004' AND organizacion_comercial = '04010' AND NOT EXISTS (SELECT 1 FROM edoc_errores e WHERE e.id_digital = facturas_ventas.id_digital AND e.procesar = 'P') AND NOT EXISTS (SELECT 1 FROM documentos doc WHERE doc.id_digital = facturas_ventas.id_digital) AND NOT EXISTS (SELECT 1 FROM facturas_sustituciones fs WHERE facturas_ventas.empresa = fs.empresa and facturas_ventas.ejercicio = fs.ejercicio_can and facturas_ventas.numero_serie = fs.numero_serie_can and facturas_ventas.numero_factura = fs.numero_factura_can) AND NVL(status_firma_digital, 'N') = 'N' AND (EXISTS (SELECT 1 FROM centros_documentos cd, caracteres_asiento ca WHERE ca.codigo = facturas_ventas.centro_contable AND ca.empresa = '004' AND cd.grupo_balance = ca.grupo_balance AND cd.tipo_documento = 'FACVEN' AND cd.empresa = '004' AND cd.enviar_todo = 'S') OR EXISTS (SELECT 1 FROM tipos_documentos_entidad_gb tde, caracteres_asiento c WHERE c.codigo = facturas_ventas.centro_contable AND c.empresa = '004' AND tde.empresa = '004' AND tde.tipo_entidad = 'CL' AND tde.codigo_entidad = facturas_ventas.cliente AND tde.grupo_balance = c.grupo_balance AND tde.tipo_documento = 'FACVEN') OR EXISTS (SELECT 1 FROM tipos_documentos_entidad tde WHERE tde.empresa = '004' AND tde.tipo_entidad = 'CL' AND tde.codigo_entidad = facturas_ventas.cliente AND tde.tipo_documento = 'FACVEN')) AND fecha_cancelacion_sat is null AND fecha_envio_cancelacion_sat is null AND pk_util_detr.envio_fe(facturas_ventas.empresa, facturas_ventas.ejercicio, facturas_ventas.numero_serie, facturas_ventas.numero_factura) = 'S' AND EXISTS (SELECT 1 FROM centros_documentos cd, caracteres_asiento ca WHERE ca.codigo = facturas_ventas.centro_contable AND ca.empresa = '004' AND cd.grupo_balance = ca.grupo_balance AND cd.tipo_documento = 'FACVEN' AND cd.empresa = '004' AND cd.digital = 'S') AND numero_factura >= 43 AND numero_factura <= 43 AND fecha_factura >= TO_DATE('20/09/2024','DD/MM/YYYY') AND fecha_factura <= TO_DATE('26/09/2024','DD/MM/YYYY')  order by fecha_factura, numero_serie, numero_factura
+15:47:19 {TRACE}  : BD:PKPANTALLAS_AUX-INT_EXECUTE_IMMEDIATE: p_comando: ALTER SESSION SET TRACEFILE_IDENTIFIER = "F90437-EMERCADO-FE_FIRMFAC"
+15:47:19 {TRACE}  : BD:PKPANTALLAS_AUX-INT_EXECUTE_IMMEDIATE: p_comando: BEGIN dbms_session.session_trace_enable(binds=>true,waits=>true); END;
+15:47:19 {TRACE}  : EJECUTANDO INICIO
+15:47:19 {TRACE}  : PKPANTALLAS.SET_ROL_ACTIVO: 
+15:47:19 {TRACE}  : BD:PKPANTALLAS-SET_ROL_ACTIVO: p_rol: 
+15:47:19 {TRACE}  : CARGANDO DATOS DE PROGRAMAS_ERP: Envío/anul. firma electrónica
+15:47:19 {TRACE}  : BD:PKPANTALLAS-SET_EMPRESA_USUARIO: p_empresa: 004, p_usuario: EMERCADO, p_perfil: 1SISTEMAS
+15:47:19 {TRACE}  : BD:PKPANTALLAS_CU-EJECUTAR_PL_SQL_SENCILLO: p_codigo: ALTER SESSION SET TIME_ZONE = '-04:00'
+15:47:19 {TRACE}  : BD:PKPANTALLAS-SET_IDIOMA_USUARIO_VALIDADO: p_idioma: 23
+15:47:19 {TRACE}  : BD:PKPANTALLAS-SET_VARIABLE_INT: p_variable VARCHAR2: PKIDIOMAS.REG_FALLOS_TRADUCCION, p_valor: N
+15:47:19 {TRACE}  : BD:PKPANTALLAS-SET_IDIOMA_USUARIO_VALIDADO: p_idioma: 23
+15:47:19 {TRACE}  : BD:PKPANTALLAS-GET_ID_PERSONALIZACION: p_programa: FE_FIRMFAC, p_empresa: 004, p_usuario: EMERCADO, p_perfil: 1SISTEMAS
+15:47:19 {TRACE}  :   USANDO PERSONALIZACION: 1
+15:47:19 {TRACE}  : ESTABLECIENDO CONFIGURACION DEL USUARIO
+15:47:19 {TRACE}  : BD:PKPANTALLAS-COMANDO_CONFIG_USUARIO: p_operacion: PKLIBPNT_IMP, p_parametro1: DESTINO_REPORT_FAX, p_parametro2: N, p_parametro3: 
+15:47:19 {TRACE}  : FMENU.SET_PROPIEDAD: p_propiedad: ACTIVA_PERFILADOR, p_valor: TRUE
+15:47:19 {TRACE}  : FMENU.SET_PROPIEDAD: p_propiedad: EDITAR_AYUDA_CAMPOS, p_valor: N
+15:47:19 {TRACE}  : BD:PK_GALILEO-CONFIGURADO_SERVICIO_GALILEO: p_id_galileo: GAL_PROXY
+15:47:19 {TRACE}  : BD:PKPANTALLAS-GET_CONFIG_USUARIO: get_config_usuario
+15:47:19 {TRACE}  : IMP.SET_PROPIEDAD: p_propiedad: DESTINO_REPORT_FAX, p_valor: N
+15:47:19 {TRACE}  : BD:PKPANTALLAS_AUX-F_HAY_NOTAS_PROGRAMA: p_empresa: 004, p_usuario: EMERCADO, p_programa: FE_FIRMFAC, p_id_personalizacion: 1
+15:47:19 {TRACE}  : IMP.SET_PROPIEDAD: p_propiedad: PEDIR_PAGINA_INICIAL, p_valor: N
+15:47:19 {TRACE}  : IMP.SET_PROPIEDAD: p_propiedad: HAY_BREPORT_INFORME, p_valor: N
+15:47:19 {TRACE}  : IMP.AJUSTE_INICIAL_BREPORT: p_tipo_impresora: A, p_imprimir_excel: S, p_puesto: IAS, p_informe_inicial: , p_imp_dispositivo_def: SCREEN, p_informe_obigatorio: N, p_forzar_habilitar_imp: N
+15:47:19 {TRACE}  : BD:PKENTORNO-GET_DATOS_BIP_MWL_PKLIBPNT: get_datos_bip_mwl_pklibpnt
+15:47:19 {TRACE}  : PKLIBPNT: CARGAR_DATOS_PROGRAMA
+15:47:19 {TRACE}  : BD:PKPANTALLAS-CARGA_DATOS_PROGRAMA: INICIO p_programa: FE_FIRMFAC, p_usuario: EMERCADO, p_empresa: 004, p_prueba_fallos: N, p_idioma: 23, p_lista_valores_contextual: S, p_enviar_excel: S, p_seleccionar_campos_excel: S, p_enviar_grafico: N
+15:47:19 {TRACE}  : BD:PKPANTALLAS-CARGA_DATOS_PROGRAMA: CARGAR BLOQUES
+15:47:19 {TRACE}  : BD:PKPANTALLAS-CARGA_DATOS_PROGRAMA: CARGAR GRUPOS VALIDACION
+15:47:19 {TRACE}  : BD:PKPANTALLAS-CARGA_DATOS_PROGRAMA_PLUGINS: INICIO
+15:47:19 {TRACE}  : BD:PKPANTALLAS-GET_VARIABLE_INT_VARCHAR2: p_variable: PKIDIOMAS.REG_FALLOS_TRADUCCION
+15:47:19 {TRACE}  : BD:PKPANTALLAS-GET_VARIABLE_INT_VARCHAR2: p_variable: PKIDIOMAS.REG_FALLOS_TRADUCCION
+15:47:19 {TRACE}  : BD:PKPANTALLAS-GET_VARIABLE_INT_VARCHAR2: p_variable: PKIDIOMAS.REG_FALLOS_TRADUCCION
+15:47:19 {TRACE}  : BD:PKPANTALLAS-GET_VARIABLE_INT_VARCHAR2: p_variable: PKIDIOMAS.REG_FALLOS_TRADUCCION
+15:47:19 {TRACE}  : BD:PKPANTALLAS-GET_VARIABLE_INT_VARCHAR2: p_variable: PKIDIOMAS.REG_FALLOS_TRADUCCION
+15:47:19 {TRACE}  : BD:PKPANTALLAS-GET_VARIABLE_INT_VARCHAR2: p_variable: PKIDIOMAS.REG_FALLOS_TRADUCCION
+15:47:19 {TRACE}  : BD:PKPANTALLAS-GET_VARIABLE_INT_VARCHAR2: p_variable: PKIDIOMAS.REG_FALLOS_TRADUCCION
+15:47:19 {TRACE}  : BD:PKPANTALLAS-GET_VARIABLE_INT_VARCHAR2: p_variable: PKIDIOMAS.REG_FALLOS_TRADUCCION
+15:47:19 {TRACE}  : BD:PKPANTALLAS-GET_VARIABLE_INT_VARCHAR2: p_variable: PKIDIOMAS.REG_FALLOS_TRADUCCION
+15:47:19 {TRACE}  : BD:PKPANTALLAS-CARGA_DATOS_PROGRAMA_TABS: INICIO
+15:47:19 {TRACE}  : BD:PKPANTALLAS-CARGA_DATOS_PROGRAMA: CARGAR VENTANAS
+15:47:19 {TRACE}  : BD:PKPANTALLAS-CARGA_DATOS_PROGRAMA: CARGAR CAMPOS
+15:47:19 {TRACE}  : BD:PKPANTALLAS-PROGRAMA_AUTORIZADO: p_empresa: 004, p_programa: CARASIEN, p_usuario: EMERCADO, p_altas_modificaciones: T, p_programa_actual: FE_FIRMFAC, resultado: true
+15:47:19 {TRACE}  : BD:PKPANTALLAS-PROGRAMA_AUTORIZADO: p_empresa: 004, p_programa: CLIENTES, p_usuario: EMERCADO, p_altas_modificaciones: T, p_programa_actual: FE_FIRMFAC, resultado: true
+15:47:19 {TRACE}  : BD:PKPANTALLAS-INT_GET_PROGRAMA_ERP_RC: TIPOSFAC NO ENCONTRADO
+15:47:19 {TRACE}  : BD:PKPANTALLAS-PROGRAMA_AUTORIZADO: p_empresa: 004, p_programa: TIPOSFAC, p_usuario: EMERCADO, p_altas_modificaciones: T, p_programa_actual: FE_FIRMFAC, resultado: true
+15:47:20 {TRACE}  : BD:PKPANTALLAS-PROGRAMA_AUTORIZADO: p_empresa: 004, p_programa: A_MORCME, p_usuario: EMERCADO, p_altas_modificaciones: T, p_programa_actual: FE_FIRMFAC, resultado: true
+15:47:20 {TRACE}  : BD:PKPANTALLAS-INT_GET_PROGRAMA_ERP_RC: FE_TIPODOC NO ENCONTRADO
+15:47:20 {TRACE}  : BD:PKPANTALLAS-PROGRAMA_AUTORIZADO: p_empresa: 004, p_programa: FE_TIPODOC, p_usuario: EMERCADO, p_altas_modificaciones: T, p_programa_actual: FE_FIRMFAC, resultado: true
+15:47:20 {TRACE}  : BD:PKPANTALLAS-PROGRAMA_AUTORIZADO: p_empresa: 004, p_programa: USUARIOS2, p_usuario: EMERCADO, p_altas_modificaciones: T, p_programa_actual: FE_FIRMFAC, resultado: true
+15:47:20 {TRACE}  : BD:PKPANTALLAS-CARGA_DATOS_PROGRAMA: PROCESAR CAMPOS
+15:47:20 {TRACE}  : BD:PKPANTALLAS-EJECUTA_FUNCION: BEGIN :1 := PKVALIDAR_ENTIDADES.CW_VALIDA_CENTRO_CONTABLE('EMERCADO', '004', 'caracteres_asiento.codigo', 'N');END;
+15:47:20 {TRACE}  : BD:PKPANTALLAS-EJECUTA_FUNCION: BEGIN :1 := pkvalidar_entidades.cw_org_comerc_usuarios('EMERCADO', '004', 'organizacion_comercial.codigo_org_comer');END;
+15:47:20 {TRACE}  : PKLIBPNT: FIN PKPANTALLAS.CARGAR_DATOS_PROGRAMA
+15:47:20 {TRACE}  : RELLENA_LIST_ITEM_DESDE_LV: p_item: B1.TIPO_DOCUMENTO, p_tipo: L, p_valor_por_defecto: 
+15:47:20 {TRACE}  : CONSULTA: SELECT c2,c1 FROM (select codigo c1, descripcion c2, tipo_entidad c3, rowid rowid_lov
+ from tipos_documentos WHERE TIPO_ENTIDAD='CL' and CODIGO in ('FACVEN','TBAI'))  ORDER BY C1 ASC
+15:47:20 {TRACE}  : DISPSTD.SET_PROPIEDAD: p_codigo: B1.TIPO_DOCUMENTO, p_propiedad: VALOR_POR_DEFECTO, p_valor: FACVEN, p_tipo: C
+15:47:20 {TRACE}  : RELLENA_LIST_ITEM_DESDE_LV: p_item: B1.TIPO_OPERACION, p_tipo: L, p_valor_por_defecto: E
+15:47:20 {TRACE}  : CONSULTA: SELECT c2,c1 FROM (select decode(cont, 1, 'E', 2, 'R', 3, 'D') C1, decode(cont, 1, 'Enviar Facturas a Firmar', 2, 'Reenviar Facturas', 3, 'Descargar Facturas') C2, 'elrowid' rowid_lov from dummy_cont where cont <= 3) 
+15:47:20 {TRACE}  : Establecemos orden y where inicial de los bloques
+15:47:20 {TRACE}  : PKLIBPNT: FIN CARGAR_DATOS_PROGRAMA
+15:47:20 {TRACE}  : LV.SET_PROPIEDAD: p_propiedad: CASE_INSENSITIVE_QUERY, p_valor: S
+15:47:20 {TRACE}  : FITEM.SET_PROPIEDAD: p_tipo: SMIP, p_objeto: BOTONES_HORIZONTALES.ESCRITORIO, p_propiedad: 79, p_valor: 4
+15:47:20 {TRACE}  : FITEM.SET_PROPIEDAD: p_tipo: SMIP, p_objeto: DESPLAZAMIENTO.ESCRITORIO, p_propiedad: 79, p_valor: 4
+15:47:20 {TRACE}  : FIN INICIO
+15:47:20 {TRACE}  : WHEN-CREATE-RECORD: B1
+15:47:20 {TRACE}  : APLICAR VALOR POR DEFECTO A: B1.TIPO_DOCUMENTO, PARSEAR: N, VALOR: FACVEN
+15:47:20 {TRACE}  : APLICAR VALOR POR DEFECTO A: B1.TIPO_OPERACION, PARSEAR: N, VALOR: E
+15:47:20 {TRACE}  : INICIALIZANDO PERMISOS: TRUE
+15:47:20 {TRACE}  : El programa es llamado desde el menu MDI
+15:47:20 {TRACE}  : CARGAR PERMISOS. Usuario: EMERCADO, opción menú: 2V28010, empresa: 004, ROL: 
+15:47:20 {TRACE}  : GRABAR_PORT
+15:47:20 {TRACE}  : BD:PKPANTALLAS-GRABAR_PORT: p_usuario: EMERCADO, p_superusuario: EMERCADO, p_perfil: 1SISTEMAS, p_menus_perfiles: 2V28010, p_desde_puesto: IAS, p_fecha_conexion: 03-10-2024 15:47:18, p_empresa: 004, p_programa: FE_FIRMFAC, p_id_form: 23, p_sid_escritorio: 15744312, p_form_name: , p_usuario_origen: , p_id_sesion: 141953893, p_usuario_so: edgar.mercado, p_equipo_so: EMERCADO, p_version_cliente_libra: , p_sistema_operativo: , p_texto_host_check: , p_id_personalizacion: 1, p_prueba_fallos: N, p_uuid_cliente_libra: , p_id_port: id_port:15744312.id_port_origen_login:15744312., p_ruta_programa: , p_cadena_control_fuentes: 34.0.F12C.641
+15:47:20 {TRACE}  : BD:PKPANTALLAS-SET_EMPRESA_USUARIO: p_empresa: 004, p_usuario: EMERCADO, p_perfil: 1SISTEMAS
+15:47:21 {TRACE}  : ORIGEN_PL_SQL: PKLIBPNT\WNFI.CODIGO_PL_SQL_INICIALIZACION
+15:47:21 {TRACE}  : PRE_SUST_VARIABLES_SELECT: PKPANTALLAS.INICIALIZAR_CODIGO_PLUG_IN;
+PKPANTALLAS.COMANDO_PLUG_IN('STPP','CANVAS_BASE.TAB3', 'VISIBLE', 'PROPERTY_TRUE');
+PKPANTALLAS.COMANDO_PLUG_IN('STPP','CANVAS_BASE.TAB4', 'VISIBLE', 'PROPERTY_TRUE');
+15:47:21 {TRACE}  : BD:PKPANTALLAS_CU-EJECUTAR_CODIGO_PL_SQL: DECLARE v_ax VARCHAR2(4000); BEGIN:p_parar_ejecucion:=NULL;:p_tipo_mensaje:=NULL;:p_codigo_mensaje:=NULL;:p_texto_mensaje:=NULL;:p_lv_lista_valores:=NULL;:p_lv_ejecutar_consulta:=NULL;:p_lv_where:=NULL;:p_lv_consulta_bd:=NULL;:p_validar_desde_lista:=NULL;:p_ejecutar_programa:=NULL;v_ax:=:p_ejecutado_desde_kni;:p_modo_menu_prog_llamado:=NULL;:p_modo_consulta_prog_llamado:=NULL;:p_codigo_pl_sql:=NULL;:p_valor_campo_ok:=NULL;:p_valor_campo_cancel:=NULL;:p_esperar_fin_programa_llamado:=NULL;PKPANTALLAS.INICIALIZAR_CODIGO_PLUG_IN;
+PKPANTALLAS.COMANDO_PLUG_IN('STPP','CANVAS_BASE.TAB3', 'VISIBLE', 'PROPERTY_TRUE');
+PKPANTALLAS.COMANDO_PLUG_IN('STPP','CANVAS_BASE.TAB4', 'VISIBLE', 'PROPERTY_TRUE'); END;
+15:47:21 {TRACE}  : BD:PKPANTALLAS_CU-EJECUTAR_CODIGO_PL_SQL:   p_ejecutado_desde_kni: S, p_validar_desde_lista: N
+15:47:21 {TRACE}  : BD:PKPANTALLAS-INICIALIZAR_CODIGO_PLUG_IN: inicializar_codigo_plug_in
+15:47:21 {TRACE}  : BD:PKPANTALLAS-COMANDO_PLUG_IN: p_operacion: STPP, p_parametro1: CANVAS_BASE.TAB3, p_parametro2: VISIBLE, p_parametro3: PROPERTY_TRUE
+15:47:21 {TRACE}  : BD:PKPANTALLAS-COMANDO_PLUG_IN: p_operacion: STPP, p_parametro1: CANVAS_BASE.TAB4, p_parametro2: VISIBLE, p_parametro3: PROPERTY_TRUE
+15:47:21 {TRACE}  : parar_ejecucion: , tipo_mensaje: , mensaje: , texto_mensaje: , lista_valores: , lv_ejecutar_consulta: , lv_where: , lv_consulta_bd: , ejecutar_programa: , modo_menu_pr_llamado: 39, modo_cons_pr_llamado: 501, codigo_pl_sql: , valor_campo_ok: , valor_campo_cancel: , esperar_fin_prog: 
+15:47:21 {TRACE}  : BD:PKPANTALLAS-GET_COMANDOS_PLUG_IN: get_comandos_plug_in
+15:47:21 {TRACE}  : BD:PKPANTALLAS-INICIALIZAR_CODIGO_PLUG_IN: inicializar_codigo_plug_in
+15:47:21 {TRACE}  : EJECUTAR_CODIGO_PLUG_IN: OPERACION: STPP, P1: CANVAS_BASE.TAB3, P2: VISIBLE, P3: PROPERTY_TRUE
+15:47:21 {TRACE}  : EJECUTAR_CODIGO_PLUG_IN: OPERACION: STPP, P1: CANVAS_BASE.TAB4, P2: VISIBLE, P3: PROPERTY_TRUE
+15:47:21 {TRACE}  : PKLIBPNT: BOTON_VERTICAL_VISIBLE. p_boton: B01, p_etiqueta: Marcar, p_icono: marcar, p_icono_mapeo: check_boxes_series
+15:47:21 {TRACE}  : PKLIBPNT: BOTON_VERTICAL_VISIBLE. p_boton: B02, p_etiqueta: Desmarcar, p_icono: desmarca, p_icono_mapeo: check_box_list-uncheck
+15:47:21 {TRACE}  : PKLIBPNT: BOTON_VERTICAL_VISIBLE. p_boton: B03, p_etiqueta: Procesar, p_icono: produccion, p_icono_mapeo: gear_in
+15:47:21 {TRACE}  : FITEM.VISIBLE, p_campo: B2.SITUACION_COBRO, p_modo: FALSE
+15:47:22 {TRACE}  : WHEN-NEW-BLOCK-INSTANCE: B1
+15:47:22 {TRACE}  : FMENU.SET_PROPIEDAD: p_propiedad: ICONO_FILTRAR_CONSULTA, p_valor: B1
+15:47:22 {TRACE}  : WHEN-NEW-RECORD-INSTANCE: B1, REGISTRO: 1
+15:47:22 {TRACE}  : WHEN-NEW-ITEM-INSTANCE. MODE: NORMAL, BLOQUE: B1, ITEM: B1.TIPO_OPERACION: E
+15:47:23 {TRACE}  : WHEN-VALIDATE-ITEM: B1.TIPO_OPERACION
+15:47:23 {TRACE}  : FITEM.OBLIGATORIO, p_campo: B1.ORGANIZACION_COMERCIAL, p_modo: TRUE
+15:47:23 {TRACE}  : FITEM.OBLIGATORIO, p_campo: B1.DESDE_FECHA, p_modo: TRUE
+15:47:23 {TRACE}  : DISPSTD.PRE_TEXT_ITEM: B1.ORGANIZACION_COMERCIAL
+15:47:23 {TRACE}  : WHEN-NEW-ITEM-INSTANCE. MODE: NORMAL, BLOQUE: B1, ITEM: B1.ORGANIZACION_COMERCIAL: 
+15:47:23 {TRACE}  : LV.SET_LV_GRUPO: N
+15:47:23 {TRACE}  : LV.ACTIVA, p_lista_valores: ORGANIZACION_COMERCIAL, p_ejecutar_consulta_aut: S, p_where_defecto: codigo_empresa = :global.codigo_empresa , p_consulta_bd: SELECT codigo_org_comer c1, nombre c2, rowid rowid_lov FROM organizacion_comercial
+15:47:23 {TRACE}  : BD:PKPANTALLAS-EJECUTA_FUNCION: BEGIN :1 := pkvalidar_entidades.cw_org_comerc_usuarios('EMERCADO', '004', 'organizacion_comercial.codigo_org_comer');END;
+15:47:23 {TRACE}  : LV.SET_PROPIEDAD: p_propiedad: ETIQUETA_BOTON_WHERE, p_valor: 
+15:47:23 {TRACE}  : LV.SET_PROPIEDAD: p_propiedad: ETIQUETA_BOTON_WHERE2, p_valor: 
+15:47:23 {TRACE}  : LV.SET_PROPIEDAD: p_propiedad: WHERE_LOV2, p_valor: 
+15:47:24 {TRACE}  : KEY-NEXT-ITEM: B1.ORGANIZACION_COMERCIAL: 04010
+15:47:24 {TRACE}  : VALIDATE_ITEM
+15:47:24 {TRACE}  : BD:PKPANTALLAS-GET_COMANDOS_PLUG_IN: get_comandos_plug_in
+15:47:25 {TRACE}  : BD:PKPANTALLAS-INICIALIZAR_CODIGO_PLUG_IN: inicializar_codigo_plug_in
+15:47:25 {TRACE}  : WHEN-VALIDATE-ITEM: B1.ORGANIZACION_COMERCIAL
+15:47:25 {TRACE}  : VALIDACIONES.VALIDAR_DESDE_LISTA. p_item: B1.ORGANIZACION_COMERCIAL, p_intento: 1, p_lv_codigo_lista: ORGANIZACION_COMERCIAL, p_columna_codigo: 1, p_columna_descripcion: 2
+15:47:25 {TRACE}  : PRE_SUST_VARIABLES_SELECT: SELECT  nombre, codigo_org_comer FROM organizacion_comercial WHERE codigo_org_comer = :B1.ORGANIZACION_COMERCIAL  AND codigo_empresa = :global.codigo_empresa 
+15:47:25 {TRACE}  : VALIDA_CAMPO: p_item_codigo: B1.ORGANIZACION_COMERCIAL, p_item_descripcion: B1.D_ORGANIZACION_COMERCIAL, SELECT: SELECT  nombre, codigo_org_comer FROM organizacion_comercial WHERE codigo_org_comer = :V1  AND codigo_empresa = :V2 
+15:47:25 {TRACE}  : FITEM.OBLIGATORIO, p_campo: numero_acuse, p_modo: FALSE
+15:47:25 {TRACE}  : DISPSTD.POST_TEXT_ITEM: B1.ORGANIZACION_COMERCIAL
+15:47:25 {TRACE}  : LV.DESACTIVA
+15:47:25 {TRACE}  : DISPSTD.PRE_TEXT_ITEM: B1.CENTRO_CONTABLE
+15:47:25 {TRACE}  : WHEN-NEW-ITEM-INSTANCE. MODE: NORMAL, BLOQUE: B1, ITEM: B1.CENTRO_CONTABLE: 
+15:47:25 {TRACE}  : LV.SET_LV_GRUPO: N
+15:47:25 {TRACE}  : LV.ACTIVA, p_lista_valores: CARACTERES_ASIENTO, p_ejecutar_consulta_aut: S, p_where_defecto:  empresa = :global.codigo_empresa  AND (NVL(pkpantallas.get_variable_env_varchar2('EXCLUIR_CC_NIIF'),'S') = 'N' OR (NOT EXISTS (SELECT 1 FROM centros_contables_niif n WHERE n.empresa = caracteres_asiento.empresa AND (n.centro_nac = caracteres_asiento.codigo OR n.centro_niif = caracteres_asiento.codigo)))) AND EXISTS (SELECT 1 FROM centros_documentos cd WHERE cd.grupo_balance = caracteres_asiento.grupo_balance AND cd.tipo_documento = :b1.tipo_documento AND cd.empresa = caracteres_asiento.empresa AND cd.digital = 'S'), p_consulta_bd: SELECT codigo c1, nombre c2, rowid rowid_lov FROM caracteres_asiento
+15:47:25 {TRACE}  : BD:PKPANTALLAS-EJECUTA_FUNCION: BEGIN :1 := PKVALIDAR_ENTIDADES.CW_VALIDA_CENTRO_CONTABLE('EMERCADO', '004', 'caracteres_asiento.codigo', 'N');END;
+15:47:25 {TRACE}  : LV.SET_PROPIEDAD: p_propiedad: ETIQUETA_BOTON_WHERE, p_valor: 
+15:47:25 {TRACE}  : LV.SET_PROPIEDAD: p_propiedad: ETIQUETA_BOTON_WHERE2, p_valor: 
+15:47:25 {TRACE}  : LV.SET_PROPIEDAD: p_propiedad: WHERE_LOV2, p_valor: 
+15:47:26 {TRACE}  : WHEN-VALIDATE-ITEM: B1.CENTRO_CONTABLE
+15:47:26 {TRACE}  : VALIDACIONES.VALIDAR_DESDE_LISTA. p_item: B1.CENTRO_CONTABLE, p_intento: 1, p_lv_codigo_lista: CARACTERES_ASIENTO, p_columna_codigo: 1, p_columna_descripcion: 2
+15:47:26 {TRACE}  : ORIGEN_PL_SQL: PKLIBPNT\WVI.LV_CODIGO_PL_SQL_VALIDACION(B1.CENTRO_CONTABLE)
+15:47:26 {TRACE}  : PRE_SUST_VARIABLES_SELECT: declare
+  p_tipo varchar(100);
+  p_msg varchar2(100);
+begin
+  IF :B1.CENTRO_CONTABLE IS NOT NULL THEN
+    If not PKCONEMPRESA.buscar_GB_FISCAL(p_empresa => :global.codigo_empresa,
+                                         p_grupo_balance => null,
+                                         p_centro_contable => :B1.CENTRO_CONTABLE,
+                                         p_validar_consolidados => pkpantallas.get_variable_env_varchar2('VALIDAR_CONSOLIDADOS'),
+                                         p_tipo_mensaje => p_tipo,
+                                         p_codigo_mensaje => p_msg
+                                         ) then
+      ==P_TIPO_MENSAJE := p_tipo;
+      ==P_CODIGO_MENSAJE := p_msg;
+      ==P_PARAR_EJECUCION := 'S';
+    end if;
+  end if;
 
-QUERY_DATA_SOURCE_NAME: (SELECT facturas_ventas.* ,(Select nombre from clientes where codigo_empresa = facturas_ventas.empresa and codigo_rapido = facturas_ventas.cliente) D_CLIENTE,pkidiomas.busca_traduccion(DECODE(status_factura, '1500', 'Pdte. Impresión', '1510', 'Pdte. Impresión', '1550', 'Pdte. Confirmar', '1600', 'Pdte. Contabilizar', 'Contabilizada')) D_STATUS_FACTURA,(SELECT DECODE(FACTURAS_VENTAS.STATUS_FIRMA_DIGITAL,'N','No procesada','P','Procesada','E','Enviada a firmar','F','Firmada','C','Envíada Pdte.Conf.Envío','Z','Envío confirmado') from dual) D_STATUS_FIRMA_DIGITAL,(select decode ( fe_firmfac.get_situacion_cobro_factura(facturas_ventas.empresa,facturas_ventas.ejercicio,facturas_ventas.numero_serie,facturas_ventas.numero_factura),'S','COBRADA','N','NO COBRADA','NO COBRADA') from dual) SITUACION_COBRO,null V_RESERVADO_CHAR1 FROM facturas_ventas) facturas_ventas
+  --PAULAO(18/11/2019)->añado función para grabar de gorma global el centro contable
+  IF :B1.CENTRO_CONTABLE IS NOT NULL THEN
+     PKCONEMPRESA.buscar_cc_FISCAL(p_empresa => :global.codigo_empresa,
+                                         p_centro_contable => :B1.CENTRO_CONTABLE);
+  end if;
+  --FIN PAULAO
+end;
+15:47:26 {TRACE}  :   VINCULAR_VARIABLE: B1.CENTRO_CONTABLE
+15:47:26 {TRACE}  :   VINCULAR_VARIABLE: GLOBAL.CODIGO_EMPRESA
+15:47:26 {TRACE}  : BD:PKPANTALLAS_CU-EJECUTAR_CODIGO_PL_SQL: DECLARE v_ax VARCHAR2(4000); BEGIN v_ax:=:1; v_ax:=:2;:p_parar_ejecucion:=NULL;:p_tipo_mensaje:=NULL;:p_codigo_mensaje:=NULL;:p_texto_mensaje:=NULL;:p_lv_lista_valores:=NULL;:p_lv_ejecutar_consulta:=NULL;:p_lv_where:=NULL;:p_lv_consulta_bd:=NULL;:p_validar_desde_lista:=NULL;:p_ejecutar_programa:=NULL;v_ax:=:p_ejecutado_desde_kni;:p_modo_menu_prog_llamado:=NULL;:p_modo_consulta_prog_llamado:=NULL;:p_codigo_pl_sql:=NULL;:p_valor_campo_ok:=NULL;:p_valor_campo_cancel:=NULL;:p_esperar_fin_programa_llamado:=NULL;declare
+  p_tipo varchar(100);
+  p_msg varchar2(100);
+begin
+  IF :1 IS NOT NULL THEN
+    If not PKCONEMPRESA.buscar_GB_FISCAL(p_empresa => :2,
+                                         p_grupo_balance => null,
+                                         p_centro_contable => :1,
+                                         p_validar_consolidados => pkpantallas.get_variable_env_varchar2('VALIDAR_CONSOLIDADOS'),
+                                         p_tipo_mensaje => p_tipo,
+                                         p_codigo_mensaje => p_msg
+                                         ) then
+      :p_tipo_mensaje := p_tipo;
+      :p_codigo_mensaje := p_msg;
+      :p_parar_ejecucion := 'S';
+    end if;
+  end if;
 
-DML_DATA_TARGET_NAME  : 
-DEFAULT_WHERE         : empresa = :GLOBAL.codigo_empresa AND organizacion_comercial = :B1.ORGANIZACION_COMERCIAL AND NOT EXISTS (SELECT 1 FROM edoc_errores e WHERE e.id_digital = facturas_ventas.id_digital AND e.procesar = 'P') AND NOT EXISTS (SELECT 1 FROM documentos doc WHERE doc.id_digital = facturas_ventas.id_digital) AND NOT EXISTS (SELECT 1 FROM facturas_sustituciones fs WHERE facturas_ventas.empresa = fs.empresa and facturas_ventas.ejercicio = fs.ejercicio_can and facturas_ventas.numero_serie = fs.numero_serie_can and facturas_ventas.numero_factura = fs.numero_factura_can) AND NVL(status_firma_digital, 'N') = 'N' AND (EXISTS (SELECT 1 FROM centros_documentos cd, caracteres_asiento ca WHERE ca.codigo = facturas_ventas.centro_contable AND ca.empresa = :GLOBAL.codigo_empresa AND cd.grupo_balance = ca.grupo_balance AND cd.tipo_documento = :B1.TIPO_DOCUMENTO AND cd.empresa = :GLOBAL.codigo_empresa AND cd.enviar_todo = 'S') OR EXISTS (SELECT 1 FROM tipos_documentos_entidad_gb tde, caracteres_asiento c WHERE c.codigo = facturas_ventas.centro_contable AND c.empresa = :GLOBAL.codigo_empresa AND tde.empresa = :GLOBAL.codigo_empresa AND tde.tipo_entidad = 'CL' AND tde.codigo_entidad = facturas_ventas.cliente AND tde.grupo_balance = c.grupo_balance AND tde.tipo_documento = :B1.TIPO_DOCUMENTO) OR EXISTS (SELECT 1 FROM tipos_documentos_entidad tde WHERE tde.empresa = :GLOBAL.codigo_empresa AND tde.tipo_entidad = 'CL' AND tde.codigo_entidad = facturas_ventas.cliente AND tde.tipo_documento = :B1.TIPO_DOCUMENTO)) AND fecha_cancelacion_sat is null AND fecha_envio_cancelacion_sat is null AND pk_util_detr.envio_fe(facturas_ventas.empresa, facturas_ventas.ejercicio, facturas_ventas.numero_serie, facturas_ventas.numero_factura) = 'S' AND EXISTS (SELECT 1 FROM centros_documentos cd, caracteres_asiento ca WHERE ca.codigo = facturas_ventas.centro_contable AND ca.empresa = :GLOBAL.codigo_empresa AND cd.grupo_balance = ca.grupo_balance AND cd.tipo_documento = :B1.TIPO_DOCUMENTO AND cd.empresa = :GLOBAL.codigo_empresa AND cd.digital = 'S') AND numero_factura >= :B1.DESDE_NUM AND numero_factura <= :B1.HASTA_NUM AND fecha_factura >= TO_DATE(:B1.DESDE_FECHA,'DD/MM/YYYY') AND fecha_factura <= TO_DATE(:B1.HASTA_FECHA,'DD/MM/YYYY')
-ORDER_BY              : fecha_factura, numero_serie, numero_factura
-QUERY_ALLOWED         : TRUE
-INSERT_ALLOWED        : FALSE
-UPDATE_ALLOWED        : TRUE
-DELETE_ALLOWED        : FALSE
- 
-NOMBRE CAMPO                   ITEM TYPE       DATATYPE        MASCARA                         PK    VALID VISIBLE ENABLED INSERT UPDATE REQUIRED NAVIGABLE NEXT_NAVIGATION_ITEM           VALOR ACTUAL DEL CAMPO (PRIMEROS 50 CARACTERES)   
------------------------------- --------------- --------------- ------------------------------- ----- ----- ------- ------- ------ ------ -------- --------- ------------------------------ --------------------------------------------------
-ID_DIGITAL                     TEXT ITEM       NUMBER                                          N     TRUE  FALSE   FALSE   TRUE   TRUE   FALSE    FALSE     SELECCIONADO                                                                      
-SELECCIONADO                   CHECKBOX        CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   NA       TRUE      NUMERO_SERIE                   S                                                  
-NUMERO_SERIE                   TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    FALSE  FALSE  TRUE     TRUE      NUMERO_FACTURA                 210                                                
-NUMERO_FACTURA                 TEXT ITEM       NUMBER          9G999G999G999                   N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    TRUE      FECHA_FACTURA                  43                                                 
-FECHA_FACTURA                  TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    TRUE      STATUS_FACTURA                 26/09/2024                                         
-STATUS_FACTURA                 TEXT ITEM       CHAR                                            N     TRUE  FALSE   FALSE   FALSE  FALSE  FALSE    FALSE     D_STATUS_FACTURA               3000                                               
-D_STATUS_FACTURA               TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     STATUS_FIRMA_DIGITAL           Contabilizada                                      
-STATUS_FIRMA_DIGITAL           TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      D_STATUS_FIRMA_DIGITAL                                                            
-D_STATUS_FIRMA_DIGITAL         TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     CLIENTE                                                                           
-CLIENTE                        TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    TRUE      D_CLIENTE                      009166                                             
-D_CLIENTE                      TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     LIQUIDO_FACTURA                FCIA. BENIANA - SCZ                                
-LIQUIDO_FACTURA                TEXT ITEM       NUMBER          FM9G999G999G999G999G990D00      N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     SITUACION_COBRO                1617.61                                            
-SITUACION_COBRO                DISPLAY ITEM    CHAR                                            N     TRUE  FALSE   NA      NA     NA     NA       NA                                       NO COBRADA                                         
-EMPRESA                        TEXT ITEM       CHAR                                            N     TRUE  FALSE   FALSE   FALSE  FALSE  TRUE     FALSE     EJERCICIO                      004                                                
-EJERCICIO                      TEXT ITEM       NUMBER                                          N     TRUE  FALSE   FALSE   FALSE  FALSE  TRUE     FALSE     CENTRO_CONTABLE                2024                                               
-CENTRO_CONTABLE                TEXT ITEM       CHAR                                            N     TRUE  FALSE   FALSE   FALSE  FALSE  TRUE     13:38:46 {TRACE}  : VALIDACIONES.CALCULA_ROWID_BLOQUE: B2, registro: 1, status: QUERY
-FALSE     D_CENTRO_CONTABLE              0401                                               
-D_CENTRO_CONTABLE              DISPLAY ITEM    CHAR                                            N     TRUE  FALSE   NA      NA     NA     NA       NA                                                                                          
-ORGANIZACION_COMERCIAL         TEXT ITEM       CHAR                                            N     TRUE  FALSE   FALSE   FALSE  FALSE  FALSE    FALSE     V_RESERVADO_CHAR1              04010                                              
-V_RESERVADO_CHAR1              TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     ROWID                                                                             
-ROWID                          TEXT ITEM       CHAR                                            N     TRUE  FALSE   FALSE   FALSE  FALSE  FALSE    FALSE     ROWID                          AAAegmAABAAK/YFAAD                                 
-***************************************************************************************************************************************************************************************************
-***************************************************************************************************************************************************************************************************
-* VOLCADO DEL BLOQUE EDOC_ERRORES
-***************************************************************************************************************************************************************************************************
-STATUS                : NEW
-LAST_QUERY            : 
-QUERY_DATA_SOURCE_NAME: (SELECT EDOC_ERRORES.* ,(Select cliente from facturas_ventas where id_digital = edoc_errores.id_digital) CLIENTE,(Select fecha_factura from facturas_ventas where id_digital = edoc_errores.id_digital) FECHA_FACTURA,(Select numero_factura from facturas_ventas where id_digital = edoc_errores.id_digital) NUMERO_FACTURA,(Select numero_serie from facturas_ventas where id_digital = edoc_errores.id_digital) NUMERO_SERIE FROM EDOC_ERRORES) EDOC_ERRORES
-DML_DATA_TARGET_NAME  : EDOC_ERRORES
-DEFAULT_WHERE         : 
-ORDER_BY              : ID_DIGITAL
-QUERY_ALLOWED         : TRUE
-INSERT_ALLOWED        : FALSE
-UPDATE_ALLOWED        : TRUE
-DELETE_ALLOWED        : FALSE
- 
-NOMBRE CAMPO                   ITEM TYPE       DATATYPE        MASCARA                         PK    VALID VISIBLE ENABLED INSERT UPDATE REQUIRED NAVIGABLE NEXT_NAVIGATION_ITEM           VALOR ACTUAL DEL CAMPO (PRIMEROS 50 CARACTERES)   
------------------------------- --------------- --------------- ------------------------------- ----- ----- ------- ------- ------ ------ -------- --------- ------------------------------ --------------------------------------------------
-LINEA                          TEXT ITEM       NUMBER                                          S     FALSE FALSE   FALSE   TRUE   TRUE   TRUE     FALSE     PROCESAR                                                                          
-PROCESAR                       CHECKBOX        CHAR                                            N     FALSE TRUE    TRUE    TRUE   TRUE   NA       TRUE      ID_DIGITAL                                                                        
-ID_DIGITAL                     TEXT ITEM       NUMBER                                          S     FALSE TRUE    TRUE    FALSE  FALSE  TRUE     FALSE     FECHA                                                                             
-FECHA                          TEXT ITEM       DATETIME        DD/MM/YYYY HH24:MI:SS           N     FALSE TRUE    TRUE    FALSE  FALSE  TRUE     FALSE     CODIGO_ERROR                                                                      
-CODIGO_ERROR                   TEXT ITEM       CHAR                                            N     FALSE TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     TEXTO_ERROR                                                                       
-TEXTO_ERROR                    TEXT ITEM       CHAR                                            N     FALSE TRUE    TRUE    FALSE  FALSE  TRUE     FALSE     NUMERO_SERIE                                                                      
-NUMERO_SERIE                   TEXT ITEM       CHAR                                            N     FALSE TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     NUMERO_FACTURA                                                                    
-NUMERO_FACTURA                 TEXT ITEM       NUMBER                                          N     FALSE TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     FECHA_FACTURA                                                                     
-FECHA_FACTURA                  TEXT ITEM       DATE            DD/MM/YYYY                      N     FALSE TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     CLIENTE                                                                           
-CLIENTE                        TEXT ITEM       CHAR                                            N     FALSE TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     D_CLIENTE                                                                         
-D_CLIENTE                      TEXT ITEM       CHAR                                            N     FALSE TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     DETALLE_ERROR                                                                     
-DETALLE_ERROR                  TEXT ITEM       CHAR                                            N     FALSE TRUE    TRUE    FALSE  FALSE  FALSE    TRUE      BORRAR_REVISADOS                                                                  
-BORRAR_REVISADOS               BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       FALSE     TIPO_DOCUMENTO                                                                    
-TIPO_DOCUMENTO                 TEXT ITEM       CHAR                                            N     FALSE FALSE   FALSE   TRUE   TRUE   TRUE     FALSE     USUARIO_PROCESO                                                                   
-USUARIO_PROCESO                TEXT ITEM       CHAR                                            N     FALSE FALSE   FALSE   TRUE   TRUE   FALSE    FALSE     FECHA_PROCESO                                                                     
-FECHA_PROCESO                  TEXT ITEM       DATETIME                                        N     FALSE FALSE   FALSE   TRUE   TRUE   FALSE    FALSE     ROWID                                                                             
-***************************************************************************************************************************************************************************************************
-***************************************************************************************************************************************************************************************************
-* VOLCADO DEL BLOQUE RESULTADO_ANULACION
-***************************************************************************************************************************************************************************************************
-STATUS                : NEW
-LAST_QUERY            : 
-QUERY_DATA_SOURCE_NAME: 
-DML_DATA_TARGET_NAME  : 
-DEFAULT_WHERE         : 
-ORDER_BY              : 
-QUERY_ALLOWED         : TRUE
-INSERT_ALLOWED        : TRUE
-UPDATE_ALLOWED        : FALSE
-DELETE_ALLOWED        : TRUE
- 
-NOMBRE CAMPO                   ITEM TYPE       DATATYPE        MASCARA                         PK    VALID VISIBLE ENABLED INSERT UPDATE REQUIRED NAVIGABLE NEXT_NAVIGATION_ITEM           VALOR ACTUAL DEL CAMPO (PRIMEROS 50 CARACTERES)   
------------------------------- --------------- --------------- ------------------------------- ----- ----- ------- ------- ------ ------ -------- --------- ------------------------------ --------------------------------------------------
-SALIR                          BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       TRUE      ID_DIGITAL                                                                        
-ID_DIGITAL                     TEXT ITEM       NUMBER                                          N     FALSE TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     CODIGO_ERROR                                                                      
-CODIGO_ERROR                   TEXT ITEM       CHAR                                            N     FALSE TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     NUMERO_SERIE                                                                      
-NUMERO_SERIE                   TEXT ITEM       CHAR                                            N     FALSE TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     CLIENTE                                                                           
-CLIENTE                        TEXT ITEM       CHAR                                            N     FALSE TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     D_CLIENTE                                                                         
-D_CLIENTE                      TEXT ITEM       CHAR                                            N     FALSE TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      FECHA_FACTURA                                                                     
-FECHA_FACTURA                  TEXT ITEM       DATE                                            N     FALSE TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     NUMERO_FACTURA                                                                    
-NUMERO_FACTURA                 TEXT ITEM       NUMBER                                          N     FALSE TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     DETALLE_ERROR                                                                     
-DETALLE_ERROR                  TEXT ITEM       CHAR                                            N     FALSE TRUE    TRUE    FALSE  FALSE  FALSE    TRUE      TEXTO_ERROR                                                                       
-TEXTO_ERROR                    TEXT ITEM       CHAR                                            N     FALSE TRUE    TRUE    FALSE  FALSE  FALSE    TRUE      ROWID                                                                             
-***************************************************************************************************************************************************************************************************
-***************************************************************************************************************************************************************************************************
-* VOLCADO DEL BLOQUE SRI_RECEPCION_MENSAJES
-***************************************************************************************************************************************************************************************************
-STATUS                : NEW
-LAST_QUERY            : 
-QUERY_DATA_SOURCE_NAME: SRI_RECEPCION_MENSAJES
-DML_DATA_TARGET_NAME  : SRI_RECEPCION_MENSAJES
-DEFAULT_WHERE         : 
-ORDER_BY              : 
-QUERY_ALLOWED         : TRUE
-INSERT_ALLOWED        : TRUE
-UPDATE_ALLOWED        : FALSE
-DELETE_ALLOWED        : TRUE
- 
-NOMBRE CAMPO                   ITEM TYPE       DATATYPE        MASCARA                         PK    VALID VISIBLE ENABLED INSERT UPDATE REQUIRED NAVIGABLE NEXT_NAVIGATION_ITEM           VALOR ACTUAL DEL CAMPO (PRIMEROS 50 CARACTERES)   
------------------------------- --------------- --------------- ------------------------------- ----- ----- ------- ------- ------ ------ -------- --------- ------------------------------ --------------------------------------------------
-CLAVE_ACCESO                   TEXT ITEM       CHAR                                            N     FALSE FALSE   FALSE   FALSE  FALSE  FALSE    FALSE     ID_DIGITAL                                                                        
-ID_DIGITAL                     TEXT ITEM       NUMBER                                          N     FALSE TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      IDENTIFICADOR                                                                     
-IDENTIFICADOR                  TEXT ITEM       CHAR                                            N     FALSE TRUE    TRUE    FALSE  FALSE  FALSE    TRUE      MENSAJE                                                                           
-MENSAJE                        TEXT ITEM       CHAR                                            N     FALSE TRUE    TRUE    FALSE  FALSE  FALSE    TRUE      TIPO                                                                              
-TIPO                           TEXT ITEM       CHAR                                            N     FALSE TRUE    TRUE    FALSE  FALSE  FALSE    TRUE      ADICIONAL                                                                         
-ADICIONAL                      TEXT ITEM       CHAR                                            N     FALSE TRUE    TRUE    FALSE  FALSE  FALSE    TRUE      ROWID                                                                             
-***************************************************************************************************************************************************************************************************
-***************************************************************************************************************************************************************************************************
-* VOLCADO DEL BLOQUE SRI_AUTORIZACIONES
-***************************************************************************************************************************************************************************************************
-STATUS                : NEW
-LAST_QUERY            : 
-QUERY_DATA_SOURCE_NAME: SRI_AUTORIZACIONES
-DML_DATA_TARGET_NAME  : SRI_AUTORIZACIONES
-DEFAULT_WHERE         : 
-ORDER_BY              : 
-QUERY_ALLOWED         : TRUE
-INSERT_ALLOWED        : FALSE
-UPDATE_ALLOWED        : FALSE
-DELETE_ALLOWED        : FALSE
- 
-NOMBRE CAMPO                   ITEM TYPE       DATATYPE        MASCARA                         PK    VALID VISIBLE ENABLED INSERT UPDATE REQUIRED NAVIGABLE NEXT_NAVIGATION_ITEM           VALOR ACTUAL DEL CAMPO (PRIMEROS 50 CARACTERES)   
------------------------------- --------------- --------------- ------------------------------- ----- ----- ------- ------- ------ ------ -------- --------- ------------------------------ --------------------------------------------------
-CLAVE_ACCESO                   TEXT ITEM       CHAR                                            N     FALSE FALSE   FALSE   FALSE  FALSE  FALSE    FALSE     ID_DIGITAL                                                                        
-ID_DIGITAL                     TEXT ITEM       NUMBER                                          N     FALSE TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      DETALLE_AUTORIZACION                                                              
-DETALLE_AUTORIZACION           TEXT ITEM       NUMBER                                          N     FALSE TRUE    TRUE    FALSE  FALSE  FALSE    TRUE      ESTADO                                                                            
-ESTADO                         TEXT ITEM       CHAR                                            N     FALSE TRUE    TRUE    FALSE  FALSE  FALSE    TRUE      FECHA_AUTORIZACION                                                                
-FECHA_AUTORIZACION             TEXT ITEM       CHAR                                            N     FALSE TRUE    TRUE    FALSE  FALSE  FALSE    TRUE      AMBIENTE                                                                          
-AMBIENTE                       TEXT ITEM       CHAR                                            N     FALSE TRUE    TRUE    FALSE  FALSE  FALSE    TRUE      NUMERO_AUTORIZACION                                                               
-NUMERO_AUTORIZACION            TEXT ITEM       CHAR                                            N     FALSE TRUE    TRUE    FALSE  FALSE  FALSE    TRUE      ROWID                                                                             
-***************************************************************************************************************************************************************************************************
-***************************************************************************************************************************************************************************************************
-* VOLCADO DEL BLOQUE SRI_AUTORIZACIONES_MENSAJES
-***************************************************************************************************************************************************************************************************
-STATUS                : NEW
-LAST_QUERY            : 
-QUERY_DATA_SOURCE_NAME: SRI_AUTORIZACIONES_MENSAJES
-DML_DATA_TARGET_NAME  : SRI_AUTORIZACIONES_MENSAJES
-DEFAULT_WHERE         : 
-ORDER_BY              : 
-QUERY_ALLOWED         : TRUE
-INSERT_ALLOWED        : FALSE
-UPDATE_ALLOWED        : TRUE
-DELETE_ALLOWED        : FALSE
- 
-NOMBRE CAMPO                   ITEM TYPE       DATATYPE        MASCARA                         PK    VALID VISIBLE ENABLED INSERT UPDATE REQUIRED NAVIGABLE NEXT_NAVIGATION_ITEM           VALOR ACTUAL DEL CAMPO (PRIMEROS 50 CARACTERES)   
------------------------------- --------------- --------------- ------------------------------- ----- ----- ------- ------- ------ ------ -------- --------- ------------------------------ --------------------------------------------------
-CLAVE_ACCESO                   TEXT ITEM       CHAR                                            N     FALSE FALSE   FALSE   FALSE  FALSE  FALSE    FALSE     ID_DIGITAL                                                                        
-ID_DIGITAL                     TEXT ITEM       NUMBER                                          N     FALSE TRUE    TRUE    FALSE  FALSE  FALSE    TRUE      DETALLE_AUTORIZACION                                                              
-DETALLE_AUTORIZACION           TEXT ITEM       NUMBER                                          N     FALSE TRUE    TRUE    FALSE  FALSE  FALSE    TRUE      DETALLE                                                                           
-DETALLE                        TEXT ITEM       NUMBER                                          N     FALSE TRUE    TRUE    FALSE  FALSE  FALSE    TRUE      IDENTIFICADOR                                                                     
-IDENTIFICADOR                  TEXT ITEM       CHAR                                            N     FALSE TRUE    TRUE    FALSE  FALSE  FALSE    TRUE      MENSAJE                                                                           
-MENSAJE                        TEXT ITEM       CHAR                                            N     FALSE TRUE    TRUE    FALSE  FALSE  FALSE    TRUE      INFORMACIONADICIONAL                                                              
-INFORMACIONADICIONAL           TEXT ITEM       CHAR                                            N     FALSE TRUE    TRUE    FALSE  FALSE  FALSE    TRUE      TIPO                                                                              
-TIPO                           TEXT ITEM       CHAR                                            N     FALSE TRUE    TRUE    FALSE  FALSE  FALSE    TRUE      VISIBLE                                                                           
-VISIBLE                        CHECKBOX        CHAR                                            N     FALSE FALSE   FALSE   TRUE   TRUE   NA       FALSE     OCULTAR_ADVERTENCIAS                                                              
-OCULTAR_ADVERTENCIAS           BUTTON          NA                                              NA    NA    FALSE   NA      NA     NA     NA       FALSE     ROWID                                                                             
-***************************************************************************************************************************************************************************************************
-***************************************************************************************************************************************************************************************************
-* VOLCADO DEL BLOQUE LOV_STD
-***************************************************************************************************************************************************************************************************
-STATUS                : NEW
-LAST_QUERY            : 
-QUERY_DATA_SOURCE_NAME: (SELECT 1 FROM DUAL)
-DML_DATA_TARGET_NAME  : 
-DEFAULT_WHERE         : 
-ORDER_BY              : 
-QUERY_ALLOWED         : TRUE
-INSERT_ALLOWED        : FALSE
-UPDATE_ALLOWED        : FALSE
-DELETE_ALLOWED        : FALSE
- 
-NOMBRE CAMPO                   ITEM TYPE       DATATYPE        MASCARA                         PK    VALID VISIBLE ENABLED INSERT UPDATE REQUIRED NAVIGABLE NEXT_NAVIGATION_ITEM           VALOR ACTUAL DEL CAMPO (PRIMEROS 50 CARACTERES)   
------------------------------- --------------- --------------- ------------------------------- ----- ----- ------- ------- ------ ------ -------- --------- ------------------------------ --------------------------------------------------
-SELECCIONADO                   CHECKBOX        CHAR                                            N     FALSE FALSE   FALSE   TRUE   TRUE   NA       FALSE     C1                                                                                
-C1                             TEXT ITEM       CHAR                                            N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     N1                                                                                
-N1                             TEXT ITEM       NUMBER                                          N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     C2                                                                                
-C2                             TEXT ITEM       CHAR                                            N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     N2                                                                                
-N2                             TEXT ITEM       NUMBER                                          N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     C3                                                                                
-C3                             TEXT ITEM       CHAR                                            N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     N3                                                                                
-N3                             TEXT ITEM       NUMBER                                          N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     C4                                                                                
-C4                             TEXT ITEM       CHAR                                            N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     N4                                                                                
-N4                             TEXT ITEM       NUMBER                                          N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     C5                                                                                
-C5                             TEXT ITEM       CHAR                                            N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     N5                                                                                
-N5                             TEXT ITEM       NUMBER                                          N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     C6                                                                                
-C6                             TEXT ITEM       CHAR                                            N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     N6                                                                                
-N6                             TEXT ITEM       NUMBER                                          N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     C7                                                                                
-C7                             TEXT ITEM       CHAR                                            N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     N7                                                                                
-N7                             TEXT ITEM       NUMBER                                          N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     C8                                                                                
-C8                             TEXT ITEM       CHAR                                            N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     N8                                                                                
-N8                             TEXT ITEM       NUMBER                                          N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     C9                                                                                
-C9                             TEXT ITEM       CHAR                                            N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     N9                                                                                
-N9                             TEXT ITEM       NUMBER                                          N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     C10                                                                               
-C10                            TEXT ITEM       CHAR                                            N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     N10                                                                               
-N10                            TEXT ITEM       NUMBER                                          N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     C11                                                                               
-C11                            TEXT ITEM       CHAR                                            N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     N11                                                                               
-N11                            TEXT ITEM       NUMBER                                          N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     C12                                                                               
-C12                            TEXT ITEM       CHAR                                            N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     N12                                                                               
-N12                            TEXT ITEM       NUMBER                                          N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     C13                                                                               
-C13                            TEXT ITEM       CHAR                                            N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     N13                                                                               
-N13                            TEXT ITEM       NUMBER                                          N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     C14                                                                               
-C14                            TEXT ITEM       CHAR                                            N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     N14                                                                               
-N14                            TEXT ITEM       NUMBER                                          N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     C15                                                                               
-C15                            TEXT ITEM       CHAR                                            N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     N15                                                                               
-N15                            TEXT ITEM       NUMBER                                          N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     C16                                                                               
-C16                            TEXT ITEM       CHAR                                            N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     N16                                                                               
-N16                            TEXT ITEM       NUMBER                                          N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     C17                                                                               
-C17                            TEXT ITEM       CHAR                                            N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     N17                                                                               
-N17                            TEXT ITEM       NUMBER                                          N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     C18                                                                               
-C18                            TEXT ITEM       CHAR                                            N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     N18                                                                               
-N18                            TEXT ITEM       NUMBER                                          N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     C19                                                                               
-C19                            TEXT ITEM       CHAR                                            N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     N19                                                                               
-N19                            TEXT ITEM       NUMBER                                          N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     C20                                                                               
-C20                            TEXT ITEM       CHAR                                            N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     N20                                                                               
-N20                            TEXT ITEM       NUMBER                                          N     FALSE FALSE   FALSE   TRUE   FALSE  FALSE    FALSE     ORDEN1                                                                            
-ORDEN1                         BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       FALSE     ORDEN2                                                                            
-ORDEN2                         BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       FALSE     ORDEN3                                                                            
-ORDEN3                         BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       FALSE     ORDEN4                                                                            
-ORDEN4                         BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       FALSE     ORDEN5                                                                            
-ORDEN5                         BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       FALSE     ORDEN6                                                                            
-ORDEN6                         BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       FALSE     ORDEN7                                                                            
-ORDEN7                         BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       FALSE     ORDEN8                                                                            
-ORDEN8                         BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       FALSE     ORDEN9                                                                            
-ORDEN9                         BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       FALSE     ORDEN10                                                                           
-ORDEN10                        BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       FALSE     ORDEN11                                                                           
-ORDEN11                        BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       FALSE     ORDEN12                                                                           
-ORDEN12                        BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       FALSE     ORDEN13                                                                           
-ORDEN13                        BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       FALSE     ORDEN14                                                                           
-ORDEN14                        BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       FALSE     ORDEN15                                                                           
-ORDEN15                        BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       FALSE     ORDEN16                                                                           
-ORDEN16                        BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       FALSE     ORDEN17                                                                           
-ORDEN17                        BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       FALSE     ORDEN18                                                                           
-ORDEN18                        BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       FALSE     ORDEN19                                                                           
-ORDEN19                        BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       FALSE     ORDEN20                                                                           
-ORDEN20                        BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       FALSE     LLAMADA                                                                           
-LLAMADA                        BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       FALSE     EXCEL                                                                             
-EXCEL                          BUTTON          NA                                              NA    NA    FALSE   NA      NA     NA     NA       FALSE     MARCA_TODOS                                                                       
-MARCA_TODOS                    BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       FALSE     DESMARCA_TODOS                                                                    
-DESMARCA_TODOS                 BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       FALSE     ORDEN_CAMBIAR_WHERE                                                               
-ORDEN_CAMBIAR_WHERE            BUTTON          NA                                              NA    NA    FALSE   NA      NA     NA     NA       FALSE     PRIMER_REGISTRO                                                                   
-PRIMER_REGISTRO                BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       FALSE     REGISTRO_ANTERIOR                                                                 
-REGISTRO_ANTERIOR              BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       FALSE     REGISTRO_SIGUIENTE                                                                
-REGISTRO_SIGUIENTE             BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       FALSE     ULTIMO_REGISTRO                                                                   
-ULTIMO_REGISTRO                BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       FALSE     FILTRO                                                                            
-FILTRO                         BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       FALSE     CONSULTA                                                                          
-CONSULTA                       BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       FALSE     ACEPTAR                                                                           
-ACEPTAR                        BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       FALSE     CANCELAR                                                                          
-CANCELAR                       BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       FALSE     ROWID_LOV                                                                         
-ROWID_LOV                      TEXT ITEM       CHAR                                            N     FALSE FALSE   FALSE   TRUE   TRUE   FALSE    FALSE     ROWID                                                                             
-***************************************************************************************************************************************************************************************************
-13:38:46 {TRACE}  : INICIALIZA LISTA_PARAMETROS: PLUG_IN
-13:41:16 {TRACE}  : WHEN-NEW-ITEM-INSTANCE. MODE: NORMAL, BLOQUE: B2, ITEM: B2.SELECCIONADO: S
-13:41:21 {TRACE}  : WHEN-CHECKBOX-CHANGED: B2.SELECCIONADO: N
-13:41:21 {TRACE}  : VALIDATE_ITEM
-13:41:21 {TRACE}  : BD:PKPANTALLAS-GET_COMANDOS_PLUG_IN: get_comandos_plug_in
-13:41:21 {TRACE}  : BD:PKPANTALLAS-INICIALIZAR_CODIGO_PLUG_IN: inicializar_codigo_plug_in
-13:41:21 {TRACE}  : WHEN-VALIDATE-ITEM: B2.SELECCIONADO
-13:41:21 {DEBUG}  : BD:PKEFACTURA_BD-SELECCIONAR: p_rowid:AAAegmAABAAK/YFAAD, p_valor: false, p_empresa: 004, p_centro_contable: 0401, p_tipo_documento: FACVEN
-13:41:21 {BASICO} : BD:-: v_id:1 ,p_valor: false
-13:41:23 {TRACE}  : WHEN-CHECKBOX-CHANGED: B2.SELECCIONADO: S
-13:41:23 {TRACE}  : VALIDATE_ITEM
-13:41:23 {TRACE}  : BD:PKPANTALLAS-GET_COMANDOS_PLUG_IN: get_comandos_plug_in
-13:41:23 {TRACE}  : BD:PKPANTALLAS-INICIALIZAR_CODIGO_PLUG_IN: inicializar_codigo_plug_in
-13:41:23 {TRACE}  : WHEN-VALIDATE-ITEM: B2.SELECCIONADO
-13:41:23 {DEBUG}  : BD:PKEFACTURA_BD-SELECCIONAR: p_rowid:AAAegmAABAAK/YFAAD, p_valor: true, p_empresa: 004, p_centro_contable: 0401, p_tipo_documento: FACVEN
-13:41:23 {BASICO} : BD:-: v_id:1 ,p_valor: true
-13:41:31 {TRACE}  : WHEN-TAB_PAGE-CHANGED. bloque: B2, event_canvas: CANVAS_BASE, tab_new_page: TAB0, tab_previous_page: TAB1, mode: NORMAL
-13:41:31 {TRACE}  : WHEN-VALIDATE-RECORD: B2
-13:41:31 {TRACE}  : WHEN-NEW-BLOCK-INSTANCE: B1
-13:41:31 {TRACE}  : FMENU.SET_PROPIEDAD: p_propiedad: ICONO_FILTRAR_CONSULTA, p_valor: B1
-13:41:31 {TRACE}  : WHEN-NEW-RECORD-INSTANCE: B1, REGISTRO: 1
-13:41:31 {TRACE}  : WHEN-NEW-ITEM-INSTANCE. MODE: NORMAL, BLOQUE: B1, ITEM: B1.TIPO_OPERACION: E
-13:41:34 {TRACE}  : OPCION_MENU: CONSULTAR
-13:41:34 {DEBUG}  : BD:PKEFACTURA_BD-HAY_INCIDENCIAS_PENDIENTES: p_tipo_documento: FACVEN, p_usuario: EMERCADO, p_superusuario: EMERCADO, p_organizacion_comercial: 04010, p_centro_contable: , p_desde_fecha: 20-09-2024 00:00:00, p_hasta_fecha: 26-09-2024 00:00:00, p_desde_cliente: , p_hasta_cliente: , p_desde_serie: , p_hasta_serie: , p_desde_num: 43, p_hasta_num: 43, p_grupo_balance: , p_organizacion_compras: , p_desde_proveedor: , p_hasta_proveedor: , p_desde_numero_factura: , p_hasta_numero_factura: , p_desde_fecha_factura: , p_hasta_fecha_factura: , p_desde_importe: , p_hasta_importe: , p_desde_registro_factura: , p_hasta_registro_factura: , p_desde_serie_justificante: , p_hasta_serie_justificante: , p_desde_justificante: , p_hasta_justificante: , p_tipo_factura: , p_tipo_material: 
-13:41:34 {DEBUG}  : empresa = :GLOBAL.codigo_empresa AND organizacion_comercial = :B1.ORGANIZACION_COMERCIAL AND NOT EXISTS (SELECT 1 FROM edoc_errores e WHERE e.id_digital = facturas_ventas.id_digital AND e.procesar = 'P')  AND NOT EXISTS (SELECT 1 FROM documentos doc WHERE doc.id_digital = facturas_ventas.id_digital) AND NOT EXISTS (SELECT 1 FROM facturas_sustituciones fs WHERE facturas_ventas.empresa = fs.empresa and facturas_ventas.ejercicio = fs.ejercicio_can and facturas_ventas.numero_serie = fs.numero_serie_can and facturas_ventas.numero_factura = fs.numero_factura_can) AND NVL(status_firma_digital, 'N') = 'N' 
+  --PAULAO(18/11/2019)->añado función para grabar de gorma global el centro contable
+  IF :1 IS NOT NULL THEN
+     PKCONEMPRESA.buscar_cc_FISCAL(p_empresa => :2,
+                                         p_centro_contable => :1);
+  end if;
+  --FIN PAULAO
+end; END;
+15:47:26 {TRACE}  : BD:PKPANTALLAS_CU-EJECUTAR_CODIGO_PL_SQL:   p_ejecutado_desde_kni: N, p_validar_desde_lista: S
+15:47:26 {TRACE}  : BD:PKPANTALLAS_CU-EJECUTAR_CODIGO_PL_SQL:   1 - B1.CENTRO_CONTABLE: 
+15:47:26 {TRACE}  : BD:PKPANTALLAS_CU-EJECUTAR_CODIGO_PL_SQL:   2 - GLOBAL.CODIGO_EMPRESA: 004
+15:47:26 {TRACE}  : parar_ejecucion: , tipo_mensaje: , mensaje: , texto_mensaje: , lista_valores: , lv_ejecutar_consulta: , lv_where: , lv_consulta_bd: , ejecutar_programa: , modo_menu_pr_llamado: 39, modo_cons_pr_llamado: 501, codigo_pl_sql: , valor_campo_ok: , valor_campo_cancel: , esperar_fin_prog: 
+15:47:26 {TRACE}  : BD:PKPANTALLAS-GET_COMANDOS_PLUG_IN: get_comandos_plug_in
+15:47:26 {TRACE}  : BD:PKPANTALLAS-INICIALIZAR_CODIGO_PLUG_IN: inicializar_codigo_plug_in
+15:47:26 {TRACE}  : DISPSTD.POST_TEXT_ITEM: B1.CENTRO_CONTABLE
+15:47:26 {TRACE}  : LV.DESACTIVA
+15:47:26 {TRACE}  : DISPSTD.PRE_TEXT_ITEM: B1.DESDE_FECHA
+15:47:26 {TRACE}  : WHEN-NEW-ITEM-INSTANCE. MODE: NORMAL, BLOQUE: B1, ITEM: B1.DESDE_FECHA: 
+15:47:28 {TRACE}  : KEY-NEXT-ITEM: B1.DESDE_FECHA: 01
+15:47:28 {TRACE}  : VALIDATE_ITEM
+15:47:28 {TRACE}  : BD:PKPANTALLAS-GET_COMANDOS_PLUG_IN: get_comandos_plug_in
+15:47:28 {TRACE}  : BD:PKPANTALLAS-INICIALIZAR_CODIGO_PLUG_IN: inicializar_codigo_plug_in
+15:47:28 {TRACE}  : WHEN-VALIDATE-ITEM: B1.DESDE_FECHA
+15:47:28 {TRACE}  : DISPSTD.POST_TEXT_ITEM: B1.DESDE_FECHA
+15:47:28 {TRACE}  : LV.DESACTIVA
+15:47:28 {TRACE}  : DISPSTD.PRE_TEXT_ITEM: B1.HASTA_FECHA
+15:47:28 {TRACE}  : WHEN-NEW-ITEM-INSTANCE. MODE: NORMAL, BLOQUE: B1, ITEM: B1.HASTA_FECHA: 
+15:47:29 {TRACE}  : KEY-NEXT-ITEM: B1.HASTA_FECHA: 0
+15:47:29 {TRACE}  : VALIDATE_ITEM
+15:47:29 {TRACE}  : BD:PKPANTALLAS-GET_COMANDOS_PLUG_IN: get_comandos_plug_in
+15:47:29 {TRACE}  : BD:PKPANTALLAS-INICIALIZAR_CODIGO_PLUG_IN: inicializar_codigo_plug_in
+15:47:29 {TRACE}  : WHEN-VALIDATE-ITEM: B1.HASTA_FECHA
+15:47:29 {TRACE}  : DISPSTD.POST_TEXT_ITEM: B1.HASTA_FECHA
+15:47:29 {TRACE}  : LV.DESACTIVA
+15:47:29 {TRACE}  : DISPSTD.PRE_TEXT_ITEM: B1.DESDE_CLIENTE
+15:47:29 {TRACE}  : WHEN-NEW-ITEM-INSTANCE. MODE: NORMAL, BLOQUE: B1, ITEM: B1.DESDE_CLIENTE: 
+15:47:29 {TRACE}  : LV.SET_LV_GRUPO: N
+15:47:29 {TRACE}  : LV.ACTIVA, p_lista_valores: CLIENTES_GESTION, p_ejecutar_consulta_aut: S, p_where_defecto: WHERE codigo_empresa = :GLOBAL.codigo_empresa AND (:GLOBAL.usuario = :GLOBAL.superusuario OR NOT EXISTS (
+SELECT 1 FROM bloqueo_clientes
+WHERE empresa = :GLOBAL.codigo_empresa
+AND codigo_cliente = codigo_rapido
+AND (usuario = :GLOBAL.usuario OR usuario IS NULL)
+AND (TRUNC(SYSDATE) >= desde_fecha) AND (TRUNC(SYSDATE) <= hasta_fecha))) AND PKVALIDAR_ENTIDADES.CLIENTE(CODIGO_RAPIDO,:GLOBAL.CODIGO_EMPRESA,:GLOBAL.USUARIO,SYSDATE,'S')='OK' and plantilla_libra like case when :global.codigo_empresa = '003' then 'EC%' else '%%' end, p_consulta_bd: SELECT codigo_rapido c1, nombre c2, razon_social c3, fecha_baja C4, estado c5, divisa_habitual c6,  tipo_cliente c7, rowid rowid_lov FROM clientes
+15:47:29 {TRACE}  : LV.SET_PROPIEDAD: p_propiedad: ETIQUETA_BOTON_WHERE, p_valor: 
+15:47:29 {TRACE}  : LV.SET_PROPIEDAD: p_propiedad: ETIQUETA_BOTON_WHERE2, p_valor: 
+15:47:29 {TRACE}  : LV.SET_PROPIEDAD: p_propiedad: WHERE_LOV2, p_valor: 
+15:47:30 {TRACE}  : KEY-NEXT-ITEM: B1.DESDE_CLIENTE: 
+15:47:30 {TRACE}  : VALIDATE_ITEM
+15:47:30 {TRACE}  : BD:PKPANTALLAS-GET_COMANDOS_PLUG_IN: get_comandos_plug_in
+15:47:30 {TRACE}  : BD:PKPANTALLAS-INICIALIZAR_CODIGO_PLUG_IN: inicializar_codigo_plug_in
+15:47:30 {TRACE}  : WHEN-VALIDATE-ITEM: B1.DESDE_CLIENTE
+15:47:30 {TRACE}  : VALIDACIONES.VALIDAR_DESDE_LISTA. p_item: B1.DESDE_CLIENTE, p_intento: 1, p_lv_codigo_lista: CLIENTES_GESTION, p_columna_codigo: 1, p_columna_descripcion: 2
+15:47:30 {TRACE}  : DISPSTD.POST_TEXT_ITEM: B1.DESDE_CLIENTE
+15:47:30 {TRACE}  : LV.DESACTIVA
+15:47:30 {TRACE}  : DISPSTD.PRE_TEXT_ITEM: B1.HASTA_CLIENTE
+15:47:30 {TRACE}  : WHEN-NEW-ITEM-INSTANCE. MODE: NORMAL, BLOQUE: B1, ITEM: B1.HASTA_CLIENTE: 
+15:47:30 {TRACE}  : LV.SET_LV_GRUPO: N
+15:47:30 {TRACE}  : LV.ACTIVA, p_lista_valores: CLIENTES_GESTION, p_ejecutar_consulta_aut: S, p_where_defecto: WHERE codigo_empresa = :GLOBAL.codigo_empresa AND (:GLOBAL.usuario = :GLOBAL.superusuario OR NOT EXISTS (
+SELECT 1 FROM bloqueo_clientes
+WHERE empresa = :GLOBAL.codigo_empresa
+AND codigo_cliente = codigo_rapido
+AND (usuario = :GLOBAL.usuario OR usuario IS NULL)
+AND (TRUNC(SYSDATE) >= desde_fecha) AND (TRUNC(SYSDATE) <= hasta_fecha))) AND PKVALIDAR_ENTIDADES.CLIENTE(CODIGO_RAPIDO,:GLOBAL.CODIGO_EMPRESA,:GLOBAL.USUARIO,SYSDATE,'S')='OK' and plantilla_libra like case when :global.codigo_empresa = '003' then 'EC%' else '%%' end, p_consulta_bd: SELECT codigo_rapido c1, nombre c2, razon_social c3, fecha_baja C4, estado c5, divisa_habitual c6,  tipo_cliente c7, rowid rowid_lov FROM clientes
+15:47:30 {TRACE}  : LV.SET_PROPIEDAD: p_propiedad: ETIQUETA_BOTON_WHERE, p_valor: 
+15:47:30 {TRACE}  : LV.SET_PROPIEDAD: p_propiedad: ETIQUETA_BOTON_WHERE2, p_valor: 
+15:47:30 {TRACE}  : LV.SET_PROPIEDAD: p_propiedad: WHERE_LOV2, p_valor: 
+15:47:30 {TRACE}  : KEY-NEXT-ITEM: B1.HASTA_CLIENTE: 
+15:47:30 {TRACE}  : VALIDATE_ITEM
+15:47:30 {TRACE}  : BD:PKPANTALLAS-GET_COMANDOS_PLUG_IN: get_comandos_plug_in
+15:47:30 {TRACE}  : BD:PKPANTALLAS-INICIALIZAR_CODIGO_PLUG_IN: inicializar_codigo_plug_in
+15:47:30 {TRACE}  : WHEN-VALIDATE-ITEM: B1.HASTA_CLIENTE
+15:47:30 {TRACE}  : VALIDACIONES.VALIDAR_DESDE_LISTA. p_item: B1.HASTA_CLIENTE, p_intento: 1, p_lv_codigo_lista: CLIENTES_GESTION, p_columna_codigo: 1, p_columna_descripcion: 2
+15:47:30 {TRACE}  : DISPSTD.POST_TEXT_ITEM: B1.HASTA_CLIENTE
+15:47:30 {TRACE}  : LV.DESACTIVA
+15:47:30 {TRACE}  : DISPSTD.PRE_TEXT_ITEM: B1.DESDE_SERIE
+15:47:31 {TRACE}  : WHEN-NEW-ITEM-INSTANCE. MODE: NORMAL, BLOQUE: B1, ITEM: B1.DESDE_SERIE: 
+15:47:32 {TRACE}  : KEY-NEXT-ITEM: B1.DESDE_SERIE: 210
+15:47:32 {TRACE}  : VALIDATE_ITEM
+15:47:32 {TRACE}  : BD:PKPANTALLAS-GET_COMANDOS_PLUG_IN: get_comandos_plug_in
+15:47:32 {TRACE}  : BD:PKPANTALLAS-INICIALIZAR_CODIGO_PLUG_IN: inicializar_codigo_plug_in
+15:47:32 {TRACE}  : WHEN-VALIDATE-ITEM: B1.DESDE_SERIE
+15:47:32 {TRACE}  : DISPSTD.POST_TEXT_ITEM: B1.DESDE_SERIE
+15:47:32 {TRACE}  : LV.DESACTIVA
+15:47:32 {TRACE}  : DISPSTD.PRE_TEXT_ITEM: B1.HASTA_SERIE
+15:47:32 {TRACE}  : WHEN-NEW-ITEM-INSTANCE. MODE: NORMAL, BLOQUE: B1, ITEM: B1.HASTA_SERIE: 210
+15:47:33 {TRACE}  : KEY-NEXT-ITEM: B1.HASTA_SERIE: 210
+15:47:33 {TRACE}  : VALIDATE_ITEM
+15:47:33 {TRACE}  : BD:PKPANTALLAS-GET_COMANDOS_PLUG_IN: get_comandos_plug_in
+15:47:33 {TRACE}  : BD:PKPANTALLAS-INICIALIZAR_CODIGO_PLUG_IN: inicializar_codigo_plug_in
+15:47:33 {TRACE}  : WHEN-VALIDATE-ITEM: B1.HASTA_SERIE
+15:47:33 {TRACE}  : DISPSTD.POST_TEXT_ITEM: B1.HASTA_SERIE
+15:47:33 {TRACE}  : LV.DESACTIVA
+15:47:34 {TRACE}  : DISPSTD.PRE_TEXT_ITEM: B1.DESDE_NUM
+15:47:34 {TRACE}  : WHEN-NEW-ITEM-INSTANCE. MODE: NORMAL, BLOQUE: B1, ITEM: B1.DESDE_NUM: 
+15:47:36 {TRACE}  : KEY-NEXT-ITEM: B1.DESDE_NUM: 46
+15:47:36 {TRACE}  : VALIDATE_ITEM
+15:47:36 {TRACE}  : BD:PKPANTALLAS-GET_COMANDOS_PLUG_IN: get_comandos_plug_in
+15:47:36 {TRACE}  : BD:PKPANTALLAS-INICIALIZAR_CODIGO_PLUG_IN: inicializar_codigo_plug_in
+15:47:36 {TRACE}  : WHEN-VALIDATE-ITEM: B1.DESDE_NUM
+15:47:36 {TRACE}  : DISPSTD.POST_TEXT_ITEM: B1.DESDE_NUM
+15:47:36 {TRACE}  : LV.DESACTIVA
+15:47:36 {TRACE}  : DISPSTD.PRE_TEXT_ITEM: B1.HASTA_NUM
+15:47:36 {TRACE}  : WHEN-NEW-ITEM-INSTANCE. MODE: NORMAL, BLOQUE: B1, ITEM: B1.HASTA_NUM: 46
+15:47:38 {TRACE}  : OPCION_MENU: CONSULTAR
+15:47:38 {TRACE}  : WHEN-VALIDATE-ITEM: B1.STATUS_FACTURA
+15:47:38 {TRACE}  : WHEN-VALIDATE-ITEM: B1.TIPO_DOCUMENTO
+15:47:38 {TRACE}  : VALIDACIONES.VALIDAR_DESDE_LISTA. p_item: B1.TIPO_DOCUMENTO, p_intento: 1, p_lv_codigo_lista: TIPOS_DOCUMENTOS, p_columna_codigo: 1, p_columna_descripcion: 2
+15:47:38 {TRACE}  : PRE_SUST_VARIABLES_SELECT: SELECT 'S', codigo from tipos_documentos WHERE codigo = :B1.TIPO_DOCUMENTO  AND TIPO_ENTIDAD='CL' and CODIGO in ('FACVEN','TBAI')
+15:47:38 {TRACE}  : VALIDA_CAMPO: p_item_codigo: B1.TIPO_DOCUMENTO, p_item_descripcion: , SELECT: SELECT 'S', codigo from tipos_documentos WHERE codigo = :V1  AND TIPO_ENTIDAD='CL' and CODIGO in ('FACVEN','TBAI')
+15:47:39 {TRACE}  : WHEN-VALIDATE-ITEM: B1.D_ORGANIZACION_COMERCIAL
+15:47:39 {TRACE}  : WHEN-VALIDATE-ITEM: B1.D_CENTRO_CONTABLE
+15:47:39 {TRACE}  : WHEN-VALIDATE-ITEM: B1.DESDE_CLIENTE
+15:47:39 {TRACE}  : VALIDACIONES.VALIDAR_DESDE_LISTA. p_item: B1.DESDE_CLIENTE, p_intento: 1, p_lv_codigo_lista: CLIENTES_GESTION, p_columna_codigo: 1, p_columna_descripcion: 2
+15:47:39 {TRACE}  : WHEN-VALIDATE-ITEM: B1.D_DESDE_CLIENTE
+15:47:39 {TRACE}  : WHEN-VALIDATE-ITEM: B1.HASTA_CLIENTE
+15:47:39 {TRACE}  : VALIDACIONES.VALIDAR_DESDE_LISTA. p_item: B1.HASTA_CLIENTE, p_intento: 1, p_lv_codigo_lista: CLIENTES_GESTION, p_columna_codigo: 1, p_columna_descripcion: 2
+15:47:39 {TRACE}  : WHEN-VALIDATE-ITEM: B1.D_HASTA_CLIENTE
+15:47:39 {TRACE}  : WHEN-VALIDATE-ITEM: B1.HASTA_NUM
+15:47:39 {TRACE}  : WHEN-VALIDATE-ITEM: B1.DESDE_TIPO_FACTURA
+15:47:39 {TRACE}  : VALIDACIONES.VALIDAR_DESDE_LISTA. p_item: B1.DESDE_TIPO_FACTURA, p_intento: 1, p_lv_codigo_lista: TIPOS_FACTURACION, p_columna_codigo: 1, p_columna_descripcion: 2
+15:47:39 {TRACE}  : WHEN-VALIDATE-ITEM: B1.D_DESDE_TIPO_FACTURA
+15:47:39 {TRACE}  : WHEN-VALIDATE-ITEM: B1.HASTA_TIPO_FACTURA
+15:47:39 {TRACE}  : VALIDACIONES.VALIDAR_DESDE_LISTA. p_item: B1.HASTA_TIPO_FACTURA, p_intento: 1, p_lv_codigo_lista: TIPOS_FACTURACION, p_columna_codigo: 1, p_columna_descripcion: 2
+15:47:39 {TRACE}  : WHEN-VALIDATE-ITEM: B1.D_HASTA_TIPO_FACTURA
+15:47:39 {TRACE}  : WHEN-VALIDATE-ITEM: B1.USUARIO
+15:47:39 {TRACE}  : VALIDACIONES.VALIDAR_DESDE_LISTA. p_item: B1.USUARIO, p_intento: 1, p_lv_codigo_lista: USUARIOS, p_columna_codigo: 1, p_columna_descripcion: 2
+15:47:39 {TRACE}  : WHEN-VALIDATE-ITEM: B1.D_USUARIO
+15:47:39 {TRACE}  : WHEN-VALIDATE-ITEM: B1.CLIENTE_ALBARAN
+15:47:39 {TRACE}  : VALIDACIONES.VALIDAR_DESDE_LISTA. p_item: B1.CLIENTE_ALBARAN, p_intento: 1, p_lv_codigo_lista: CLIENTES, p_columna_codigo: 1, p_columna_descripcion: 2
+15:47:39 {TRACE}  : WHEN-VALIDATE-ITEM: B1.D_CLIENTE_ALBARAN
+15:47:39 {TRACE}  : WHEN-VALIDATE-ITEM: B1.NUMERO_ACUSE
+15:47:39 {TRACE}  : WHEN-VALIDATE-ITEM: B1.SERIE_LICITACION
+15:47:39 {TRACE}  : WHEN-VALIDATE-ITEM: B1.NUMERO_OFERTA
+15:47:39 {TRACE}  : WHEN-VALIDATE-ITEM: B1.CONTRATO_LICITACION
+15:47:39 {TRACE}  : WHEN-VALIDATE-ITEM: B1.CLIENTE_LICITACION
+15:47:39 {TRACE}  : WHEN-VALIDATE-ITEM: B1.D_CLIENTE_LICITACION
+15:47:39 {TRACE}  : WHEN-VALIDATE-RECORD: B1
+15:47:39 {DEBUG}  : BD:PKEFACTURA_BD-HAY_INCIDENCIAS_PENDIENTES: p_tipo_documento: FACVEN, p_usuario: EMERCADO, p_superusuario: EMERCADO, p_organizacion_comercial: 04010, p_centro_contable: , p_desde_fecha: 01-10-2024 00:00:00, p_hasta_fecha: 03-10-2024 00:00:00, p_desde_cliente: , p_hasta_cliente: , p_desde_serie: 210, p_hasta_serie: 210, p_desde_num: 46, p_hasta_num: 46, p_grupo_balance: , p_organizacion_compras: , p_desde_proveedor: , p_hasta_proveedor: , p_desde_numero_factura: , p_hasta_numero_factura: , p_desde_fecha_factura: , p_hasta_fecha_factura: , p_desde_importe: , p_hasta_importe: , p_desde_registro_factura: , p_hasta_registro_factura: , p_desde_serie_justificante: , p_hasta_serie_justificante: , p_desde_justificante: , p_hasta_justificante: , p_tipo_factura: , p_tipo_material: 
+15:47:39 {DEBUG}  : empresa = :GLOBAL.codigo_empresa AND organizacion_comercial = :B1.ORGANIZACION_COMERCIAL AND NOT EXISTS (SELECT 1 FROM edoc_errores e WHERE e.id_digital = facturas_ventas.id_digital AND e.procesar = 'P')  AND NOT EXISTS (SELECT 1 FROM documentos doc WHERE doc.id_digital = facturas_ventas.id_digital) AND NOT EXISTS (SELECT 1 FROM facturas_sustituciones fs WHERE facturas_ventas.empresa = fs.empresa and facturas_ventas.ejercicio = fs.ejercicio_can and facturas_ventas.numero_serie = fs.numero_serie_can and facturas_ventas.numero_factura = fs.numero_factura_can) AND NVL(status_firma_digital, 'N') = 'N' 
                         AND (EXISTS (SELECT 1 FROM centros_documentos cd, caracteres_asiento ca 
                                         WHERE ca.codigo = facturas_ventas.centro_contable 
                                         AND ca.empresa = :global.codigo_empresa AND cd.grupo_balance = ca.grupo_balance 
@@ -385,78 +355,81 @@ ROWID_LOV                      TEXT ITEM       CHAR                             
                                     AND tde.tipo_entidad = 'CL' AND tde.codigo_entidad = facturas_ventas.cliente 
                                     AND tde.tipo_documento = :b1.tipo_documento))
                                     AND fecha_cancelacion_sat is null 
-                                    AND fecha_envio_cancelacion_sat is null AND pk_util_detr.envio_fe(facturas_ventas.empresa, facturas_ventas.ejercicio, facturas_ventas.numero_serie, facturas_ventas.numero_factura) = 'S'  AND EXISTS (SELECT 1 FROM centros_documentos cd, caracteres_asiento ca WHERE ca.codigo = facturas_ventas.centro_contable AND ca.empresa = :global.codigo_empresa AND cd.grupo_balance = ca.grupo_balance AND cd.tipo_documento = :b1.tipo_documento AND cd.empresa = :global.codigo_empresa AND cd.digital = 'S')  AND numero_factura >= :b1.desde_num  AND numero_factura <= :b1.hasta_num  AND fecha_factura >= TO_DATE(:b1.desde_fecha,'DD/MM/YYYY') AND fecha_factura <= TO_DATE(:b1.hasta_fecha,'DD/MM/YYYY')
-13:41:34 {TRACE}  : PRE-QUERY: B2
-13:41:35 {TRACE}  : BD:PKPANTALLAS-GET_VARIABLE_INT_VARCHAR2: p_variable: PKIDIOMAS.REG_FALLOS_TRADUCCION
-13:41:35 {TRACE}  : WHEN-NEW-BLOCK-INSTANCE: B2
-13:41:35 {TRACE}  : FMENU.SET_PROPIEDAD: p_propiedad: ICONO_FILTRAR_CONSULTA, p_valor: B2
-13:41:35 {TRACE}  : PKLIBPNT: BOTON_VERTICAL_VISIBLE. p_boton: PB04, p_etiqueta: Visualizar Factura, p_icono: document_comment_above, p_icono_mapeo: document_comment_above
-13:41:35 {TRACE}  : PKLIBPNT: BOTON_VERTICAL_VISIBLE. p_boton: PB05, p_etiqueta: Consultar Albaranes, p_icono: check_box_list-uncheck, p_icono_mapeo: check_box_list-uncheck
-13:41:35 {TRACE}  : PKLIBPNT: BOTON_VERTICAL_VISIBLE. p_boton: PB06, p_etiqueta: Archivos asociados, p_icono: folder, p_icono_mapeo: folder
-13:41:35 {TRACE}  : PKLIBPNT: BOTON_VERTICAL_VISIBLE. p_boton: PB07, p_etiqueta: Adjuntar Archivos, p_icono: folder_add, p_icono_mapeo: folder_add
-13:41:35 {TRACE}  : PKLIBPNT: BOTON_VERTICAL_VISIBLE. p_boton: PB08, p_etiqueta: Impresión Factura, p_icono: printer, p_icono_mapeo: printer
-13:41:35 {TRACE}  : PKLIBPNT: BOTON_VERTICAL_VISIBLE. p_boton: PB09, p_etiqueta: Descargar Archivo XML, p_icono: application_go, p_icono_mapeo: application_go
-13:41:35 {TRACE}  : PKLIBPNT: BOTON_VERTICAL_VISIBLE. p_boton: PB10, p_etiqueta: Adjuntar Archivos Factura Electrónica, p_icono: folder_page_white, p_icono_mapeo: folder_page_white
-13:41:35 {TRACE}  : WHEN-NEW-RECORD-INSTANCE: B2, REGISTRO: 1
-13:41:35 {TRACE}  : WHEN-NEW-ITEM-INSTANCE. MODE: NORMAL, BLOQUE: B2, ITEM: B2.SELECCIONADO: N
-13:41:39 {TRACE}  : WHEN-CHECKBOX-CHANGED: B2.SELECCIONADO: S
-13:41:39 {TRACE}  : VALIDATE_ITEM
-13:41:39 {TRACE}  : BD:PKPANTALLAS-GET_COMANDOS_PLUG_IN: get_comandos_plug_in
-13:41:39 {TRACE}  : BD:PKPANTALLAS-INICIALIZAR_CODIGO_PLUG_IN: inicializar_codigo_plug_in
-13:41:39 {TRACE}  : WHEN-VALIDATE-ITEM: B2.SELECCIONADO
-13:41:39 {DEBUG}  : BD:PKEFACTURA_BD-SELECCIONAR: p_rowid:AAAegmAABAAK/YFAAD, p_valor: true, p_empresa: 004, p_centro_contable: 0401, p_tipo_documento: FACVEN
-13:41:39 {BASICO} : BD:-: v_id:1 ,p_valor: true
-13:42:04 {TRACE}  : OPCION_MENU: B03
-13:42:04 {TRACE}  : FMENU.SET_PROPIEDAD: p_propiedad: RECUPERAR_BOTON_OPC_MENU, p_valor: B03
-13:42:04 {DEBUG}  : BD:PKEFACTURA_BD-ENVIAR_A_FIRMA: p_tipo_documento: FACVEN
-13:42:04 {DEBUG}  : BD:PKEFACTURA_BD-7103: v_id:1
-13:42:04 {BASICO} : BD:-: t_registros(v_id).seleccionado: true
-13:42:04 {DEBUG}  : BD:PKEFACTURA_BD-7105: t_registros(v_id).tipo_envio_gest_externa:
-13:42:04 {DEBUG}  : BD:PKEFACTURA_BD-CAMBIA_STATUS_DOCUMENTO: p_tipo_documento: FACVEN, p_status: P, p_id_documental: , p_cambiar_status: S, p_cambiar_id_documental: N, p_cambia_nombre_documentos: N, p_nombre_documento: , p_nombre_documento_metadatos: 
-13:42:04 {BASICO} : BD:PKEFACTURA_BD-CAMBIA_STATUS_DOCUMENTO: v_cambiar_status:S p_cambiar_id_documental:N
-13:42:04 {DEBUG}  : BD:PKEFACTURA_BD-CALCULAR_STATUS_FACTURA: p_empresa: 004, p_cliente: 009166, p_centro_contable: 0401, p_status_actual: 3000, p_operacion: FD
-13:42:04 {DEBUG}  : BD:PKEFACTURA_BD-CALCULAR_STATUS_FACTURA: p_empresa: 004, p_cliente: 009166, p_centro_contable: 0401, p_status_actual: 3000, p_operacion: FD
-13:42:04 {DEBUG}  : BD:FE_FIRMFAC-RECALCULA_VENCIMIENTOS: p_usuario: EMERCADO
-13:42:05 {DEBUG}  : BD:PK_LIC_FAC_PROCESAR-ACTUALIZA_STATUS: p_rowid: AAAegmAABAAK/YFAAD, p_status: 1, p_observaciones: 
-13:42:05 {DEBUG}  : BD:PK_LIC_FAC_PROCESAR-ACTUALIZA_STATUS: p_empresa: 004, p_ejercicio: 2024, p_numero_serie: 210, p_numero_factura: 43, p_status: 1, p_observaciones: 
-13:42:05 {DEBUG}  : BD:PKEFACTURA_BD-GUARDA_SEGUIMIENTO_EFACTURA: p_empresa: 004, p_ejercicio: 2024, p_numero_serie: 210, p_numero_factura: 43, p_usuario: EMERCADO, p_fecha: 26-09-2024 14:42:05, p_pto_alcanzado: 01, p_descripcion: , p_error_recuperable: , p_error_notificado: , p_status: , p_proveedor: , p_numero_faccom: , p_codigo_error: , p_numero_albaran: , p_org_comercial: , p_sub_albaran: , p_tipo_factura: , p_tipo_documento: 
-13:42:05 {BASICO} : BD:FINFIRMA-FINFIRMA: FINFIRMA
-13:42:05 {TRACE}  : WHEN-VALIDATE-RECORD: B2
-13:42:05 {TRACE}  : CHECK_CONTADORES_MENU_LATERAL
-13:42:05 {TRACE}  : DISPSTD.SET_PROPIEDAD: p_codigo: , p_propiedad: AVISO_INACTIVIDAD, p_valor: N, p_tipo: P
-13:42:05 {TRACE}  : BD:PKCRMEXPEDIENTES-SET_USUARIO: p_usuario: EMERCADO
-13:42:05 {TRACE}  : BD:PKCRMEXPEDIENTES-SET_EMPRESA: p_empresa: 004
-13:42:05 {DEBUG}  : BD:PKCRMEXPEDIENTES-F_NUMERO_TAREAS_ACTIVAS: p_empresa: 004, p_tabla: , p_where: , p_numero_expediente: , p_numero_linea: 
-13:42:05 {DEBUG}  : BD:PKCRMEXPEDIENTES-GET_CODIGO_FILTROS_PROCESOS: p_empresa: 004, p_usuario: EMERCADO
-13:42:05 {TRACE}  : BD:PKCRMEXPEDIENTES-F_NUMERO_TAREAS_ACTIVAS: pkcrmexpedientes.get_empresa(): 004
-13:42:05 {TRACE}  : BD:PKCRMEXPEDIENTES-F_NUMERO_TAREAS_ACTIVAS: pkcrmexpedientes.get_filtro_tipo_expediente(): 
-13:42:05 {TRACE}  : BD:PKCRMEXPEDIENTES-F_NUMERO_TAREAS_ACTIVAS: pkcrmexpedientes.get_filtro_codigo_secuencia(): 
-13:42:05 {TRACE}  : BD:PKCRMEXPEDIENTES-F_NUMERO_TAREAS_ACTIVAS: pkcrmexpedientes.get_filtro_equipo(): 
-13:42:05 {TRACE}  : BD:PKCRMEXPEDIENTES-F_NUMERO_TAREAS_ACTIVAS: pkcrmexpedientes.get_usuario_bpm(): EMERCADO
-13:42:05 {TRACE}  : BD:PKCRMEXPEDIENTES-F_NUMERO_TAREAS_ACTIVAS: pkcrmexpedientes.get_mostrar_tareas_equipo(): N
-13:42:05 {TRACE}  : BD:PKCRMEXPEDIENTES-F_NUMERO_TAREAS_ACTIVAS: SELECT status_interno, COUNT(*) total FROM v_crm_tareas_menu_count v_crm_tareas_menu WHERE (fecha_a_realizar IS NULL OR fecha_a_realizar <= F_CURRENT_DATE) AND mostrar_en_bpm = 'S' AND (c_centro_contable IS NULL OR EXISTS (SELECT 1 FROM usuarios_gb u, centros_grupo_ccont cgc WHERE cgc.empresa = :p_empresa AND cgc.codigo_centro = c_centro_contable AND u.grupo_balance = cgc.codigo_grupo AND u.usuario = :p_usuario AND u.codigo_empresa = :p_empresa)) AND (c_organizacion_crm IS NULL OR EXISTS (SELECT 1 FROM org_crm_usuarios o WHERE o.usuario = :p_usuario AND o.empresa = :p_empresa AND o.codigo_org_crm = c_organizacion_crm)) GROUP BY status_interno
-13:42:05 {TRACE}  : BD:PKCRMEXPEDIENTES-RESULTADO: resultado: 31, 0100: 10, 0200: 20, 0300: 1, 0500: 0, 0600: 0
-13:42:07 {TRACE}  : BD:PK_NOTIFICACIONES_ERP-INT_N_NOTIFICACIONES_ABIERTAS: v_sql: SELECT COUNT(*) FROM vm_libra_param_notif_msg u, libra_notificaciones n WHERE n.usuario_solucion IS NULL AND u.tipo = n.tipo AND u.codigo = n.codigo AND u.usuario = :p_usuario AND u.empresa = :p_empresa AND (n.empresa IS NULL OR n.empresa = u.empresa)
-13:42:07 {TRACE}  : BD:PKPANTALLAS_AUX-PUEDE_VER_BLOG_TAB: p_empresa: 004, p_usuario: EMERCADO
-13:42:07 {TRACE}  : BD:PKPANTALLAS-PROGRAMA_AUTORIZADO: p_empresa: 004, p_programa: MWL.BLOG, p_usuario: EMERCADO, p_altas_modificaciones: T, p_programa_actual: , resultado: true
-13:42:07 {TRACE}  : BD:PKPANTALLAS_AUX-PUEDE_VER_CALENDARIO_TAB: p_empresa: 004, p_usuario: EMERCADO
-13:42:07 {TRACE}  : ejecuta_javascript, p_item: , ADF: SI, p_codigo: libra_menu_erp.fn.actualizar_tareas_activas(31)
-13:42:07 {TRACE}  : ejecuta_javascript, p_item: , ADF: SI, p_codigo: libra_menu_erp.fn.actualizar_mensajes_pdtes(17231)
-13:42:07 {TRACE}  : ejecuta_javascript, p_item: , ADF: SI, p_codigo: libra_menu_erp.fn.actualizar_notificaciones_erp(238689)
-13:42:08 {TRACE}  : ejecuta_javascript, p_item: , ADF: SI, p_codigo: libra_menu_erp.fn.actualizar_comunidades(0)
-13:42:08 {TRACE}  : BD:PKPANTALLAS-OPERACION_COMANDOS_PLUG_IN: p_operacion: GUARDAR
-13:42:08 {TRACE}  : BD:PKPANTALLAS-LEER_MENSAJE: p_tipo: PROCE, p_mensaje: BIEN, p_idioma: 23, p_texto: 
-13:42:08 {TRACE}  : BD:PKPANTALLAS-GET_VARIABLE_INT_VARCHAR2: p_variable: PKIDIOMAS.REG_FALLOS_TRADUCCION
-13:42:08 {DEBUG}  : MENSAJE: [PROCE-BIEN]: El proceso ha terminado correctamente.. B2.SELECCIONADO
-13:43:01 {DEBUG}  : RESPUESTA: ALERT_BUTTON1
-13:43:01 {TRACE}  : BD:PKPANTALLAS-OPERACION_COMANDOS_PLUG_IN: p_operacion: RECUPERAR
-13:43:01 {TRACE}  : BD:PKPANTALLAS-EXCEPCIONES_ORA: inicializa_excepciones_ora
-13:43:01 {TRACE}  : WHEN-NEW-BLOCK-INSTANCE: B1
-13:43:01 {TRACE}  : FMENU.SET_PROPIEDAD: p_propiedad: ICONO_FILTRAR_CONSULTA, p_valor: B1
-13:43:01 {TRACE}  : WHEN-NEW-RECORD-INSTANCE: B1, REGISTRO: 1
-13:43:01 {TRACE}  : WHEN-NEW-ITEM-INSTANCE. MODE: NORMAL, BLOQUE: B1, ITEM: B1.TIPO_OPERACION: E
-13:43:25 {TRACE}  : OPCION_MENU: AYUDA_ACERCA_DE
-13:43:25 {TRACE}  : ITEM: B2.SELECCIONADO
+                                    AND fecha_envio_cancelacion_sat is null AND pk_util_detr.envio_fe(facturas_ventas.empresa, facturas_ventas.ejercicio, facturas_ventas.numero_serie, facturas_ventas.numero_factura) = 'S'  AND EXISTS (SELECT 1 FROM centros_documentos cd, caracteres_asiento ca WHERE ca.codigo = facturas_ventas.centro_contable AND ca.empresa = :global.codigo_empresa AND cd.grupo_balance = ca.grupo_balance AND cd.tipo_documento = :b1.tipo_documento AND cd.empresa = :global.codigo_empresa AND cd.digital = 'S')  AND numero_serie >= :b1.desde_serie  AND numero_serie <= :b1.hasta_serie  AND numero_factura >= :b1.desde_num  AND numero_factura <= :b1.hasta_num  AND fecha_factura >= TO_DATE(:b1.desde_fecha,'DD/MM/YYYY') AND fecha_factura <= TO_DATE(:b1.hasta_fecha,'DD/MM/YYYY')
+15:47:39 {TRACE}  : DISPSTD.POST_TEXT_ITEM: B1.HASTA_NUM
+15:47:39 {TRACE}  : LV.DESACTIVA
+15:47:39 {TRACE}  : PRE-QUERY: B2
+15:47:39 {TRACE}  : BD:PKPANTALLAS-GET_VARIABLE_INT_VARCHAR2: p_variable: PKIDIOMAS.REG_FALLOS_TRADUCCION
+15:47:39 {TRACE}  : WHEN-NEW-BLOCK-INSTANCE: B2
+15:47:39 {TRACE}  : FMENU.SET_PROPIEDAD: p_propiedad: ICONO_FILTRAR_CONSULTA, p_valor: B2
+15:47:39 {TRACE}  : PKLIBPNT: BOTON_VERTICAL_VISIBLE. p_boton: PB04, p_etiqueta: Visualizar Factura, p_icono: document_comment_above, p_icono_mapeo: document_comment_above
+15:47:39 {TRACE}  : PKLIBPNT: BOTON_VERTICAL_VISIBLE. p_boton: PB05, p_etiqueta: Consultar Albaranes, p_icono: check_box_list-uncheck, p_icono_mapeo: check_box_list-uncheck
+15:47:39 {TRACE}  : PKLIBPNT: BOTON_VERTICAL_VISIBLE. p_boton: PB06, p_etiqueta: Archivos asociados, p_icono: folder, p_icono_mapeo: folder
+15:47:39 {TRACE}  : PKLIBPNT: BOTON_VERTICAL_VISIBLE. p_boton: PB07, p_etiqueta: Adjuntar Archivos, p_icono: folder_add, p_icono_mapeo: folder_add
+15:47:39 {TRACE}  : PKLIBPNT: BOTON_VERTICAL_VISIBLE. p_boton: PB08, p_etiqueta: Impresión Factura, p_icono: printer, p_icono_mapeo: printer
+15:47:39 {TRACE}  : PKLIBPNT: BOTON_VERTICAL_VISIBLE. p_boton: PB09, p_etiqueta: Descargar Archivo XML, p_icono: application_go, p_icono_mapeo: application_go
+15:47:39 {TRACE}  : PKLIBPNT: BOTON_VERTICAL_VISIBLE. p_boton: PB10, p_etiqueta: Adjuntar Archivos Factura Electrónica, p_icono: folder_page_white, p_icono_mapeo: folder_page_white
+15:47:39 {TRACE}  : WHEN-NEW-RECORD-INSTANCE: B2, REGISTRO: 1
+15:47:39 {TRACE}  : WHEN-NEW-ITEM-INSTANCE. MODE: NORMAL, BLOQUE: B2, ITEM: B2.SELECCIONADO: N
+15:47:46 {TRACE}  : OPCION_MENU: B01
+15:47:46 {TRACE}  : FMENU.SET_PROPIEDAD: p_propiedad: RECUPERAR_BOTON_OPC_MENU, p_valor: B01
+15:47:46 {DEBUG}  : BD:PKEFACTURA_BD-SELECCIONAR: p_rowid:AAAegmAABAAK/XxAAB, p_valor: true, p_empresa: 004, p_centro_contable: 0401, p_tipo_documento: FACVEN
+15:47:46 {BASICO} : BD:-: v_id:1 ,p_valor: true
+15:47:46 {TRACE}  : WHEN-VALIDATE-ITEM: B2.SELECCIONADO
+15:47:46 {TRACE}  : WHEN-VALIDATE-RECORD: B2
+15:47:46 {TRACE}  : WHEN-NEW-ITEM-INSTANCE. MODE: NORMAL, BLOQUE: B2, ITEM: B2.SELECCIONADO: S
+15:47:53 {TRACE}  : OPCION_MENU: B03
+15:47:53 {TRACE}  : FMENU.SET_PROPIEDAD: p_propiedad: RECUPERAR_BOTON_OPC_MENU, p_valor: B03
+15:47:53 {DEBUG}  : BD:PKEFACTURA_BD-ENVIAR_A_FIRMA: p_tipo_documento: FACVEN
+15:47:53 {DEBUG}  : BD:PKEFACTURA_BD-7103: v_id:1
+15:47:53 {BASICO} : BD:-: t_registros(v_id).seleccionado: true
+15:47:53 {DEBUG}  : BD:PKEFACTURA_BD-7105: t_registros(v_id).tipo_envio_gest_externa:
+15:47:53 {DEBUG}  : BD:PKEFACTURA_BD-CAMBIA_STATUS_DOCUMENTO: p_tipo_documento: FACVEN, p_status: P, p_id_documental: , p_cambiar_status: S, p_cambiar_id_documental: N, p_cambia_nombre_documentos: N, p_nombre_documento: , p_nombre_documento_metadatos: 
+15:47:53 {BASICO} : BD:PKEFACTURA_BD-CAMBIA_STATUS_DOCUMENTO: v_cambiar_status:S p_cambiar_id_documental:N
+15:47:53 {DEBUG}  : BD:PKEFACTURA_BD-CALCULAR_STATUS_FACTURA: p_empresa: 004, p_cliente: 023975, p_centro_contable: 0401, p_status_actual: 3000, p_operacion: FD
+15:47:53 {DEBUG}  : BD:PKEFACTURA_BD-CALCULAR_STATUS_FACTURA: p_empresa: 004, p_cliente: 023975, p_centro_contable: 0401, p_status_actual: 3000, p_operacion: FD
+15:47:53 {DEBUG}  : BD:FE_FIRMFAC-RECALCULA_VENCIMIENTOS: p_usuario: EMERCADO
+15:47:54 {DEBUG}  : BD:PK_LIC_FAC_PROCESAR-ACTUALIZA_STATUS: p_rowid: AAAegmAABAAK/XxAAB, p_status: 1, p_observaciones: 
+15:47:54 {DEBUG}  : BD:PK_LIC_FAC_PROCESAR-ACTUALIZA_STATUS: p_empresa: 004, p_ejercicio: 2024, p_numero_serie: 210, p_numero_factura: 46, p_status: 1, p_observaciones: 
+15:47:55 {DEBUG}  : BD:PKEFACTURA_BD-GUARDA_SEGUIMIENTO_EFACTURA: p_empresa: 004, p_ejercicio: 2024, p_numero_serie: 210, p_numero_factura: 46, p_usuario: EMERCADO, p_fecha: 03-10-2024 16:47:55, p_pto_alcanzado: 01, p_descripcion: , p_error_recuperable: , p_error_notificado: , p_status: , p_proveedor: , p_numero_faccom: , p_codigo_error: , p_numero_albaran: , p_org_comercial: , p_sub_albaran: , p_tipo_factura: , p_tipo_documento: 
+15:47:55 {BASICO} : BD:FINFIRMA-FINFIRMA: FINFIRMA
+15:47:55 {TRACE}  : CHECK_CONTADORES_MENU_LATERAL
+15:47:55 {TRACE}  : DISPSTD.SET_PROPIEDAD: p_codigo: , p_propiedad: AVISO_INACTIVIDAD, p_valor: N, p_tipo: P
+15:47:55 {TRACE}  : BD:PKCRMEXPEDIENTES-SET_USUARIO: p_usuario: EMERCADO
+15:47:55 {TRACE}  : BD:PKCRMEXPEDIENTES-SET_EMPRESA: p_empresa: 004
+15:47:55 {DEBUG}  : BD:PKCRMEXPEDIENTES-F_NUMERO_TAREAS_ACTIVAS: p_empresa: 004, p_tabla: , p_where: , p_numero_expediente: , p_numero_linea: 
+15:47:55 {DEBUG}  : BD:PKCRMEXPEDIENTES-GET_CODIGO_FILTROS_PROCESOS: p_empresa: 004, p_usuario: EMERCADO
+15:47:55 {TRACE}  : BD:PKCRMEXPEDIENTES-F_NUMERO_TAREAS_ACTIVAS: pkcrmexpedientes.get_empresa(): 004
+15:47:55 {TRACE}  : BD:PKCRMEXPEDIENTES-F_NUMERO_TAREAS_ACTIVAS: pkcrmexpedientes.get_filtro_tipo_expediente(): 
+15:47:55 {TRACE}  : BD:PKCRMEXPEDIENTES-F_NUMERO_TAREAS_ACTIVAS: pkcrmexpedientes.get_filtro_codigo_secuencia(): 
+15:47:55 {TRACE}  : BD:PKCRMEXPEDIENTES-F_NUMERO_TAREAS_ACTIVAS: pkcrmexpedientes.get_filtro_equipo(): 
+15:47:55 {TRACE}  : BD:PKCRMEXPEDIENTES-F_NUMERO_TAREAS_ACTIVAS: pkcrmexpedientes.get_usuario_bpm(): EMERCADO
+15:47:55 {TRACE}  : BD:PKCRMEXPEDIENTES-F_NUMERO_TAREAS_ACTIVAS: pkcrmexpedientes.get_mostrar_tareas_equipo(): N
+15:47:55 {TRACE}  : BD:PKCRMEXPEDIENTES-F_NUMERO_TAREAS_ACTIVAS: SELECT status_interno, COUNT(*) total FROM v_crm_tareas_menu_count v_crm_tareas_menu WHERE (fecha_a_realizar IS NULL OR fecha_a_realizar <= F_CURRENT_DATE) AND mostrar_en_bpm = 'S' AND (c_centro_contable IS NULL OR EXISTS (SELECT 1 FROM usuarios_gb u, centros_grupo_ccont cgc WHERE cgc.empresa = :p_empresa AND cgc.codigo_centro = c_centro_contable AND u.grupo_balance = cgc.codigo_grupo AND u.usuario = :p_usuario AND u.codigo_empresa = :p_empresa)) AND (c_organizacion_crm IS NULL OR EXISTS (SELECT 1 FROM org_crm_usuarios o WHERE o.usuario = :p_usuario AND o.empresa = :p_empresa AND o.codigo_org_crm = c_organizacion_crm)) GROUP BY status_interno
+15:47:55 {DEBUG}  : BD:PKCRMEXPEDIENTES-SET_FILTRO_VER_TAREAS_BPM: p_valor: A
+15:47:55 {TRACE}  : BD:PKCRMEXPEDIENTES-RESULTADO: resultado: 36, 0100: 13, 0200: 22, 0300: 1, 0500: 0, 0600: 0
+15:47:58 {TRACE}  : BD:PK_NOTIFICACIONES_ERP-INT_N_NOTIFICACIONES_ABIERTAS: v_sql: SELECT COUNT(*) FROM vm_libra_param_notif_msg u, libra_notificaciones n WHERE n.usuario_solucion IS NULL AND u.tipo = n.tipo AND u.codigo = n.codigo AND u.usuario = :p_usuario AND u.empresa = :p_empresa AND (n.empresa IS NULL OR n.empresa = u.empresa)
+15:47:59 {TRACE}  : BD:PKPANTALLAS_AUX-PUEDE_VER_BLOG_TAB: p_empresa: 004, p_usuario: EMERCADO
+15:47:59 {TRACE}  : BD:PKPANTALLAS-INT_GET_PROGRAMA_ERP_RC: MWL.BLOG NO ENCONTRADO
+15:47:59 {TRACE}  : BD:PKPANTALLAS-PROGRAMA_AUTORIZADO: p_empresa: 004, p_programa: MWL.BLOG, p_usuario: EMERCADO, p_altas_modificaciones: T, p_programa_actual: , resultado: true
+15:47:59 {TRACE}  : BD:PKPANTALLAS_AUX-PUEDE_VER_CALENDARIO_TAB: p_empresa: 004, p_usuario: EMERCADO
+15:47:59 {TRACE}  : ejecuta_javascript, p_item: , ADF: SI, p_codigo: libra_menu_erp.fn.actualizar_tareas_activas(36)
+15:47:59 {TRACE}  : ejecuta_javascript, p_item: , ADF: SI, p_codigo: libra_menu_erp.fn.actualizar_mensajes_pdtes(17231)
+15:47:59 {TRACE}  : ejecuta_javascript, p_item: , ADF: SI, p_codigo: libra_menu_erp.fn.actualizar_notificaciones_erp(238689)
+15:47:59 {TRACE}  : ejecuta_javascript, p_item: , ADF: SI, p_codigo: libra_menu_erp.fn.actualizar_comunidades(0)
+15:48:00 {TRACE}  : BD:PKPANTALLAS-OPERACION_COMANDOS_PLUG_IN: p_operacion: GUARDAR
+15:48:00 {TRACE}  : BD:PKPANTALLAS-LEER_MENSAJE: p_tipo: PROCE, p_mensaje: BIEN, p_idioma: 23, p_texto: 
+15:48:00 {TRACE}  : BD:PKPANTALLAS-GET_VARIABLE_INT_VARCHAR2: p_variable: PKIDIOMAS.REG_FALLOS_TRADUCCION
+15:48:00 {DEBUG}  : MENSAJE: [PROCE-BIEN]: El proceso ha terminado correctamente.. B2.SELECCIONADO
+15:48:02 {DEBUG}  : RESPUESTA: ALERT_BUTTON1
+15:48:02 {TRACE}  : BD:PKPANTALLAS-OPERACION_COMANDOS_PLUG_IN: p_operacion: RECUPERAR
+15:48:02 {TRACE}  : BD:PKPANTALLAS-EXCEPCIONES_ORA: inicializa_excepciones_ora
+15:48:02 {TRACE}  : WHEN-NEW-BLOCK-INSTANCE: B1
+15:48:02 {TRACE}  : FMENU.SET_PROPIEDAD: p_propiedad: ICONO_FILTRAR_CONSULTA, p_valor: B1
+15:48:02 {TRACE}  : WHEN-NEW-RECORD-INSTANCE: B1, REGISTRO: 1
+15:48:02 {TRACE}  : WHEN-NEW-ITEM-INSTANCE. MODE: NORMAL, BLOQUE: B1, ITEM: B1.TIPO_OPERACION: E
+15:49:06 {TRACE}  : OPCION_MENU: AYUDA_ACERCA_DE
+15:49:06 {TRACE}  : ITEM: 
 ***************************************************************************************************************************************************************************************************
 * VOLCADO DEL BLOQUE B1
 ***************************************************************************************************************************************************************************************************
@@ -480,16 +453,16 @@ ORGANIZACION_COMERCIAL         TEXT ITEM       CHAR                             
 D_ORGANIZACION_COMERCIAL       TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     CENTRO_CONTABLE                PROMEDICAL BOLIVIA.  VENTA GENERAL                 
 CENTRO_CONTABLE                TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      D_CENTRO_CONTABLE                                                                 
 D_CENTRO_CONTABLE              TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     DESDE_FECHA                                                                       
-DESDE_FECHA                    TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   TRUE     TRUE      HASTA_FECHA                    20/09/2024                                         
-HASTA_FECHA                    TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      DESDE_CLIENTE                  26/09/2024                                         
+DESDE_FECHA                    TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   TRUE     TRUE      HASTA_FECHA                    01/10/2024                                         
+HASTA_FECHA                    TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      DESDE_CLIENTE                  03/10/2024                                         
 DESDE_CLIENTE                  TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      D_DESDE_CLIENTE                                                                   
 D_DESDE_CLIENTE                TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     HASTA_CLIENTE                                                                     
 HASTA_CLIENTE                  TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      D_HASTA_CLIENTE                                                                   
 D_HASTA_CLIENTE                TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     DESDE_SERIE                                                                       
-DESDE_SERIE                    TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      HASTA_SERIE                                                                       
-HASTA_SERIE                    TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      DESDE_NUM                                                                         
-DESDE_NUM                      TEXT ITEM       NUMBER                                          N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      HASTA_NUM                      43                                                 
-HASTA_NUM                      TEXT ITEM       NUMBER                                          N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      DESDE_TIPO_FACTURA             43                                                 
+DESDE_SERIE                    TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      HASTA_SERIE                    210                                                
+HASTA_SERIE                    TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      DESDE_NUM                      210                                                
+DESDE_NUM                      TEXT ITEM       NUMBER                                          N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      HASTA_NUM                      46                                                 
+HASTA_NUM                      TEXT ITEM       NUMBER                                          N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      DESDE_TIPO_FACTURA             46                                                 
 DESDE_TIPO_FACTURA             TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      D_DESDE_TIPO_FACTURA                                                              
 D_DESDE_TIPO_FACTURA           TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     HASTA_TIPO_FACTURA                                                                
 HASTA_TIPO_FACTURA             TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      D_HASTA_TIPO_FACTURA                                                              
@@ -511,10 +484,10 @@ D_ORGANIZACION_COMERCIAL_TAB1  DISPLAY ITEM    CHAR                             
 * VOLCADO DEL BLOQUE B2
 ***************************************************************************************************************************************************************************************************
 STATUS                : QUERY
-LAST_QUERY            : SELECT ID_DIGITAL,NUMERO_SERIE,NUMERO_FACTURA,FECHA_FACTURA,STATUS_FACTURA,D_STATUS_FACTURA,STATUS_FIRMA_DIGITAL,D_STATUS_FIRMA_DIGITAL,CLIENTE,D_CLIENTE,LIQUIDO_FACTURA,SITUACION_COBRO,EMPRESA,EJERCICIO,CENTRO_CONTABLE,ORGANIZACION_COMERCIAL,V_RESERVADO_CHAR1,ROWID FROM (SELECT facturas_ventas.* ,(Select nombre from clientes where codigo_empresa = facturas_ventas.empresa and codigo_rapido = facturas_ventas.cliente) D_CLIENTE,pkidiomas.busca_traduccion(DECODE(status_factura, '1500', 'Pdte. Impresión', '1510', 'Pdte. Impresión', '1550', 'Pdte. Confirmar', '1600', 'Pdte. Contabilizar', 'Contabilizada')) D_STATUS_FACTURA,(SELECT DECODE(FACTURAS_VENTAS.STATUS_FIRMA_DIGITAL,'N','No procesada','P','Procesada','E','Enviada a firmar','F','Firmada','C','Envíada Pdte.Conf.Envío','Z','Envío confirmado') from dual) D_STATUS_FIRMA_DIGITAL,(select decode ( fe_firmfac.get_situacion_cobro_factura(facturas_ventas.empresa,facturas_ventas.ejercicio,facturas_ventas.numero_serie,facturas_ventas.numero_factura),'S','COBRADA','N','NO COBRADA','NO COBRADA') from dual) SITUACION_COBRO,null V_RESERVADO_CHAR1 FROM facturas_ventas) facturas_ventas WHERE empresa = '004' AND organizacion_comercial = '04010' AND NOT EXISTS (SELECT 1 FROM edoc_errores e WHERE e.id_digital = facturas_ventas.id_digital AND e.procesar = 'P') AND NOT EXISTS (SELECT 1 FROM documentos doc WHERE doc.id_digital = facturas_ventas.id_digital) AND NOT EXISTS (SELECT 1 FROM facturas_sustituciones fs WHERE facturas_ventas.empresa = fs.empresa and facturas_ventas.ejercicio = fs.ejercicio_can and facturas_ventas.numero_serie = fs.numero_serie_can and facturas_ventas.numero_factura = fs.numero_factura_can) AND NVL(status_firma_digital, 'N') = 'N' AND (EXISTS (SELECT 1 FROM centros_documentos cd, caracteres_asiento ca WHERE ca.codigo = facturas_ventas.centro_contable AND ca.empresa = '004' AND cd.grupo_balance = ca.grupo_balance AND cd.tipo_documento = 'FACVEN' AND cd.empresa = '004' AND cd.enviar_todo = 'S') OR EXISTS (SELECT 1 FROM tipos_documentos_entidad_gb tde, caracteres_asiento c WHERE c.codigo = facturas_ventas.centro_contable AND c.empresa = '004' AND tde.empresa = '004' AND tde.tipo_entidad = 'CL' AND tde.codigo_entidad = facturas_ventas.cliente AND tde.grupo_balance = c.grupo_balance AND tde.tipo_documento = 'FACVEN') OR EXISTS (SELECT 1 FROM tipos_documentos_entidad tde WHERE tde.empresa = '004' AND tde.tipo_entidad = 'CL' AND tde.codigo_entidad = facturas_ventas.cliente AND tde.tipo_documento = 'FACVEN')) AND fecha_cancelacion_sat is null AND fecha_envio_cancelacion_sat is null AND pk_util_detr.envio_fe(facturas_ventas.empresa, facturas_ventas.ejercicio, facturas_ventas.numero_serie, facturas_ventas.numero_factura) = 'S' AND EXISTS (SELECT 1 FROM centros_documentos cd, caracteres_asiento ca WHERE ca.codigo = facturas_ventas.centro_contable AND ca.empresa = '004' AND cd.grupo_balance = ca.grupo_balance AND cd.tipo_documento = 'FACVEN' AND cd.empresa = '004' AND cd.digital = 'S') AND numero_factura >= 43 AND numero_factura <= 43 AND fecha_factura >= TO_DATE('20/09/2024','DD/MM/YYYY') AND fecha_factura <= TO_DATE('26/09/2024','DD/MM/YYYY')  order by fecha_factura, numero_serie, numero_factura
+LAST_QUERY            : SELECT ID_DIGITAL,NUMERO_SERIE,NUMERO_FACTURA,FECHA_FACTURA,STATUS_FACTURA,D_STATUS_FACTURA,STATUS_FIRMA_DIGITAL,D_STATUS_FIRMA_DIGITAL,CLIENTE,D_CLIENTE,LIQUIDO_FACTURA,SITUACION_COBRO,EMPRESA,EJERCICIO,CENTRO_CONTABLE,ORGANIZACION_COMERCIAL,V_RESERVADO_CHAR1,ROWID FROM (SELECT facturas_ventas.* ,(Select nombre from clientes where codigo_empresa = facturas_ventas.empresa and codigo_rapido = facturas_ventas.cliente) D_CLIENTE,pkidiomas.busca_traduccion(DECODE(status_factura, '1500', 'Pdte. Impresión', '1510', 'Pdte. Impresión', '1550', 'Pdte. Confirmar', '1600', 'Pdte. Contabilizar', 'Contabilizada')) D_STATUS_FACTURA,(SELECT DECODE(FACTURAS_VENTAS.STATUS_FIRMA_DIGITAL,'N','No procesada','P','Procesada','E','Enviada a firmar','F','Firmada','C','Envíada Pdte.Conf.Envío','Z','Envío confirmado') from dual) D_STATUS_FIRMA_DIGITAL,(select decode ( fe_firmfac.get_situacion_cobro_factura(facturas_ventas.empresa,facturas_ventas.ejercicio,facturas_ventas.numero_serie,facturas_ventas.numero_factura),'S','COBRADA','N','NO COBRADA','NO COBRADA') from dual) SITUACION_COBRO,null V_RESERVADO_CHAR1 FROM facturas_ventas) facturas_ventas WHERE empresa = '004' AND organizacion_comercial = '04010' AND NOT EXISTS (SELECT 1 FROM edoc_errores e WHERE e.id_digital = facturas_ventas.id_digital AND e.procesar = 'P') AND NOT EXISTS (SELECT 1 FROM documentos doc WHERE doc.id_digital = facturas_ventas.id_digital) AND NOT EXISTS (SELECT 1 FROM facturas_sustituciones fs WHERE facturas_ventas.empresa = fs.empresa and facturas_ventas.ejercicio = fs.ejercicio_can and facturas_ventas.numero_serie = fs.numero_serie_can and facturas_ventas.numero_factura = fs.numero_factura_can) AND NVL(status_firma_digital, 'N') = 'N' AND (EXISTS (SELECT 1 FROM centros_documentos cd, caracteres_asiento ca WHERE ca.codigo = facturas_ventas.centro_contable AND ca.empresa = '004' AND cd.grupo_balance = ca.grupo_balance AND cd.tipo_documento = 'FACVEN' AND cd.empresa = '004' AND cd.enviar_todo = 'S') OR EXISTS (SELECT 1 FROM tipos_documentos_entidad_gb tde, caracteres_asiento c WHERE c.codigo = facturas_ventas.centro_contable AND c.empresa = '004' AND tde.empresa = '004' AND tde.tipo_entidad = 'CL' AND tde.codigo_entidad = facturas_ventas.cliente AND tde.grupo_balance = c.grupo_balance AND tde.tipo_documento = 'FACVEN') OR EXISTS (SELECT 1 FROM tipos_documentos_entidad tde WHERE tde.empresa = '004' AND tde.tipo_entidad = 'CL' AND tde.codigo_entidad = facturas_ventas.cliente AND tde.tipo_documento = 'FACVEN')) AND fecha_cancelacion_sat is null AND fecha_envio_cancelacion_sat is null AND pk_util_detr.envio_fe(facturas_ventas.empresa, facturas_ventas.ejercicio, facturas_ventas.numero_serie, facturas_ventas.numero_factura) = 'S' AND EXISTS (SELECT 1 FROM centros_documentos cd, caracteres_asiento ca WHERE ca.codigo = facturas_ventas.centro_contable AND ca.empresa = '004' AND cd.grupo_balance = ca.grupo_balance AND cd.tipo_documento = 'FACVEN' AND cd.empresa = '004' AND cd.digital = 'S') AND numero_serie >= '210' AND numero_serie <= '210' AND numero_factura >= 46 AND numero_factura <= 46 AND fecha_factura >= TO_DATE('01/10/2024','DD/MM/YYYY') AND fecha_factura <= TO_DATE('03/10/2024','DD/MM/YYYY')  order by fecha_factura, numero_serie, numero_factura
 QUERY_DATA_SOURCE_NAME: (SELECT facturas_ventas.* ,(Select nombre from clientes where codigo_empresa = facturas_ventas.empresa and codigo_rapido = facturas_ventas.cliente) D_CLIENTE,pkidiomas.busca_traduccion(DECODE(status_factura, '1500', 'Pdte. Impresión', '1510', 'Pdte. Impresión', '1550', 'Pdte. Confirmar', '1600', 'Pdte. Contabilizar', 'Contabilizada')) D_STATUS_FACTURA,(SELECT DECODE(FACTURAS_VENTAS.STATUS_FIRMA_DIGITAL,'N','No procesada','P','Procesada','E','Enviada a firmar','F','Firmada','C','Envíada Pdte.Conf.Envío','Z','Envío confirmado') from dual) D_STATUS_FIRMA_DIGITAL,(select decode ( fe_firmfac.get_situacion_cobro_factura(facturas_ventas.empresa,facturas_ventas.ejercicio,facturas_ventas.numero_serie,facturas_ventas.numero_factura),'S','COBRADA','N','NO COBRADA','NO COBRADA') from dual) SITUACION_COBRO,null V_RESERVADO_CHAR1 FROM facturas_ventas) facturas_ventas
 DML_DATA_TARGET_NAME  : 
-DEFAULT_WHERE         : empresa = :GLOBAL.codigo_empresa AND organizacion_comercial = :B1.ORGANIZACION_COMERCIAL AND NOT EXISTS (SELECT 1 FROM edoc_errores e WHERE e.id_digital = facturas_ventas.id_digital AND e.procesar = 'P') AND NOT EXISTS (SELECT 1 FROM documentos doc WHERE doc.id_digital = facturas_ventas.id_digital) AND NOT EXISTS (SELECT 1 FROM facturas_sustituciones fs WHERE facturas_ventas.empresa = fs.empresa and facturas_ventas.ejercicio = fs.ejercicio_can and facturas_ventas.numero_serie = fs.numero_serie_can and facturas_ventas.numero_factura = fs.numero_factura_can) AND NVL(status_firma_digital, 'N') = 'N' AND (EXISTS (SELECT 1 FROM centros_documentos cd, caracteres_asiento ca WHERE ca.codigo = facturas_ventas.centro_contable AND ca.empresa = :GLOBAL.codigo_empresa AND cd.grupo_balance = ca.grupo_balance AND cd.tipo_documento = :B1.TIPO_DOCUMENTO AND cd.empresa = :GLOBAL.codigo_empresa AND cd.enviar_todo = 'S') OR EXISTS (SELECT 1 FROM tipos_documentos_entidad_gb tde, caracteres_asiento c WHERE c.codigo = facturas_ventas.centro_contable AND c.empresa = :GLOBAL.codigo_empresa AND tde.empresa = :GLOBAL.codigo_empresa AND tde.tipo_entidad = 'CL' AND tde.codigo_entidad = facturas_ventas.cliente AND tde.grupo_balance = c.grupo_balance AND tde.tipo_documento = :B1.TIPO_DOCUMENTO) OR EXISTS (SELECT 1 FROM tipos_documentos_entidad tde WHERE tde.empresa = :GLOBAL.codigo_empresa AND tde.tipo_entidad = 'CL' AND tde.codigo_entidad = facturas_ventas.cliente AND tde.tipo_documento = :B1.TIPO_DOCUMENTO)) AND fecha_cancelacion_sat is null AND fecha_envio_cancelacion_sat is null AND pk_util_detr.envio_fe(facturas_ventas.empresa, facturas_ventas.ejercicio, facturas_ventas.numero_serie, facturas_ventas.numero_factura) = 'S' AND EXISTS (SELECT 1 FROM centros_documentos cd, caracteres_asiento ca WHERE ca.codigo = facturas_ventas.centro_contable AND ca.empresa = :GLOBAL.codigo_empresa AND cd.grupo_balance = ca.grupo_balance AND cd.tipo_documento = :B1.TIPO_DOCUMENTO AND cd.empresa = :GLOBAL.codigo_empresa AND cd.digital = 'S') AND numero_factura >= :B1.DESDE_NUM AND numero_factura <= :B1.HASTA_NUM AND fecha_factura >= TO_DATE(:B1.DESDE_FECHA,'DD/MM/YYYY') AND fecha_factura <= TO_DATE(:B1.HASTA_FECHA,'DD/MM/YYYY')
+DEFAULT_WHERE         : empresa = :GLOBAL.codigo_empresa AND organizacion_comercial = :B1.ORGANIZACION_COMERCIAL AND NOT EXISTS (SELECT 1 FROM edoc_errores e WHERE e.id_digital = facturas_ventas.id_digital AND e.procesar = 'P') AND NOT EXISTS (SELECT 1 FROM documentos doc WHERE doc.id_digital = facturas_ventas.id_digital) AND NOT EXISTS (SELECT 1 FROM facturas_sustituciones fs WHERE facturas_ventas.empresa = fs.empresa and facturas_ventas.ejercicio = fs.ejercicio_can and facturas_ventas.numero_serie = fs.numero_serie_can and facturas_ventas.numero_factura = fs.numero_factura_can) AND NVL(status_firma_digital, 'N') = 'N' AND (EXISTS (SELECT 1 FROM centros_documentos cd, caracteres_asiento ca WHERE ca.codigo = facturas_ventas.centro_contable AND ca.empresa = :GLOBAL.codigo_empresa AND cd.grupo_balance = ca.grupo_balance AND cd.tipo_documento = :B1.TIPO_DOCUMENTO AND cd.empresa = :GLOBAL.codigo_empresa AND cd.enviar_todo = 'S') OR EXISTS (SELECT 1 FROM tipos_documentos_entidad_gb tde, caracteres_asiento c WHERE c.codigo = facturas_ventas.centro_contable AND c.empresa = :GLOBAL.codigo_empresa AND tde.empresa = :GLOBAL.codigo_empresa AND tde.tipo_entidad = 'CL' AND tde.codigo_entidad = facturas_ventas.cliente AND tde.grupo_balance = c.grupo_balance AND tde.tipo_documento = :B1.TIPO_DOCUMENTO) OR EXISTS (SELECT 1 FROM tipos_documentos_entidad tde WHERE tde.empresa = :GLOBAL.codigo_empresa AND tde.tipo_entidad = 'CL' AND tde.codigo_entidad = facturas_ventas.cliente AND tde.tipo_documento = :B1.TIPO_DOCUMENTO)) AND fecha_cancelacion_sat is null AND fecha_envio_cancelacion_sat is null AND pk_util_detr.envio_fe(facturas_ventas.empresa, facturas_ventas.ejercicio, facturas_ventas.numero_serie, facturas_ventas.numero_factura) = 'S' AND EXISTS (SELECT 1 FROM centros_documentos cd, caracteres_asiento ca WHERE ca.codigo = facturas_ventas.centro_contable AND ca.empresa = :GLOBAL.codigo_empresa AND cd.grupo_balance = ca.grupo_balance AND cd.tipo_documento = :B1.TIPO_DOCUMENTO AND cd.empresa = :GLOBAL.codigo_empresa AND cd.digital = 'S') AND numero_serie >= :B1.DESDE_SERIE AND numero_serie <= :B1.HASTA_SERIE AND numero_factura >= :B1.DESDE_NUM AND numero_factura <= :B1.HASTA_NUM AND fecha_factura >= TO_DATE(:B1.DESDE_FECHA,'DD/MM/YYYY') AND fecha_factura <= TO_DATE(:B1.HASTA_FECHA,'DD/MM/YYYY')
 ORDER_BY              : fecha_factura, numero_serie, numero_factura
 QUERY_ALLOWED         : TRUE
 INSERT_ALLOWED        : FALSE
@@ -526,24 +499,24 @@ NOMBRE CAMPO                   ITEM TYPE       DATATYPE        MASCARA          
 ID_DIGITAL                     TEXT ITEM       NUMBER                                          N     TRUE  FALSE   FALSE   TRUE   TRUE   FALSE    FALSE     SELECCIONADO                                                                      
 SELECCIONADO                   CHECKBOX        CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   NA       TRUE      NUMERO_SERIE                   S                                                  
 NUMERO_SERIE                   TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    FALSE  FALSE  TRUE     TRUE      NUMERO_FACTURA                 210                                                
-NUMERO_FACTURA                 TEXT ITEM       NUMBER          9G999G999G999                   N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    TRUE      FECHA_FACTURA                  43                                                 
-FECHA_FACTURA                  TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    TRUE      STATUS_FACTURA                 26/09/2024                                         
+NUMERO_FACTURA                 TEXT ITEM       NUMBER          9G999G999G999                   N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    TRUE      FECHA_FACTURA                  46                                                 
+FECHA_FACTURA                  TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    TRUE      STATUS_FACTURA                 02/10/2024                                         
 STATUS_FACTURA                 TEXT ITEM       CHAR                                            N     TRUE  FALSE   FALSE   FALSE  FALSE  FALSE    FALSE     D_STATUS_FACTURA               3000                                               
 D_STATUS_FACTURA               TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     STATUS_FIRMA_DIGITAL           Contabilizada                                      
 STATUS_FIRMA_DIGITAL           TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    TRUE   TRUE   FALSE    TRUE      D_STATUS_FIRMA_DIGITAL                                                            
 D_STATUS_FIRMA_DIGITAL         TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     CLIENTE                                                                           
-CLIENTE                        TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    TRUE      D_CLIENTE                      009166                                             
-D_CLIENTE                      TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     LIQUIDO_FACTURA                FCIA. BENIANA - SCZ                                
-LIQUIDO_FACTURA                TEXT ITEM       NUMBER          FM9G999G999G999G999G990D00      N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     SITUACION_COBRO                1617.61                                            
+CLIENTE                        TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    TRUE      D_CLIENTE                      023975                                             
+D_CLIENTE                      TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     LIQUIDO_FACTURA                PRUEBA CONSUMIDOR FINAL - EVEN - CBBA              
+LIQUIDO_FACTURA                TEXT ITEM       NUMBER          FM9G999G999G999G999G990D00      N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     SITUACION_COBRO                44.98                                              
 SITUACION_COBRO                DISPLAY ITEM    CHAR                                            N     TRUE  FALSE   NA      NA     NA     NA       NA                                       NO COBRADA                                         
 EMPRESA                        TEXT ITEM       CHAR                                            N     TRUE  FALSE   FALSE   FALSE  FALSE  TRUE     FALSE     EJERCICIO                      004                                                
 EJERCICIO                      TEXT ITEM       NUMBER                                          N     TRUE  FALSE   FALSE   FALSE  FALSE  TRUE     FALSE     CENTRO_CONTABLE                2024                                               
-CENTRO_CONTABLE                TEXT ITEM       CHAR                                            N     TRUE  FALSE   FALSE   FALSE  FALSE  TRUE     13:43:25 {TRACE}  : VALIDACIONES.CALCULA_ROWID_BLOQUE: B2, registro: 1, status: QUERY
-FALSE     D_CENTRO_CONTABLE              0401                                               
+CENTRO_CONTABLE       15:49:06 {TRACE}  : VALIDACIONES.CALCULA_ROWID_BLOQUE: B2, registro: 1, status: QUERY
+         TEXT ITEM       CHAR                                            N     TRUE  FALSE   FALSE   FALSE  FALSE  TRUE     FALSE     D_CENTRO_CONTABLE              0401                                               
 D_CENTRO_CONTABLE              DISPLAY ITEM    CHAR                                            N     TRUE  FALSE   NA      NA     NA     NA       NA                                                                                          
 ORGANIZACION_COMERCIAL         TEXT ITEM       CHAR                                            N     TRUE  FALSE   FALSE   FALSE  FALSE  FALSE    FALSE     V_RESERVADO_CHAR1              04010                                              
 V_RESERVADO_CHAR1              TEXT ITEM       CHAR                                            N     TRUE  TRUE    TRUE    FALSE  FALSE  FALSE    FALSE     ROWID                                                                             
-ROWID                          TEXT ITEM       CHAR                                            N     TRUE  FALSE   FALSE   FALSE  FALSE  FALSE    FALSE     ROWID                          AAAegmAABAAK/YFAAD                                 
+ROWID                          TEXT ITEM       CHAR                                            N     TRUE  FALSE   FALSE   FALSE  FALSE  FALSE    FALSE     ROWID                          AAAegmAABAAK/XxAAB                                 
 ***************************************************************************************************************************************************************************************************
 ***************************************************************************************************************************************************************************************************
 * VOLCADO DEL BLOQUE EDOC_ERRORES
@@ -771,4 +744,4 @@ ACEPTAR                        BUTTON          NA                               
 CANCELAR                       BUTTON          NA                                              NA    NA    TRUE    NA      NA     NA     NA       FALSE     ROWID_LOV                                                                         
 ROWID_LOV                      TEXT ITEM       CHAR                                            N     FALSE FALSE   FALSE   TRUE   TRUE   FALSE    FALSE     ROWID                                                                             
 ***************************************************************************************************************************************************************************************************
-13:43:25 {TRACE}  : INICIALIZA LISTA_PARAMETROS: PLUG_IN
+15:49:06 {TRACE}  : INICIALIZA LISTA_PARAMETROS: PLUG_IN
