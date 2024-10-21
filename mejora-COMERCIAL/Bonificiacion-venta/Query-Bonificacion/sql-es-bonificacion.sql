@@ -21,23 +21,8 @@ seguramente se preguntaran hay que aportar????  R. pues si, ya que es el festejo
 ¿Puedo llevar algun invitado(a)?? R. Si, pero toma en cuanta que solo la cuota es para dos y si supera pues tienes que aportar el restante y demas consumos.
 Solo 
 
-🎉 ¡Queridos amigos del grupo! 🎉
 
-Para el gran junte del sábado 12 de octubre y celebrar los 10 años del grupo, nos reuniremos en la casa de Roberto Sesgua. 🏡
 
-✨ Para esta ocasión tan especial, disfrutaremos de una cena exquisita 🍽️ y pasaremos una noche increíble, llena de ¡música en vivo! 🎶🎤 gracias al aporte de algunos de nuestros talentosos compañeros. ¡La idea es pasarla de lo mejor! 😎
-
-🔸 ¿Hay que aportar?
-Sí, porque es el festejo oficial del grupo, el aporte será de Bs. 60 💸.
-
-🔸 ¿Qué incluye el aporte?
-Tendrás ¡dos cenas bien servidas! 🍗🍲 (¡puedes comer hasta dos por ti mismo si quieres! 😋) y estarán acompañadas de chelas bien frías 🍻.
-
-🔸 ¿Y si quiero más chelas, cerveza o soda?
-En la casa tendrán disponibles cervezas y sodas bien frías para quienes deseen más. 🥤❄️
-
-🔸 ¿A que hora empieza?
-¡a las 20:00! 🎉 Ven preparado para divertirte. 👥🍻
 
 🔸 ¿Puedo llevar algún invitado/a?
 ¡Claro! 🎉 . Si traes más invitados, tendrás que aportar por los extras y lo que consuman. 👥🍻
