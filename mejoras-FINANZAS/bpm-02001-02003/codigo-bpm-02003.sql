@@ -60,4 +60,29 @@ responder en CORREO
 Visualizar proveedor en correo:
  -- Tarea 360 envia la notificacion:   BOL_ANT_02
  CRMEXPEDIENTES_CAB.ITEMA072
- CRMEXPEDIENTES_CAB.D_ITEMA072
+ CRMEXPEDIENTES_CAB.D_ITEMA072 ????
+
+
+ select numero_expediente, ITEMA072, D_ITEMA072
+FROM (SELECT crmexpedientes_CAB.*, DECODE(itema072,NULL,NULL,(SELECT p.nombre FROM proveedores p WHERE  p.codigo_rapido = crmexpedientes_cab.itema072 
+and p.codigo_empresa = crmexpedientes_cab.empresa)) D_ITEMA072 FROM CRMEXPEDIENTES_CAB) X
+WHERE EMPRESA='004' and tipo_expediente in ('02003')
+AND numero_expediente in (747264) 
+
+Status_tarea = '01' ==> abierto;  '999'
+
+--- PRECARGAMOS EL DATO de los proveedores:
+{SPT:PROVEEDORES:WHERE_DEFECTO:codigo_rapido = {crmexpedientes_cab.itema072} AND codigo_empresa = {crmexpedientes_cab.empresa}:SPT}
+
+Nombre del proveedor: {PROVEEDORES.NOMBRE}
+/********************************************************************/
+
+ 	SELECT codigo_secuencia, status_interno
+       FROM crmexpedientes_lin
+       WHERE numero_expediente = 747260
+       AND empresa = '004'
+	   and codigo_secuencia ='40';
+
+
+
+/********************************************************************/
