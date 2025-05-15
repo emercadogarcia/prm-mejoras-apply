@@ -45,4 +45,17 @@ Estas son mis observaciones:
 
 - Extracto de lo COBRADO por USUARIO (Por Rangos)
 
- 
+ ## 14/05/2025 Presentación del SGC en reunión de operaciones nacional.
+SGC: Ajuste en SGC:
+* Se agrega filtro para consultar cobros por rango de fecha.
+* Se ajusta vista resumen: Tolal cobrado, Efectivo. QR y Transferencia y adicional los ultimos 5 cobros.
+* CRUD de usuarios.
+* Se agrega reporte de solo cobros del usuario llamado "Mis Cobres"
+* Se agrega reporte "histórico cobros"
+
+## link del repositorio
+  https://Promedical-sa@dev.azure.com/Promedical-sa/SGC/_git/SGC
+
+credenciales:    
+usr: edgar.mercado
+token: 9gRdEyHE3TwO32c8QvIj8ery6kfPH9vzsMxDSdG5bDE7IiKPsz7mJQQJ99BEACAAAAAsu1g9AAASAZDO17Pt
