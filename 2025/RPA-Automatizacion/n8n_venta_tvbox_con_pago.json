@@ -1,0 +1,151 @@
+{
+  "name": "Venta TV Box Autom\u00e1tica",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "whatsapp-tvbox",
+        "method": "POST"
+      },
+      "name": "Webhook WhatsApp",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        100,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json[\"body\"] }}",
+              "operation": "contains",
+              "value2": "tv box"
+            }
+          ]
+        }
+      },
+      "name": "Detectar inter\u00e9s",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        300,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "url": "https://api.callmebot.com/whatsapp.php",
+        "method": "GET",
+        "queryParametersUi": {
+          "parameter": [
+            {
+              "name": "phone",
+              "value": "591{{ $json[\"phone\"] }}"
+            },
+            {
+              "name": "text",
+              "value": "Gracias por tu inter\u00e9s en el *TV Box Android*:\n\n- Convierte tu TV en Smart\n- Netflix, YouTube, canales gratis\n- Incluye apps instaladas\n- Soporte y garant\u00eda\n\n*Precio*: Bs. 350\n\nPuedes pagar en el siguiente enlace:\nhttps://mipago.com/tvbox\n\nLuego de pagar, env\u00edanos la captura para coordinar el env\u00edo."
+            },
+            {
+              "name": "apikey",
+              "value": "TU_API_KEY"
+            }
+          ]
+        }
+      },
+      "name": "Enviar link de pago",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [
+        500,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "headerAuth",
+        "url": "https://graph.facebook.com/v19.0/YOUR_PHONE_ID/messages",
+        "method": "POST",
+        "jsonParameters": true,
+        "options": {},
+        "headers": {
+          "header": [
+            {
+              "name": "Authorization",
+              "value": "Bearer YOUR_ACCESS_TOKEN"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "bodyParametersJson": "{\n                    \"messaging_product\": \"whatsapp\",\n                    \"to\": \"591{{ $json[\\\"phone\\\"] }}\",\n                    \"type\": \"image\",\n                    \"image\": {\n                        \"link\": \"https://tuservidor.com/qr-tvbox.png\",\n                        \"caption\": \"Gracias por tu inter\u00e9s en el TV Box. Escanea este QR para pagar Bs. 350 y env\u00edanos la captura para coordinar la entrega.\"\n                    }\n                }"
+      },
+      "name": "Enviar imagen QR pago",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [
+        500,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "query": "INSERT INTO interacciones_tvbox (fecha, numero, mensaje_recibido, mensaje_enviado, link_pago_enviado)\nVALUES (NOW(), '{{ $json[\"phone\"] }}', '{{ $json[\"body\"] }}', 'Informaci\u00f3n de pago enviada', true);"
+      },
+      "name": "Log en PostgreSQL",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        700,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Webhook WhatsApp": {
+      "main": [
+        [
+          "Detectar inter\u00e9s",
+          0
+        ]
+      ]
+    },
+    "Detectar inter\u00e9s": {
+      "main": [
+        [
+          "Enviar link de pago",
+          0
+        ],
+        [
+          "Enviar imagen QR pago",
+          0
+        ]
+      ]
+    },
+    "Enviar link de pago": {
+      "main": [
+        [
+          "Log en PostgreSQL",
+          0
+        ]
+      ]
+    },
+    "Enviar imagen QR pago": {
+      "main": [
+        [
+          "Log en PostgreSQL",
+          0
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {},
+  "tags": [],
+  "id": null
+}
